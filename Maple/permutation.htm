@@ -1,0 +1,61 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>New Page 1</title>
+<link rel="stylesheet" type="text/css" href="Cstylesheet.css">
+</head>
+
+<body>
+
+<p class="style8" style="line-height: 200%"><font color="#FF0000"><b>myKey :=
+combinat[randperm](5);<br>
+permutationCipher("The quick brown fox jumps over the lazy
+dog.&quot;,myKey,&quot;encipher&quot;);<br>
+permutationCipher(%,myKey,&quot;decipher&quot;);</b></font><br>
+<font color="#0000FF">
+                       myKey := [2, 4, 3, 5, 1]
+<br>
+                "UTEHQRIKCBOONWFPXUJMRSVOEATEHLGZDYO"
+<br>
+                "thequickbrownfoxjumpsoverthelazydog"</font><br>
+</p>
+
+<p class="style8" style="line-height: 200%"><b><font color="#FF0000">pa :=
+&quot;abcdefghijklmnopqrstuvwxyz&quot;;<br>
+randPermAlphabet(pa);<br>
+randPermAlphabet(&quot;1234567890&quot;);</font></b><br>
+<font color="#0000FF">                  pa := "abcdefghijklmnopqrstuvwxyz"<br>
+                     "pbnkvhdftimaoxszcgljuyrqwe"<br>
+                             "8362540971"</font>
+</p>
+
+<p class="style8" style="line-height: 200%"><br>
+<font color="#FF0000"><b>_seed := 1234567890;<br>
+myKey := combinat[randperm](5);<br>
+permutationCipher(plainText,myKey,"encipher");<br>
+permutationCipher(%,myKey,"decipher");</b></font><br>
+<font color="#0000FF">                         _seed := 1234567890<br>
+                       myKey := [5, 3, 2, 4, 1]<br>
+&quot;UEHQTRKCBIONWFOPUJMXRVOESAEHLTGDYOZ&quot;<br>
+&quot;thequickbrownfoxjumpsoverthelazydog&quot;</font>
+</p>
+
+<p class="style8" style="line-height: 200%"><br>
+&nbsp;<font color="#FF0000"><b>_seed := 1234567890;<br>
+myKey := combinat[randperm](35);<br>
+permutationCipher(plainText,myKey,&quot;encipher&quot;);<br>
+permutationCipher(%,myKey,&quot;decipher&quot;);</b></font><br>
+<font color="#0000FF">                         _seed := 1234567890<br>
+  myKey := [5, 7, 15, 20, 10, 6, 1, 16, 2, 13, 4, 23, 32, 33, 25, 24,        12, 26, 27, 8, 35, 21, 34, 31, 3, 17, 19, 9, 29, 22, 18, 30,        14, 28, 11]<br>
+                "CBROTIHPEUGJRDEKTZHQOAWXOUMOLYENFVS"</font>
+</p>
+
+<p class="style8" style="line-height: 200%"><font color="#0000FF">"thequickbrownfoxjumpsoverthelazydog"</font>
+</p>
+
+</body>
+
+</html>

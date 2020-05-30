@@ -1,0 +1,33 @@
+Metrowerks RAD Data V 3
+BeginClasses
+    {9BE3D9E0-166E-11D1-B2D8-0060081C5489} "#base-object-class"
+    {5FA17216-8612-11D1-B2AD-006008A5C0A5} "simplifiedRSA"
+    {8AC75CA0-A339-11D1-B2BE-006008A5C0A5} "javax.swing.JPanel"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JLabel"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JTable"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JTextField"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JButton"
+    {5FA17216-8612-11D1-B2AD-006008A5C0A5} "frame"
+    {5FA17216-8612-11D1-B2AD-006008A5C0A5} "ERROR"
+EndClasses
+BeginObject simplifiedRSA.ERROR "ERROR"
+    BeginProperties
+        layout = <none>
+        location = "0, 0"
+        title = simplifiedRSA.ERROR
+        size = "358, 477"
+    EndProperties
+    BeginInternalProperties
+        UseSwing 11 = 0
+        IsApplet 11 = 0
+    EndInternalProperties
+    BeginEventConnections
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\simplifiedRSA.ERROR"
+            SinkPath = "\\\\simplifiedRSA.ERROR"
+            EventName = windowClosing
+            EventSetName = window
+            HandlerName = thisWindowClosing
+        EndEventConnection
+    EndEventConnections
+EndObject

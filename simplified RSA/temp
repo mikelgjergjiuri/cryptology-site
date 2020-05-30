@@ -1,0 +1,7 @@
+public void jSlider1StateChanged(javax.swing.event.ChangeEvent e) {
+	JSlider source = (JSlider)e.getSource();
+	if (!source.getValueIsAdjusting())
+	{
+		waitTime = 20-(int)source.getValue()*2;
+		
+	}

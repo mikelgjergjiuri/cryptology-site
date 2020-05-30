@@ -1,0 +1,168 @@
+A:link {
+	COLOR: #990000; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #990000
+}
+A:hover {
+	COLOR: #994900; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #ff9900; TEXT-DECORATION: none
+}
+A.largelink {
+	FONT-WEIGHT: bold; FONT-SIZE: 13px; COLOR: #000000; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.largelink:hover {
+	BACKGROUND: #ffffaa; TEXT-DECORATION: none
+}
+A.navlink {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #000000; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.navlink:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #000000; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.navlink:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #000000
+}
+A.newrblink {
+	FONT-SIZE: 13px; COLOR: #000000; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.newrblink {
+	FONT-SIZE: 13px; COLOR: #000000; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.newrblink:visited {
+	FONT-SIZE: 13px; COLOR: #000000; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.newrblink:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 13px; COLOR: #000000; TEXT-DECORATION: none
+}
+A.newrblink2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #000000; FONT-STYLE: normal; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.newrblink2:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #000000; FONT-STYLE: normal; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.newrblink2:hover {
+	FONT-WEIGHT: bold; COLOR: #000000
+}
+A.red:link {
+	COLOR: #cc0000; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; TEXT-DECORATION: underline
+}
+H1 {
+	MARGIN-TOP: 0px; FONT-WEIGHT: bold; FONT-SIZE: 18px; MARGIN-BOTTOM: 0px; COLOR: #333333; LINE-HEIGHT: 40px; FONT-FAMILY: Book Antiqua, helvetica, sans-serif
+}
+H2 {
+	MARGIN-TOP: 0px; FONT-WEIGHT: bold; FONT-SIZE: 16px; MARGIN-BOTTOM: 0px; COLOR: #333333; LINE-HEIGHT: 24px; FONT-FAMILY: Book Antiqua, helvetica, sans-serif
+}
+H3 {
+	MARGIN-TOP: 0px; FONT-WEIGHT: bold; FONT-SIZE: 14px; MARGIN-BOTTOM: 0px; COLOR: #333333; LINE-HEIGHT: 22px; FONT-FAMILY: Book Antiqua, helvetica, sans-serif
+}
+H4 {
+	MARGIN-TOP: 0px; FONT-WEIGHT: bold; FONT-SIZE: 14px; MARGIN-BOTTOM: 0px; COLOR: #333333; LINE-HEIGHT: 26px; FONT-FAMILY: Book Antiqua, helvetica, sans-serif
+}
+H5 {
+	MARGIN-TOP: 0px; FONT-WEIGHT: bold; FONT-SIZE: 12px; MARGIN-BOTTOM: 0px; COLOR: #333333; LINE-HEIGHT: 22px; FONT-FAMILY: Book Antiqua, helvetica, sans-serif
+}
+H6 {
+	MARGIN-TOP: 0px; FONT-WEIGHT: bold; FONT-SIZE: 10px; MARGIN-BOTTOM: 0px; COLOR: #333333; LINE-HEIGHT: 18px; FONT-FAMILY: Book Antiqua, helvetica, sans-serif
+}
+HR {
+	COLOR: #000000
+}
+IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+INPUT {
+	BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; FONT-SIZE: 13px; BORDER-LEFT: 1px solid; COLOR: #000000; BORDER-BOTTOM: 1px solid; FONT-FAMILY: "Courier New", Courier, monospace
+}
+LI {
+	FONT-SIZE: 13px; COLOR: #000000; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif
+}
+P {
+	FONT-SIZE: 13px; COLOR: #000000; LINE-HEIGHT: 19px; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif
+}
+STRONG {
+	FONT-WEIGHT: bold
+}
+B {
+	FONT-WEIGHT: bold
+}
+TD.left {
+	BACKGROUND-COLOR: #666666
+}
+TEXTAREA {
+	BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid
+}
+UL {
+	FONT-SIZE: 13px; COLOR: #000000; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif
+}
+.ad {
+	BORDER-RIGHT: #000000 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #000000 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 11px; PADDING-BOTTOM: 2px; MARGIN: 5px 5px 5px 0px; BORDER-LEFT: #000000 1px solid; LINE-HEIGHT: 18px; PADDING-TOP: 2px; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; BACKGROUND-COLOR: #e4e4e4; TEXT-ALIGN: center
+}
+.adtext {
+	FONT-SIZE: 10px; COLOR: #000000; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.ahem {
+	DISPLAY: none
+}
+.bartext {
+	FONT: bold 10px Book Antiqua, Helvetica, sans-serif; COLOR: #000000; TEXT-DECORATION: none
+}
+.categorylisting {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #333333; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif
+}
+.code {
+	COLOR: #000000; FONT-FAMILY: "Courier New", Courier, mono
+}
+.default {
+	FONT-SIZE: 13px; COLOR: #000000; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif
+}
+.dropcap:first-letter {
+	FONT-SIZE: 40px; FLOAT: left; COLOR: #333333; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif
+}
+.elanceheader {
+	BACKGROUND: url(http://reallybig.spinbox.net/?AI=507); FONT: bold 12px Arial, Helvetica, sans-serif; COLOR: #ffffff; TEXT-DECORATION: none
+}
+.elancetext {
+	FONT: 11px Arial, Verdana, Helvetica, sans-serif; COLOR: #000000; TEXT-DECORATION: none
+}
+.go {
+	MARGIN-TOP: 5px; FONT-SIZE: 12px; COLOR: #ffff66; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #666666
+}
+.inputcheck {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.left {
+	FONT-SIZE: 12px; COLOR: #cccccc; LINE-HEIGHT: 16px; FONT-FAMILY: Book Antiqua, helvetica, sans-serif
+}
+.left .leftheader {
+	BORDER-RIGHT: #000000 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #000000 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; BORDER-LEFT: #000000 1px solid; COLOR: #ffff00; LINE-HEIGHT: 16px; PADDING-TOP: 2px; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: Book Antiqua, helvetica, sans-serif; BACKGROUND-COLOR: #333333
+}
+.left A:link {
+	COLOR: #ffffff; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; TEXT-DECORATION: underline
+}
+.left A:visited {
+	COLOR: #cccccc
+}
+.left A:hover {
+	COLOR: #333333; BACKGROUND-COLOR: #ffffff; TEXT-DECORATION: none
+}
+.left A:active {
+	COLOR: #cccccc; TEXT-DECORATION: none
+}
+.left SELECT {
+	FONT-SIZE: 11px; BORDER-LEFT-COLOR: #333333; BORDER-BOTTOM-COLOR: #333333; COLOR: #ffff33; BORDER-TOP-COLOR: #333333; FONT-FAMILY: Book Antiqua, Helvetica, sans-serif; BACKGROUND-COLOR: #666666; BORDER-RIGHT-COLOR: #333333
+}
+.red {
+	COLOR: #cc0000
+}
+.right .smallprint {
+	COLOR: #ffffff
+}
+.smallprint {
+	FONT-SIZE: 10px; LINE-HEIGHT: 100%; TEXT-DECORATION: none
+}
+.smallprint {
+	FONT-SIZE: 10px
+}

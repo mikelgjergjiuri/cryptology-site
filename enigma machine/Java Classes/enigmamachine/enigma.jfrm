@@ -1,0 +1,1436 @@
+Metrowerks RAD Data V 3
+BeginClasses
+    {9BE3D9E0-166E-11D1-B2D8-0060081C5489} "#base-object-class"
+    {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JLabel"
+    {8AC75CA0-A339-11D1-B2BE-006008A5C0A5} "javax.swing.JPanel"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JTextField"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JButton"
+    {8AC75CA0-A339-11D1-B2BE-006008A5C0A5} "javax.swing.JInternalFrame"
+    {8AC75CA0-A339-11D1-B2BE-006008A5C0A5} "javax.swing.JTextPane"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JSpinner"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JComboBox"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JList"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JRadioButton"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JSlider"
+    {8AC75CA0-A339-11D1-B2BE-006008A5C0A5} "javax.swing.JFormattedTextField"
+EndClasses
+BeginObject enigmamachine.enigma "enigma"
+    BeginProperties
+        layout = <none>
+        location = "0, 0"
+        size = "850, 635"
+    EndProperties
+    BeginInternalProperties
+        UseSwing 11 = -1
+        IsApplet 11 = -1
+        InfoInFiles 11 = -1
+        Description 8 = ""
+        Title 8 = "enigma machine"
+        HTML_FileName 8 = "C:\\Documents and Settings\\chilukas\\My Documents\\thesis\\enigma machine\\enigma.html"
+    EndInternalProperties
+    BeginEventConnections
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = keyTyped
+            EventSetName = key
+            HandlerName = thisKeyTyped
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jLabelStopAtEndcharacter"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseMoved
+            EventSetName = mouseMotion
+            HandlerName = jLabelStopAtEndcharacterMouseMoved
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jLabelStopAtEndcharacter"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseExited
+            EventSetName = mouse
+            HandlerName = jLabelStopAtEndcharacterMouseExited
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jLabelStopAtEndcharacter"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelStopAtEndcharacterMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jLabelCountinue"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelCountinueMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jLabelCountinue"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseMoved
+            EventSetName = mouseMotion
+            HandlerName = jLabelCountinueMouseMoved
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jLabelCountinue"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseExited
+            EventSetName = mouse
+            HandlerName = jLabelCountinueMouseExited
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelA"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelAMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelB"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelBMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelC"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelCMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelD"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelDMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelE"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelEMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelF"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelFMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelG"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelGMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelH"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelHMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelI"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelIMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelJ"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelJMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelK"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelKMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelL"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelLMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelM"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelMMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelN"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelNMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelO"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelOMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelP"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelPMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelQ"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelQMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelR"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelRMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelS"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelSMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelT"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelTMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelU"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelUMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelV"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelVMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelW"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelWMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelX"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelXMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelY"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelYMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jPanelActiveButtons\\jLabelZ"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelZMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jSlider1"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = stateChanged
+            EventSetName = change
+            HandlerName = jSlider1StateChanged
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jButtonReset"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jButtonResetMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jInternalFramePlainText\\jTextPanePlaintext"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = keyTyped
+            EventSetName = key
+            HandlerName = jTextPanePlaintextKeyTyped
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jLabelStrings"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelStringsMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jLabelStrings"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseEntered
+            EventSetName = mouse
+            HandlerName = jLabelStringsMouseEntered
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jLabelStrings"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseExited
+            EventSetName = mouse
+            HandlerName = jLabelStringsMouseExited
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jLabelCharacters"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelCharactersMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jLabelCharacters"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseEntered
+            EventSetName = mouse
+            HandlerName = jLabelCharactersMouseEntered
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jLabelCharacters"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseExited
+            EventSetName = mouse
+            HandlerName = jLabelCharactersMouseExited
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\enigmamachine.enigma\\jPanelMain\\jButtonencrypt"
+            SinkPath = "\\\\enigmamachine.enigma"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jButtonencryptMouseClicked
+        EndEventConnection
+    EndEventConnections
+    BeginObject jPanelMain "javax.swing.JPanel"
+        LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+        BeginProperties
+            background = white
+            border = "LineBorder black;2;false"
+            layout = <none>
+            location = "0, 0"
+            size = "850, 635"
+        EndProperties
+        BeginInternalProperties
+        EndInternalProperties
+        BeginObject jLabelTitle "javax.swing.JLabel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                background = white
+                font = Monospaced-BOLDITALIC-24
+                foreground = "34, 150, 200"
+                horizontalAlignment = CENTER
+                location = "310, 10"
+                opaque = True
+                size = "300, 20"
+                text = "ENIGMA MACHINE"
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jButtonReset "javax.swing.JButton"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                border = "BevelBorder 0"
+                location = "600, 230"
+                size = "170, 20"
+                text = Set
+                toolTipText = "Reset to Intial State"
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jInternalFramePlainText "javax.swing.JInternalFrame"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                border = "BevelBorder 0"
+                layout = <none>
+                location = "560, 260"
+                size = "260, 120"
+                title = Input
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jTextPanePlaintext "javax.swing.JTextPane"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    doubleBuffered = True
+                    editable = False
+                    location = "2, 2"
+                    size = "258, 90"
+                    toolTipText = "Enter the Plain Text"
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jTextPanePlainStrings "javax.swing.JTextPane"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    doubleBuffered = True
+                    location = "2, 2"
+                    size = "260, 90"
+                    toolTipText = "Enter the Plain Text"
+                    visible = False
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+        EndObject
+        BeginObject jInternalFrameCypherText "javax.swing.JInternalFrame"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                border = "BevelBorder 0"
+                layout = <none>
+                location = "560, 510"
+                size = "260, 120"
+                title = Output
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jTextPaneCypherText "javax.swing.JTextPane"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    editable = False
+                    location = "2, 2"
+                    size = "258, 90"
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jTextPaneCypherStrings "javax.swing.JTextPane"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    location = "2, 2"
+                    size = "260, 90"
+                    toolTipText = "Enter the Cypher text"
+                    visible = False
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+        EndObject
+        BeginObject jSlider1 "javax.swing.JSlider"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                background = white
+                location = "560, 480"
+                majorTickSpacing = 5
+                minimum = 5
+                paintTicks = True
+                size = "260, 30"
+                toolTipText = Speed
+                value = 60
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jLabelSlow "javax.swing.JLabel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                background = white
+                font = Dialog-PLAIN-9
+                foreground = lightGray
+                location = "560, 470"
+                size = "40, 10"
+                text = SLOW
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jLabelFast "javax.swing.JLabel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                background = white
+                font = Dialog-PLAIN-9
+                foreground = lightGray
+                location = "790, 470"
+                size = "30, 10"
+                text = FAST
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jLabelSpeed "javax.swing.JLabel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                background = white
+                font = Dialog-BOLD-10
+                foreground = lightGray
+                horizontalAlignment = CENTER
+                horizontalTextPosition = CENTER
+                location = "640, 470"
+                size = "100, 10"
+                text = "SPEED ( 60 )"
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jPanelActiveButtons "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                background = white
+                layout = <none>
+                location = "540, 72"
+                size = "290, 100"
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jLabelA "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "10, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = a
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelB "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "40, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = b
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelC "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "70, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = c
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelD "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "100, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = d
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelE "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "130, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = e
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelF "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "160, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = f
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelG "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "190, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = g
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelH "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "220, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = h
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelI "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "250, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = i
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelJ "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "20, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = j
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelK "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "50, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = k
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelL "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "80, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = l
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelM "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "110, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = m
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelN "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "140, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = n
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelO "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "170, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = o
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelP "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "200, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = p
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelQ "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "230, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = q
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelR "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "10, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = r
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelS "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "40, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = s
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelT "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "70, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = t
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelU "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "100, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = u
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelV "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "130, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = v
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelW "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "160, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = w
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelX "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "190, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = x
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelY "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "220, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = y
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelZ "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = "100, 100, 100"
+                    border = "BevelBorder 0"
+                    foreground = white
+                    horizontalAlignment = CENTER
+                    location = "250, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = z
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+        EndObject
+        BeginObject jPanelInactiveButtons "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                background = white
+                layout = <none>
+                location = "540, 72"
+                size = "290, 100"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jLabel_A "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "9, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = a
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_J "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "19, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = j
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_R "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "9, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = r
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_S "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "39, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = s
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_K "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "49, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = k
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_B "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "39, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = b
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_C "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "69, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = c
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_L "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "79, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = l
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_T "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "69, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = t
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_U "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "99, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = u
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_V "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "129, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = v
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_W "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "159, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = w
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_X "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "189, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = x
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_Y "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "219, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = y
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_Z "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "249, 70"
+                    opaque = True
+                    size = "20, 20"
+                    text = z
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_M "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "109, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = m
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_N "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "139, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = n
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_O "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "169, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = o
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_P "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "199, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = p
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_Q "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "229, 40"
+                    opaque = True
+                    size = "20, 20"
+                    text = q
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_D "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "99, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = d
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_E "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "129, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = e
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_F "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "159, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = f
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_G "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "189, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = g
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_H "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "219, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = h
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_I "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+                BeginProperties
+                    background = inactiveCaptionBorder
+                    focusCycleRoot = True
+                    foreground = darkGray
+                    horizontalAlignment = CENTER
+                    location = "249, 10"
+                    opaque = True
+                    size = "20, 20"
+                    text = i
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+        EndObject
+        BeginObject jTextPane1 "javax.swing.JTextPane"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                location = "510, 208"
+                size = "310, 22"
+                text = "Choose the Initial Rottor Positions and Click "
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jLabelStopAtEndcharacter "javax.swing.JLabel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                foreground = lightGray
+                location = "560, 440"
+                size = "200, 20"
+                text = "Stop at the end of the character"
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jLabelCountinue "javax.swing.JLabel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                foreground = red
+                location = "560, 440"
+                size = "200, 20"
+                text = Countinue
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jButtonencrypt "javax.swing.JButton"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                border = "BevelBorder 0"
+                location = "560, 390"
+                size = "90, 20"
+                text = Start
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jLabelStrings "javax.swing.JLabel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                foreground = lightGray
+                location = "560, 420"
+                size = "200, 20"
+                text = "Work with Strings"
+                toolTipText = "Click to work with Strings"
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jLabelCharacters "javax.swing.JLabel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                foreground = lightGray
+                location = "560, 420"
+                size = "200, 20"
+                text = "Work with Characters"
+                toolTipText = "Click to work with Characters"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jPanelRotor1 "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                background = "225, 225, 225"
+                border = "LineBorder lightGray;2;true"
+                layout = <none>
+                location = "45, 85"
+                size = "110, 527"
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jPanelRotor2 "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                background = "225, 225, 225"
+                border = "LineBorder lightGray;2;true"
+                layout = <none>
+                location = "205, 85"
+                size = "110, 527"
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jPanelRotor3 "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "enigma"
+            BeginProperties
+                background = "225, 225, 225"
+                border = "LineBorder lightGray;2;true"
+                layout = <none>
+                location = "365, 85"
+                size = "110, 527"
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+    EndObject
+    BeginGroup {Group}1
+        jLabel_A
+        jLabel_B
+        jLabel_C
+        jLabel_D
+        jLabel_E
+        jLabel_F
+        jLabel_G
+        jLabel_H
+        jLabel_I
+        jLabel_Q
+        jLabel_P
+        jLabel_O
+        jLabel_N
+        jLabel_M
+        jLabel_L
+        jLabel_K
+        jLabel_J
+        jLabel_R
+        jLabel_S
+        jLabel_T
+        jLabel_U
+        jLabel_V
+        jLabel_W
+        jLabel_X
+        jLabel_Y
+        jLabel_Z
+    EndGroup
+EndObject

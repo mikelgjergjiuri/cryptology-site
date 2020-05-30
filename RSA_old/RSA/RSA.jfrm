@@ -1,0 +1,663 @@
+Metrowerks RAD Data V 3
+BeginClasses
+    {9BE3D9E0-166E-11D1-B2D8-0060081C5489} "#base-object-class"
+    {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+    {8AC75CA0-A339-11D1-B2BE-006008A5C0A5} "javax.swing.JPanel"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JLabel"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JTextField"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JButton"
+    {8AC75CA0-A339-11D1-B2BE-006008A5C0A5} "javax.swing.JToolBar"
+    {8AC75CA0-A339-11D1-B2BE-006008A5C0A5} "javax.swing.JScrollPane"
+    {8AC75CA0-A339-11D1-B2BE-006008A5C0A5} "javax.swing.JTextPane"
+    {AF105FF8-70D9-11D1-B010-00805F6114CC} "javax.swing.JCheckBox"
+EndClasses
+BeginObject RSA.RSA "RSA"
+    BeginProperties
+        layout = <none>
+        location = "0, 0"
+        size = "880, 570"
+    EndProperties
+    BeginInternalProperties
+        UseSwing 11 = -1
+        IsApplet 11 = -1
+        InfoInFiles 11 = -1
+        Description 8 = ""
+        Title 8 = RSA
+        HTML_FileName 8 = "C:\\Documents and Settings\\chilukas\\My Documents\\thesis\\RSA\\RSA.html"
+    EndInternalProperties
+    BeginEventConnections
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\RSA.RSA\\jPanelMain\\jButtonKeyReset"
+            SinkPath = "\\\\RSA.RSA"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jButtonKeyResetMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\RSA.RSA\\jPanelMain\\jButtonEncrypt"
+            SinkPath = "\\\\RSA.RSA"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jButtonEncryptMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\RSA.RSA\\jPanelMain\\jButtonDecrypt"
+            SinkPath = "\\\\RSA.RSA"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jButtonDecryptMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\RSA.RSA\\jPanelMain\\jButtonE"
+            SinkPath = "\\\\RSA.RSA"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jButtonEMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\RSA.RSA\\jPanelMain\\jPanelP\\jLabelP"
+            SinkPath = "\\\\RSA.RSA"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabelPMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\RSA.RSA\\jPanelMain\\jPanel_E\\jLabel_E"
+            SinkPath = "\\\\RSA.RSA"
+            EventName = mouseClicked
+            EventSetName = mouse
+            HandlerName = jLabel_EMouseClicked
+        EndEventConnection
+        BeginEventConnection {796E35A1-9372-11D2-9A19-00104B70C619}
+            SourcePath = "\\\\RSA.RSA\\jPanelMain\\jCheckBoxDetail"
+            SinkPath = "\\\\RSA.RSA"
+            EventName = itemStateChanged
+            EventSetName = item
+            HandlerName = jCheckBoxDetailItemStateChanged
+        EndEventConnection
+    EndEventConnections
+    BeginObject jPanelMain "javax.swing.JPanel"
+        LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+        BeginProperties
+            background = white
+            border = "TitledBorder {LineBorder 153, 153, 153;1;false};\"R.S.A\";4;2;Dialog-BOLD-12;darkGray"
+            layout = <none>
+            location = "0, 0"
+            size = "880, 570"
+        EndProperties
+        BeginInternalProperties
+        EndInternalProperties
+        BeginObject jLabelCaption1 "javax.swing.JLabel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = white
+                font = SansSerif-ITALIC-14
+                foreground = gray
+                location = "30, 20"
+                opaque = True
+                size = "350, 30"
+                text = "Enter Prime Numbers P and Q, Greater then 25"
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jPanelP "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = white
+                border = "TitledBorder {LineBorder 153, 153, 153;1;false};\"P\";4;2;Dialog-BOLD-12;magenta"
+                layout = <none>
+                location = "40, 50"
+                size = "110, 50"
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jTextFieldInputP "javax.swing.JTextField"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    border = "EtchedBorder 0;lightGray;178, 178, 178"
+                    location = "20, 20"
+                    size = "80, 20"
+                    toolTipText = "Enter P, a prime number"
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelP "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    background = white
+                    border = "BevelBorder 0"
+                    foreground = magenta
+                    horizontalAlignment = CENTER
+                    location = "20, 20"
+                    size = "80, 20"
+                    toolTipText = "Click to change P"
+                    visible = False
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+        EndObject
+        BeginObject jPanelQ "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = white
+                border = "TitledBorder {LineBorder 153, 153, 153;1;false};\"Q\";4;2;Dialog-BOLD-12;magenta"
+                layout = <none>
+                location = "150, 50"
+                size = "110, 50"
+                toolTipText = a
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jTextFieldInputQ "javax.swing.JTextField"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    border = "EtchedBorder 0;lightGray;178, 178, 178"
+                    location = "20, 20"
+                    size = "80, 20"
+                    toolTipText = "Enter Q, a Prime Number"
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabelQ "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    background = white
+                    border = "BevelBorder 0"
+                    foreground = magenta
+                    horizontalAlignment = CENTER
+                    location = "20, 20"
+                    size = "80, 20"
+                    toolTipText = "Click To change Q"
+                    visible = False
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+        EndObject
+        BeginObject jPanel_E "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = white
+                border = "TitledBorder {LineBorder 153, 153, 153;1;false};\"E\";4;2;Dialog-BOLD-12;magenta"
+                layout = <none>
+                location = "370, 50"
+                size = "110, 50"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jTextFieldInputE "javax.swing.JTextField"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    border = "EtchedBorder 0;lightGray;178, 178, 178"
+                    location = "20, 20"
+                    size = "80, 20"
+                    toolTipText = "Enter E, a number relatively prime to M"
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+            BeginObject jLabel_E "javax.swing.JLabel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    background = white
+                    border = "BevelBorder 0"
+                    foreground = magenta
+                    horizontalAlignment = CENTER
+                    location = "20, 20"
+                    size = "80, 20"
+                    text = 99999
+                    toolTipText = "click to change E"
+                    visible = False
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+        EndObject
+        BeginObject jPanelM "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = white
+                border = "TitledBorder {LineBorder 153, 153, 153;1;false};\" M \";4;2;Dialog-BOLD-18;blue"
+                layout = <none>
+                location = "20, 150"
+                size = "230, 70"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jScrollPaneM "javax.swing.JScrollPane"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    alignmentX = 0.1
+                    alignmentY = 0.1
+                    location = "30, 20"
+                    size = "190, 40"
+                    verticalScrollBarPolicy = VERTICAL_SCROLLBAR_NEVER
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+                BeginObject jLabelM "javax.swing.JLabel"
+                    LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                    BeginProperties
+                        background = white
+                        border = "BevelBorder 0"
+                        foreground = blue
+                        location = "0, 0"
+                        opaque = True
+                        size = "187, 37"
+                    EndProperties
+                    BeginInternalProperties
+                    EndInternalProperties
+                EndObject
+            EndObject
+        EndObject
+        BeginObject jPanelN "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = white
+                border = "TitledBorder {LineBorder 153, 153, 153;1;false};\"N\";4;2;Dialog-BOLD-18;blue"
+                layout = <none>
+                location = "260, 150"
+                size = "230, 70"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jScrollPaneN "javax.swing.JScrollPane"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    location = "30, 20"
+                    size = "190, 40"
+                    verticalScrollBarPolicy = VERTICAL_SCROLLBAR_NEVER
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+                BeginObject jLabelN "javax.swing.JLabel"
+                    LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                    BeginProperties
+                        background = white
+                        border = "BevelBorder 0"
+                        foreground = blue
+                        location = "0, 0"
+                        opaque = True
+                        size = "187, 37"
+                    EndProperties
+                    BeginInternalProperties
+                    EndInternalProperties
+                EndObject
+            EndObject
+        EndObject
+        BeginObject jPanelE "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = white
+                border = "TitledBorder {LineBorder 153, 153, 153;1;false};\"E\";4;2;Dialog-BOLD-18;blue"
+                layout = <none>
+                location = "20, 220"
+                size = "230, 70"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jScrollPaneE "javax.swing.JScrollPane"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    location = "30, 20"
+                    size = "190, 40"
+                    verticalScrollBarPolicy = VERTICAL_SCROLLBAR_NEVER
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+                BeginObject jLabelE "javax.swing.JLabel"
+                    LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                    BeginProperties
+                        background = white
+                        border = "BevelBorder 0"
+                        foreground = blue
+                        location = "0, 0"
+                        opaque = True
+                        size = "187, 37"
+                    EndProperties
+                    BeginInternalProperties
+                    EndInternalProperties
+                EndObject
+            EndObject
+        EndObject
+        BeginObject jPanelD "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = white
+                border = "TitledBorder {LineBorder 153, 153, 153;1;false};\"D\";4;2;Dialog-BOLD-18;blue"
+                layout = <none>
+                location = "260, 220"
+                size = "230, 70"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jScrollPaneD "javax.swing.JScrollPane"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    location = "30, 20"
+                    size = "190, 40"
+                    verticalScrollBarPolicy = VERTICAL_SCROLLBAR_NEVER
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+                BeginObject jLabelD "javax.swing.JLabel"
+                    LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                    BeginProperties
+                        background = white
+                        border = "BevelBorder 0"
+                        foreground = blue
+                        location = "0, 0"
+                        opaque = True
+                        size = "187, 37"
+                    EndProperties
+                    BeginInternalProperties
+                    EndInternalProperties
+                EndObject
+            EndObject
+        EndObject
+        BeginObject jPanelPublic "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = white
+                border = "TitledBorder {LineBorder 153, 153, 153;1;false};\"Public Key\";4;2;Dialog-BOLD-12;pink"
+                layout = <none>
+                location = "260, 290"
+                size = "230, 70"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jScrollPanePublic "javax.swing.JScrollPane"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    location = "30, 20"
+                    size = "190, 40"
+                    verticalScrollBarPolicy = VERTICAL_SCROLLBAR_NEVER
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+                BeginObject jLabelPublic "javax.swing.JLabel"
+                    LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                    BeginProperties
+                        background = white
+                        border = "BevelBorder 0"
+                        foreground = pink
+                        location = "0, 0"
+                        opaque = True
+                        size = "187, 37"
+                    EndProperties
+                    BeginInternalProperties
+                    EndInternalProperties
+                EndObject
+            EndObject
+        EndObject
+        BeginObject jPanelPrivate "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = white
+                border = "TitledBorder {LineBorder 153, 153, 153;1;false};\"Private Key\";4;2;Dialog-BOLD-12;pink"
+                layout = <none>
+                location = "20, 290"
+                size = "230, 70"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jScrollPanePrivate "javax.swing.JScrollPane"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    location = "30, 20"
+                    size = "190, 40"
+                    verticalScrollBarPolicy = VERTICAL_SCROLLBAR_NEVER
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+                BeginObject jLabelPrivate "javax.swing.JLabel"
+                    LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                    BeginProperties
+                        background = white
+                        border = "BevelBorder 0"
+                        foreground = pink
+                        location = "0, 0"
+                        opaque = True
+                        size = "187, 37"
+                    EndProperties
+                    BeginInternalProperties
+                    EndInternalProperties
+                EndObject
+            EndObject
+        EndObject
+        BeginObject jButtonKeyReset "javax.swing.JButton"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = lightGray
+                border = "EtchedBorder 1;white;142, 142, 142"
+                font = Serif-ITALIC-18
+                iconTextGap = 10
+                location = "170, 110"
+                size = "150, 30"
+                text = "S T A R T"
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jButtonEncrypt "javax.swing.JButton"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = "206, 206, 255"
+                border = "EtchedBorder 0;205, 205, 255;144, 144, 178"
+                location = "370, 400"
+                size = "160, 30"
+                text = ">>> E N C R Y P T >>>"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jButtonDecrypt "javax.swing.JButton"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = "206, 206, 255"
+                border = "EtchedBorder 0;205, 205, 255;144, 144, 178"
+                location = "370, 500"
+                size = "160, 30"
+                text = "<<< D E C R Y P T <<<"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jCheckBoxDetail "javax.swing.JCheckBox"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = white
+                border = "EtchedBorder 1;white;178, 178, 178"
+                location = "380, 450"
+                size = "140, 20"
+                text = Explanation
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+        BeginObject jInternalPlain "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = "86, 92, 140"
+                layout = <none>
+                location = "30, 370"
+                size = "340, 170"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jPanel2 "javax.swing.JPanel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    layout = <none>
+                    location = "5, 5"
+                    size = "330, 160"
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+                BeginObject jToolBar1 "javax.swing.JToolBar"
+                    LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                    BeginProperties
+                        background = "206, 206, 255"
+                        layout = <none>
+                        location = "0, 0"
+                        size = "330, 25"
+                    EndProperties
+                    BeginInternalProperties
+                    EndInternalProperties
+                    BeginObject jTextPane2 "javax.swing.JTextPane"
+                        LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                        BeginProperties
+                            background = "204, 204, 255"
+                            editable = False
+                            font = SansSerif-BOLD-13
+                            location = "30, 0"
+                            size = "100, 25"
+                            text = "P L A I N"
+                        EndProperties
+                        BeginInternalProperties
+                        EndInternalProperties
+                    EndObject
+                EndObject
+                BeginObject jScrollPane1 "javax.swing.JScrollPane"
+                    LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                    BeginProperties
+                        horizontalScrollBarPolicy = HORIZONTAL_SCROLLBAR_NEVER
+                        location = "3, 30"
+                        size = "324, 128"
+                    EndProperties
+                    BeginInternalProperties
+                    EndInternalProperties
+                    BeginObject jTextPanePlain "javax.swing.JTextPane"
+                        LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                        BeginProperties
+                            autoscrolls = False
+                            border = "LineBorder black;1;false"
+                            location = "0, 0"
+                            size = "321, 125"
+                        EndProperties
+                        BeginInternalProperties
+                        EndInternalProperties
+                    EndObject
+                EndObject
+            EndObject
+        EndObject
+        BeginObject jInternalEncrypt "javax.swing.JPanel"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                background = "86, 92, 140"
+                layout = <none>
+                location = "530, 370"
+                size = "340, 170"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jPanel4 "javax.swing.JPanel"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    layout = <none>
+                    location = "5, 5"
+                    size = "330, 160"
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+                BeginObject jToolBar2 "javax.swing.JToolBar"
+                    LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                    BeginProperties
+                        background = "206, 206, 255"
+                        layout = <none>
+                        location = "0, 0"
+                        size = "330, 25"
+                    EndProperties
+                    BeginInternalProperties
+                    EndInternalProperties
+                    BeginObject jTextPane3 "javax.swing.JTextPane"
+                        LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                        BeginProperties
+                            background = "204, 204, 255"
+                            editable = False
+                            font = SansSerif-BOLD-13
+                            location = "30, 0"
+                            size = "100, 25"
+                            text = "E N C R Y P T E D"
+                        EndProperties
+                        BeginInternalProperties
+                        EndInternalProperties
+                    EndObject
+                EndObject
+                BeginObject jScrollPane2 "javax.swing.JScrollPane"
+                    LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                    BeginProperties
+                        horizontalScrollBarPolicy = HORIZONTAL_SCROLLBAR_NEVER
+                        location = "3, 30"
+                        size = "324, 128"
+                    EndProperties
+                    BeginInternalProperties
+                    EndInternalProperties
+                    BeginObject jTextPaneEncrypt "javax.swing.JTextPane"
+                        LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                        BeginProperties
+                            autoscrolls = False
+                            border = "LineBorder black;1;false"
+                            location = "0, 0"
+                            size = "321, 125"
+                        EndProperties
+                        BeginInternalProperties
+                        EndInternalProperties
+                    EndObject
+                EndObject
+            EndObject
+        EndObject
+        BeginObject jScrollPaneDetails "javax.swing.JScrollPane"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                horizontalScrollBarPolicy = HORIZONTAL_SCROLLBAR_NEVER
+                location = "510, 50"
+                size = "369, 310"
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+            BeginObject jTextPaneDetails "javax.swing.JTextPane"
+                LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+                BeginProperties
+                    editable = False
+                    font = Dialog-BOLD-11
+                    foreground = "128, 128, 64"
+                    location = "0, 0"
+                    size = "366, 307"
+                    text = "Details will be updated on encryption or decryption"
+                EndProperties
+                BeginInternalProperties
+                EndInternalProperties
+            EndObject
+        EndObject
+        BeginObject jButtonE "javax.swing.JButton"
+            LayoutClass {5FA17216-8612-11D1-B2AD-006008A5C0A5} "RSA"
+            BeginProperties
+                font = Serif-ITALIC-18
+                location = "360, 110"
+                size = "120, 30"
+                text = Continue
+                visible = False
+            EndProperties
+            BeginInternalProperties
+            EndInternalProperties
+        EndObject
+    EndObject
+EndObject

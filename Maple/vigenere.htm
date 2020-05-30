@@ -1,0 +1,46 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>New Page 1</title>
+<link rel="stylesheet" type="text/css" href="Cstylesheet.css">
+</head>
+
+<body>
+
+<p class="style8" style="line-height: 200%"><font color="#FF0000"><b>autokey("All nature is merely a cipher and a secret&nbsp;
+writing.&quot;,&quot;p&quot;,&quot;encipher&quot;);<br>
+autokey(%,&quot;p&quot;,&quot;decipher&quot;);</b></font><br>
+<font color="#0000FF">&quot;PLWYNTNLVMAEQVVPJYCKXWLVRNQDSWGTVXPNZBBVT&quot;<br>
+&quot;allnatureismerelyacipherandasecretwriting&quot;</font><br>
+<br>
+<font color="#FF0000"><b>vigenere("April showers bring May flowers.&quot;,&quot;rhyme&quot;,&quot;encipher&quot;);<br>
+vigenere(%,&quot;rhyme&quot;,&quot;decipher&quot;);<br>
+</b></font><font color="#0000FF">&quot;RWPUPJOMIIIZZDMENKMCWSMIIIZ&quot;<br>
+&quot;aprilshowersbringmayflowers&quot;<br>
+</font></p>
+<p class="style8" style="line-height: 200%"><b><font color="#FF0000">carroll := "The Walrus and the Carpenter&nbsp;
+Walked on a mile or so, And then they rested on a rock Conveniently low; And all the little Oysters stood
+And waited in a row. ''The time has come,' the Walrus said, 'To talk of many things:
+Of shoes and ships and sealing-wax Of cabbages and kings And why the sea is boiling hot
+\<br>
+And whether pigs have wings.'";</font></b><font color="#0000FF"><br>
+  carroll := "The Walrus and the Carpenter Walked on a mile or so,         And then they rested on a rock Conveniently low; And all        the little Oysters stood And waited in a row. 'The time
+has come,' the Walrus said, 'To talk of many things: Of shoes and ships and sealing-wax Of cabbages and kings And why        the sea is boiling hot And whether pigs have wings.'"</font></p>
+<p class="style8" style="line-height: 200%"><b><font color="#FF0000">ct :=
+vigenere(carroll,&quot;poem&quot;,&quot;encipher&quot;);</font></b><font color="#0000FF"><br>
+  ct :=&quot;IVIIPZVGHORPIVIOPFTQCHIDLOPWTRSZPAMXTCVEDORPIVIZIVIKGSWFTRSZPFSOZQSZKSRUTBXXNZSIPBHMAZXTTZMFIZIANGXQGGWFD</font></p>
+<p class="style8" style="line-height: 200%"><font color="#0000FF">CHMCRAMXHIPXBEDDKXTTHMYTVEERCQQIVIIPZVGHGEUSHSFPZOAUAEZNHLUCUWAUGLATGEZSGLUEGEZSGIMAWRSLOBAUQENQOKQHORPZW</font></p>
+<p class="style8" style="line-height: 200%"><font color="#0000FF">RSHORPLVCFWSWQPWWNDWPUCULAIORPLVIFWSVBXUWTPJIIXBKE&quot;<br>
+<br>
+</font><b><font color="#FF0000">pt :=
+vigenere(ct,&quot;poem&quot;,&quot;decipher&quot;);</font></b><font color="#0000FF"><br>
+  pt:=&quot;thewalrusandthecarpenterwalkedonamileorsoandthentheyrestedonarockconvenientlylowandallthelittleoystersstoodandwaitedinarowthetimeha</font></p>
+<p class="style8" style="line-height: 200%"><font color="#0000FF">scomethewalrussaidtotalkofmanythingsofshoesandshipsandsealingwaxofcabbagesandkingsandwhytheseaisboilinghotandwhetherpigshavewings&quot;</font><br>
+</p>
+
+</body>
+
+</html>
