@@ -1,6 +1,5 @@
 <!-- MathJax JS -->
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/7.0.2/math.min.js"></script>
 <!-- CSS only -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
@@ -12,61 +11,48 @@
 
 <div id="main_rsa_box" style="position: relative;width: 600px; height: 800px; outline: 1px solid black; top:10px; left: 10px;">
 
-<form class="needs-validation" novalidate>
+<form class="form-group">
   <div class="form-row text-center">
     <div class="col-md-6 mb-3">
       <label for="P">P (A very large prime)</label>
       <input type="text" class="form-control text-center" id="P" value="997" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-      <div class="invalid-feedback">
-        You did not enter a valid prime!
-      </div>
     </div>
     <div class="col-md-6 mb-3">
       <label for="Q">Q (A very large prime)</label>
       <input type="text" class="form-control text-center" id="Q" value="433494437" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-      <div class="invalid-feedback">
-        You did not enter a valid prime!
-      </div>
     </div>
   </div>
-  <button class="btn btn-primary btn-block btn-lg" type="submit">Calculate M (P*Q) and N ((P-1)*(Q-1))</button>
+
+  <div class="text-center" style="padding-bottom:10px;">
+    <button id="rsa-first-input" type="button">Calculate M (P*Q) and N (P-1)*(Q-1)</button>
+  </div>
+
+  <div style="padding-bottom: 10px;" class="text-center" id="m-n"></div>
+
+
   <div class="form-row text-center">
   	  <div class="col-md-12 mb-3">
 		  <label for="E">E (Relatively prime to N)</label>
 		  <input class="form-control" id="E" type="text" placeholder="Please calculate N by entering values for P and Q before assigning a value to E" disabled>
 	  </div>
   </div>
-  <button class="btn btn-primary btn-block btn-lg" type="submit" disabled>Calculate D (E*D = 1 mod N)</button>
+  
+  <div style="padding-bottom:10px;" class="text-center" id="d-result"></div>
+
+  <div class="text-center"> 
+    <button id="rsa-second-input" type="button" disabled>Calculate D (E*D = 1 mod N)</button>
+  </div>
+
   <div class="form-row text-center">
     <div class="col-md-5 mb-3">
       <label for="P">Plain Text</label>
       <textarea class="form-control" id="plain-text" rows="3"></textarea>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-      <div class="invalid-feedback">
-        You did not enter a valid prime!
-      </div>
     </div>
     <div class="col-md-2 mb-3 text-center">
-      <button class="btn btn-primary" type="submit" disabled>Encrypt -></button>
-      <button class="btn btn-primary" type="submit" disabled><- Decrypt</button>
     </div>
     <div class="col-md-5 mb-3">
       <label for="encrypted-text">Encrypted Text</label>
       <textarea class="form-control" id="encrypted-text" rows="3"></textarea>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-      <div class="invalid-feedback">
-        You did not enter a valid prime!
-      </div>
     </div>
   </div>
 </form>
