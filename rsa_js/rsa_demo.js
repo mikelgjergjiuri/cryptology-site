@@ -1,25 +1,174 @@
+// global variables
 var M = 0;
 var N = 0;
-async function rsa_step_1(){
-    
-    var P = math.bignumber(document.getElementById("P").value);
-    var Q = math.bignumber(document.getElementById("Q").value);
-    M = P*Q;
-    N = (P-math.bignumber(1))*(Q-math.bignumber(1));
-    
-    document.getElementById("m-n").innerHTML = "</b>M="+M+", N="+N+"</b>";
-    document.getElementById("E").disabled = false;
-    document.getElementById("rsa-second-input").disabled = false;
+var D = 0;
+var E = 0;
+var keySize = 0;
+var dictionary = " .,abcdefghijklmnopqrstuvwxyz";
+
+function egcd(m, n){
+    var u = [Math.abs(m), 1, 0];
+    var v = [Math.abs(n), 0, 1];
+    while(v[0] != 0){
+        var q = Math.floor(u[0]/v[0]);
+        var r = [u[0] - q*v[0], u[1] - q*v[1], u[2] - q*v[2]];
+        u = v;
+        v = r;
+    }
+    return u;
 }
 
-async function rsa_step_2(){
-    var E = math.bignumber(document.getElementById("P").value);
-    var D = math.xgcd(math.bignumber(E), math.bignumber(N));
-    console.log(D);
-    D = D[2];
-    console.log(D);
-    document.getElementById("d-result").innerHTML = "<b>D="+D+"</b>";
+function isPrime(number){
+    if(number < 1) return false;
+    let limit = Math.floor(Math.sqrt(number));
+    for(var i = 2; i <= limit; i++){
+        var remainder = number % i;
+        if(remainder === 0){
+            return false;
+        }
+    }
+    return true;
+}
+
+function fastModPower(x, n, modulus){
+    var Nc = n;
+    var Y = 1;
+    var Z = x;
+    while(Nc > 0){
+        if((Nc % 2) === 1){
+            Y = Y*Z;
+            Y =  Y % modulus;
+        }
+
+        Nc = Math.floor(Nc/2);
+        
+        if(Nc > 0){
+            Z = Z*Z;
+            Z = Z % modulus;
+        }
+    }
+    return Y;
+}
+
+function rsa_step_1(){
+    
+    var P = parseInt(document.getElementById("P").value, 10);
+    var Q = parseInt(document.getElementById("Q").value, 10);
+    M = P*Q;
+    N = (P-1)*(Q-1);
+    
+    if(isPrime(P) && isPrime(Q)){
+        document.getElementById("m-n").innerHTML = "<b>M="+M+", N="+N+"</b>";
+        document.getElementById("E").disabled = false;
+        document.getElementById("rsa-second-input").disabled = false;
+    }
+
+    else{
+        alert("You entered a nonprime number, please enter prime numbers for P and Q");
+    }
+}
+
+function safe_mod(n, m){
+    return ((n%m) + m) % m;
+}
+
+function rsa_step_2(){
+    E = parseInt(document.getElementById("E").value, 10);
+    D = safe_mod(egcd(E, N)[1], N);
+    if(D == 1){
+        alert("E was not relatively prime to N, please enter a number relatively prime to N");
+    }
+    else{
+        var modulusSize = M;
+        while (modulusSize > 0){
+            modulusSize -= Math.pow(dictionary.length,keySize+1);
+            if (modulusSize > 0) keySize += 1;
+        }
+
+        document.getElementById("d-result").innerHTML = "<b>D="+D+"</b>";
+        document.getElementById("private-public-key").innerHTML = "<b>Private Key="+D+", Public Key=("+E+","+M+")</b>";
+        document.getElementById("instructions-with-keysize").innerHTML = "Encode text by entering blocks of characters of size: " + keySize + " seperated by commas. Decode text by entering encoded integers seperated by commas."
+        document.getElementById("plain-text").disabled = false;
+        document.getElementById("encrypted-text").disabled = false;
+        document.getElementById("encode-text").disabled = false;
+        document.getElementById("decode-text").disabled = false;
+    }
+}
+
+function encode(){
+    
+    // chunk text into blocks of keySize
+    var text = document.getElementById("encode-text").value.match(new RegExp('.{1,' + keySize + '}', 'g'));
+    
+    while(text[text.length - 1].length < keySize){
+        text[text.length - 1] = text[text.length - 1] + "z";
+    }
+
+    var results = [];
+    for(var i = 0; i < text.length; i++){
+        var integer = 0;
+        for(var j = text[i].length-1; j >= 0; j--){
+            var position = dictionary.indexOf(text[i][j]);
+            integer += position * Math.pow(dictionary.length, keySize-j-1);
+        }
+        results.push(integer);
+    }
+    document.getElementById("decode-text").value = results.join(",");
+    document.getElementById("encode-text").value = "";
+}
+
+function decode(){
+    var integers = document.getElementById("decode-text").value.split(",");
+    var str = "";
+    for(var i = 0; i < integers.length; i++){
+        var tempString = "";
+        var integer = parseInt(integers[i], 10);
+        var index = keySize - 1;
+        while(integer > 0){
+            for(var j = dictionary.length - 1; j >= 0; j--){
+                var value = j*Math.pow(dictionary.length, index)
+                if(value <= integer){
+                    integer -= value;
+                    index -= 1;
+                    tempString += dictionary[j];
+                    break;
+                }
+            }
+        }
+        str += tempString;
+    }
+    
+    document.getElementById("decode-text").value = "";
+    document.getElementById("encode-text").value = str;
+    
+}
+
+function encrypt(){
+    var integers = document.getElementById("plain-text").value.split(",");
+    var results = [];
+    for(var i = 0; i < integers.length; i++){
+        var integer = parseInt(integers[i], 10);
+        results.push(fastModPower(integer, E, M));
+    }
+    document.getElementById("encrypted-text").value = results.join(","); 
+    document.getElementById("plain-text").value = ""; 
+}
+
+function decrypt(){
+    var integers = document.getElementById("encrypted-text").value.split(",");
+    var results = [];
+    console.log(integers);
+    for(var i = 0; i < integers.length; i++){
+        var integer = parseInt(integers[i], 10);
+        results.push(fastModPower(integer, D, M));
+    }
+    document.getElementById("plain-text").value = results.join(","); 
+    document.getElementById("encrypted-text").value = ""; 
 }
 
 document.getElementById("rsa-first-input").addEventListener("click", rsa_step_1);
 document.getElementById("rsa-second-input").addEventListener("click", rsa_step_2);
+document.getElementById("encode-text-button").addEventListener("click", encode);
+document.getElementById("decode-text-button").addEventListener("click", decode);
+document.getElementById("encrypt-text-button").addEventListener("click", encrypt);
+document.getElementById("decrypt-text-button").addEventListener("click", decrypt);

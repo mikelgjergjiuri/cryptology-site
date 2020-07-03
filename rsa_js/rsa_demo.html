@@ -37,24 +37,46 @@
 	  </div>
   </div>
   
-  <div style="padding-bottom:10px;" class="text-center" id="d-result"></div>
-
-  <div class="text-center"> 
+  <div class="text-center" style="padding-bottom:10px;"> 
     <button id="rsa-second-input" type="button" disabled>Calculate D (E*D = 1 mod N)</button>
+  </div>
+  
+  <div style="padding-bottom:10px;" class="text-center" id="d-result"></div>
+  
+  <div style="padding-bottom:10px;" class="text-center" id="private-public-key"></div>
+ 
+  <div style="padding-bottom:10px;" class="text-center" id="instructions-with-keysize"></div>
+
+  <div class="form-row text-center">
+    <div class="col-md-5 mb-3">
+      <label for="encode-text">Non-encoded text</label>
+      <textarea class="form-control" id="encode-text" rows="3" disabled></textarea>
+    </div>
+    <div class="col-md-2 mb-3 text-center" style="padding-top:50px;">
+    <button id="encode-text-button" type="button">Encode</button>
+    <button id="decode-text-button" type="button">Decode</button>
+    </div>
+    <div class="col-md-5 mb-3">
+      <label for="decode-text">Encoded Integers</label>
+      <textarea class="form-control" id="decode-text" rows="3" disabled></textarea>
+    </div>
   </div>
 
   <div class="form-row text-center">
     <div class="col-md-5 mb-3">
-      <label for="P">Plain Text</label>
-      <textarea class="form-control" id="plain-text" rows="3"></textarea>
+      <label for="plain-text">Plain Text</label>
+      <textarea class="form-control" id="plain-text" rows="3" disabled></textarea>
     </div>
-    <div class="col-md-2 mb-3 text-center">
+    <div class="col-md-2 mb-3 text-center" style="padding-top:50px">
+    <button id="encrypt-text-button" type="button">Encrypt</button>
+    <button id="decrypt-text-button" type="button">Decrypt</button>
     </div>
     <div class="col-md-5 mb-3">
       <label for="encrypted-text">Encrypted Text</label>
-      <textarea class="form-control" id="encrypted-text" rows="3"></textarea>
+      <textarea class="form-control" id="encrypted-text" rows="3" disabled></textarea>
     </div>
   </div>
+
 </form>
 </div>
 
