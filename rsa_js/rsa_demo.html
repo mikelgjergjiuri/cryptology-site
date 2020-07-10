@@ -14,12 +14,12 @@
 <form class="form-group">
   <div class="form-row text-center">
     <div class="col-md-6 mb-3">
-      <label for="P">P (A very large prime)</label>
+      <label for="P">P (Prime < 55109)</label>
       <input type="text" class="form-control text-center" id="P" value="997" required>
     </div>
     <div class="col-md-6 mb-3">
-      <label for="Q">Q (A very large prime)</label>
-      <input type="text" class="form-control text-center" id="Q" value="433494437" required>
+      <label for="Q">Q (Prime < 55109)</label>
+      <input type="text" class="form-control text-center" id="Q" value="55001" required>
     </div>
   </div>
 
@@ -49,12 +49,11 @@
 
   <div class="form-row text-center">
     <div class="col-md-5 mb-3">
-      <label for="encode-text">Non-encoded text</label>
+      <label for="encode-text">Text</label>
       <textarea class="form-control" id="encode-text" rows="3" disabled></textarea>
     </div>
-    <div class="col-md-2 mb-3 text-center" style="padding-top:50px;">
+    <div class="col-md-2 mb-3 text-center" style="padding-top:62px;">
     <button id="encode-text-button" type="button">Encode</button>
-    <button id="decode-text-button" type="button">Decode</button>
     </div>
     <div class="col-md-5 mb-3">
       <label for="decode-text">Encoded Integers</label>
@@ -64,7 +63,7 @@
 
   <div class="form-row text-center">
     <div class="col-md-5 mb-3">
-      <label for="plain-text">Plain Text</label>
+      <label for="plain-text">Encoded Integers</label>
       <textarea class="form-control" id="plain-text" rows="3" disabled></textarea>
     </div>
     <div class="col-md-2 mb-3 text-center" style="padding-top:50px">
@@ -72,8 +71,22 @@
     <button id="decrypt-text-button" type="button">Decrypt</button>
     </div>
     <div class="col-md-5 mb-3">
-      <label for="encrypted-text">Encrypted Text</label>
+      <label for="encrypted-text">Encrypted Integers</label>
       <textarea class="form-control" id="encrypted-text" rows="3" disabled></textarea>
+    </div>
+  </div>
+
+  <div class="form-row text-center">
+    <div class="col-md-5 mb-3">
+      <label for="encode-text">Encrypted Integers</label>
+      <textarea class="form-control" id="decode-text-2" rows="3" disabled></textarea>
+    </div>
+    <div class="col-md-2 mb-3 text-center" style="padding-top:62px;">
+    <button id="decode-text-button" type="button">Decode</button>
+    </div>
+    <div class="col-md-5 mb-3">
+      <label for="decode-text-2">Text</label>
+      <textarea class="form-control" id="encode-text-2" rows="3" disabled></textarea>
     </div>
   </div>
 
