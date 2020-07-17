@@ -94,7 +94,7 @@ function rsa_step_2(){
 
         document.getElementById("d-result").innerHTML = "<b>D="+D+"</b>";
         document.getElementById("private-public-key").innerHTML = "<b>Private Key="+D+", Public Key=("+E+","+M+")</b>";
-        document.getElementById("instructions-with-keysize").innerHTML = "Encode text by entering blocks of characters of size: " + keySize + " seperated by commas. Decode text by entering encoded integers seperated by commas."
+        document.getElementById("instructions-with-keysize").innerHTML = "Text will be encoded into blocks of size: " + keySize;
 
         document.getElementById("encode-text").disabled = false;
         document.getElementById("decode-text").disabled = false;
@@ -104,8 +104,13 @@ function rsa_step_2(){
 function encode(){
     
     // chunk text into blocks of keySize
-    var text = document.getElementById("encode-text").value.match(new RegExp('.{1,' + keySize + '}', 'g'));
-    
+    var text = document.getElementById("encode-text").value
+    if(text.indexOf(";") > -1){
+        text = text.split(";");
+    }
+    else{
+        text = text.match(new RegExp('.{1,' + keySize + '}', 'g'));
+    }
     while(text[text.length - 1].length < keySize){
         text[text.length - 1] = text[text.length - 1] + "z";
     }
@@ -113,9 +118,17 @@ function encode(){
     var results = [];
     for(var i = 0; i < text.length; i++){
         var integer = 0;
+
+        if(text[i].length === keySize + 1){
+            var maxLen = keySize + 1;
+        }
+        else{
+            var maxLen = keySize;
+        }
+
         for(var j = text[i].length-1; j >= 0; j--){
             var position = dictionary.indexOf(text[i][j]);
-            integer += position * Math.pow(dictionary.length, keySize-j-1);
+            integer += position * Math.pow(dictionary.length, maxLen-j-1);
         }
         results.push(integer);
     }
@@ -127,6 +140,7 @@ function encode(){
 function decode(){
     var integers = document.getElementById("decode-text-2").value.split(",");
     var str = "";
+    
     for(var i = 0; i < integers.length; i++){
         var tempString = "";
         var integer = parseInt(integers[i], 10);
@@ -155,15 +169,20 @@ function decode(){
                 }
             }
         }
-        if(tempString.length === (keySize+1)){
-        	tempString = '[' + tempString + ']';
-        }
+
         while(tempString.length < keySize){
-        	tempString += " ";
-		}
-        str += tempString;
+            tempString += " ";
+	}
+        str += tempString + ";";
     }
+
+    //remove trailing semicolon
+    str = str.slice(0,-1);
     
+    //remove all semicolons if all blocks are of valid keysize, indicating that a valid block of text is entered
+    const matchesKeySize = (substring) => substring.length === keySize; 
+    if(str.split(";").every(matchesKeySize)) str = str.split(";").join("");
+
     document.getElementById("encode-text-2").value = str;
     
 }
