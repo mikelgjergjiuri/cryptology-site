@@ -3,6 +3,11 @@ class Hash {
     constructor(){
         this.encoding = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789. ";
         this.pause = false;
+        this.reds = ["153,0,0", "204,0,0", "255,0,0", "255,51,51", "255,102,102", "255,153,153"];
+        this.blues = ["0,0,153", "0,0,204", "0,0,255", "51,51,255", "102,102,255", "153,153,255"];
+        this.greens = ["0,153,0", "0,204,0", "0,255,0", "51,255,51", "102,255,102", "153,255,153"];
+        this.aquas = ["0,153,153", "0,204,204", "0,255,255", "51,255,255", "102,255,255", "153,255,255"];
+        this.colors = [this.reds, this.blues, this.greens, this.aquas];
     }
 
     async log(message){
@@ -36,8 +41,43 @@ class Hash {
         var bits = document.querySelectorAll('[id*="-bit-"]');
         for(var i = 0; i < bits.length; i++){
             bits[i].innerHTML = "";
+            bits[i].style.color = "rgb(0,0,0)";
         }
         
+    }
+
+    async drawBit(topPosition, leftPosition, name, column, bitNumber){
+        var bit = document.createElement("div");
+        bit.setAttribute("id", name + "-" + column + "-bit-" + bitNumber);
+        bit.setAttribute("class", "bit");
+        bit.style.top = topPosition;
+        bit.style.left = leftPosition;
+        var mainBox = document.getElementById("mainhashbox");
+        mainBox.appendChild(bit);
+    }
+    
+    async drawBitLabel(topPosition, leftPosition, name, column){
+        var bit = document.createElement("div");
+        bit.setAttribute("id", name + "-label-" + column);
+        bit.setAttribute("class", "bit_label");
+        bit.style.top = topPosition;
+        bit.style.left = leftPosition;
+        var mainBox = document.getElementById("mainhashbox");
+        mainBox.appendChild(bit);
+    }
+
+    async drawBits(){
+        var names = ["prior", "char", "xored", "combined", "output"];
+        var topStart = 12;
+        var leftStart = 12;
+        for(var i = 1; i <= names.length; i++){
+            for(var j = 1; j <= 4; j++){
+                this.drawBitLabel(topStart + 70*(i-1), leftStart + (j-1)*205, names[i-1], j);
+                for(var k = 1; k <= 6; k++){
+                    this.drawBit(topStart + 70*(i-1), leftStart + 40 + (j-1)*205 + (k-1)*20, names[i-1], j, k);
+                }
+            }
+        }
     }
 
     async drawLineToBit(top_bit, bottom_bit, svg, index, bit_position){
@@ -55,7 +95,7 @@ class Hash {
 
     async xor(index, permutation){
         
-        var returnValue = "";
+        var returnValue = ["","","","","",""];
         var bits1 = await this.charToBits(document.getElementById("prior-label-" + index).innerHTML[1]);
         var bits2 = await this.charToBits(document.getElementById("char-label-" + index).innerHTML[1]);
         
@@ -83,27 +123,110 @@ class Hash {
             await this.drawLineToBit(ch, xor, svg, index, bit);
             if(prior.innerHTML != ch.innerHTML){
                 xor.innerHTML = "1";
-                returnValue += "1";
+                returnValue[permutation[bit-1]] = "1";
             }
             else{
                 xor.innerHTML = "0";
-                returnValue += "0";
+                returnValue[permutation[bit-1]] = "0";
             }
         }
         await this.log("XORed " + bits1 + " and " + bits2 + " using permutation " + permutation.toString());
-        return this.encoding[parseInt(returnValue, 2)];
+        return this.encoding[parseInt(returnValue.join(""), 2)];
+    }
+
+    async interlinkXor(index){
+        var bits = "";
+        var grabbing_from = (index % 4) + 1;
+        var move_to_next = false;
+        for(var i = 1; i <= 6; i++){
+            var destination_bit = document.getElementById("combined-" + index + "-bit-" + i);
+            var source_bit = document.getElementById("xored-" + grabbing_from + "-bit-" + i);
+            var color_of_source_bit = this.colors[grabbing_from - 1][i-1];
+            destination_bit.style.color = "rgb(" + color_of_source_bit + ")";
+            destination_bit.innerHTML = source_bit.innerHTML;
+            bits += source_bit.innerHTML;
+            this.sleep();
+            if(move_to_next){
+                grabbing_from = (grabbing_from % 4) + 1;
+                move_to_next = false;
+            }
+            else{
+                move_to_next = true;
+            }
+        }
+
+        document.getElementById("combined-label-" + index).innerHTML = '"' + this.encoding[parseInt(bits, 2)] + '"';
+        
+        var bits1 = await this.charToBits(document.getElementById("xored-label-" + index).innerHTML[1]);
+        var bits2 = await this.charToBits(document.getElementById("combined-label-" + index).innerHTML[1]);
+
+        var returnValue = ["","","","","",""];
+
+        for(var bit = 1; bit <= bits1.length; bit++){
+            
+            // get bits we are xoring
+            var prior = document.getElementById("xored-" + index + "-bit-" + bit);
+            var ch = document.getElementById("combined-" + index + "-bit-" + bit);
+            var xor = document.getElementById("output-" + index + "-bit-" + bit);
+            
+            // get svg to draw lines dynamically
+            var svg = document.getElementById("arrows");
+            
+            await this.drawLineToBit(prior, ch, svg, index, bit);
+
+            await this.drawLineToBit(ch, xor, svg, index, bit);
+
+            if(prior.innerHTML != ch.innerHTML){
+                xor.innerHTML = "1";
+                returnValue[bit-1] = "1";
+            }
+            else{
+                xor.innerHTML = "0";
+                returnValue[bit-1] = "0";
+            }
+        }
+
+        await this.log("XORed " + bits1 + " and " + bits2);
+
+        
+
+        var returnChar = this.encoding[parseInt(returnValue.join(""), 2)];
+
+        document.getElementById("output-label-" + index).innerHTML = '"' + returnChar + '"';
+
+        return returnChar;
+    }
+
+    async colorBits(){
+        for(var i = 1; i <= 4; i++){
+            for(var j = 1; j <= 6; j++){
+                var bit = document.getElementById("xored-" + i + "-bit-" + j);
+                bit.style.color = "rgb(" + this.colors[i-1][j-1] + ")";
+                await this.sleep();
+            }
+        }
     }
 
     async visualization(permutations, initial_value, userInputString){
-        var returnString = ""
+        var xoredString = "";
         for(var i = 0; i < permutations.length; i++){
             document.getElementById("prior-label-" + (i+1)).innerHTML = '"' + initial_value[i] + '"';
             document.getElementById("char-label-" + (i+1)).innerHTML = '"' + userInputString[i] + '"';
-            var result = await this.xor(i+1, permutations[i]);
-            document.getElementById("xored-label-" + (i+1)).innerHTML = '"' + result + '"';
+            var xored = await this.xor(i+1, permutations[i]);
+            document.getElementById("xored-label-" + (i+1)).innerHTML = '"' + xored + '"';
             await this.sleep();
-            returnString += result;
+            xoredString += xored;
         }
+        
+        await this.colorBits();
+
+        var returnString = "";
+
+        for(var i = 1; i <= 4; i++){
+            var returnValue = await this.interlinkXor(i);
+            returnString += returnValue;
+        }
+
 
         await this.resetGraphics();
 
@@ -114,6 +237,8 @@ class Hash {
 }
 
 var hasher = new Hash();
+
+hasher.drawBits();
 
 function pauseFunction(){
 
