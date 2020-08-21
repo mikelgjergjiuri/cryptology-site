@@ -3,11 +3,11 @@ class Hash {
     constructor(){
         this.encoding = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789. ";
         this.pause = false;
-        this.reds = ["153,0,0", "204,0,0", "255,0,0", "255,51,51", "255,102,102", "255,153,153"];
-        this.blues = ["0,0,153", "0,0,204", "0,0,255", "51,51,255", "102,102,255", "153,153,255"];
-        this.greens = ["0,153,0", "0,204,0", "0,255,0", "51,255,51", "102,255,102", "153,255,153"];
-        this.aquas = ["0,153,153", "0,204,204", "0,255,255", "51,255,255", "102,255,255", "153,255,255"];
-        this.colors = [this.reds, this.blues, this.greens, this.aquas];
+        this.reds = ["254,152,203", "254,152,203", "254,102,102", "254,102,102", "254,0,0", "254,0,0"];
+        this.oranges = ["254,152,0", "254,152,0", "254,203,0", "254,203,0", "102,51,0", "102,51,0"];
+        this.greens = ["0,254,0", "0,254,0", "51,152,102", "51,152,102", "0,128,0", "0,128,0"];
+        this.blues = ["0,254,254", "0,254,254", "0,203,254", "0,203,254", "0,0,254", "0,0,254"];
+        this.colors = [this.reds, this.oranges, this.greens, this.blues];
     }
 
     async log(message){
@@ -44,6 +44,10 @@ class Hash {
             bits[i].style.color = "rgb(0,0,0)";
         }
         
+        var labels = document.querySelectorAll('[id*="-label-"]');
+        for(var i = 0; i < labels.length; i++){
+            labels[i].innerHTML = "";
+        } 
     }
 
     async drawBit(topPosition, leftPosition, name, column, bitNumber){
@@ -144,7 +148,7 @@ class Hash {
             var color_of_source_bit = this.colors[grabbing_from - 1][i-1];
             destination_bit.style.color = "rgb(" + color_of_source_bit + ")";
             destination_bit.innerHTML = source_bit.innerHTML;
-            bits += source_bit.innerHTML;
+            bits += source_bit.innerHTML[3];
             this.sleep();
             if(move_to_next){
                 grabbing_from = (grabbing_from % 4) + 1;
@@ -154,7 +158,7 @@ class Hash {
                 move_to_next = true;
             }
         }
-
+        
         document.getElementById("combined-label-" + index).innerHTML = '"' + this.encoding[parseInt(bits, 2)] + '"';
         
         var bits1 = await this.charToBits(document.getElementById("xored-label-" + index).innerHTML[1]);
@@ -186,13 +190,13 @@ class Hash {
             }
         }
 
-        await this.log("XORed " + bits1 + " and " + bits2);
-
-        
+        await this.log("XORed " + bits1 + " and " + bits2); 
 
         var returnChar = this.encoding[parseInt(returnValue.join(""), 2)];
 
         document.getElementById("output-label-" + index).innerHTML = '"' + returnChar + '"';
+
+        for(var i = 0; i < 12; i++) await this.sleep();
 
         return returnChar;
     }
@@ -201,6 +205,7 @@ class Hash {
         for(var i = 1; i <= 4; i++){
             for(var j = 1; j <= 6; j++){
                 var bit = document.getElementById("xored-" + i + "-bit-" + j);
+                bit.innerHTML = "<b>" + bit.innerHTML + "</b>";
                 bit.style.color = "rgb(" + this.colors[i-1][j-1] + ")";
                 await this.sleep();
             }
@@ -271,7 +276,6 @@ async function hashFunction(){
         permutations[i] = document.getElementById("permutation-" + (i+1)).value;
     }
     
-
     while(userInput.value != ""){
         var userInputString = userInput.value.slice(0,4);
         userInput.value = userInput.value.slice(4);
