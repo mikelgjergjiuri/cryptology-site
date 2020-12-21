@@ -1,0 +1,1042 @@
+---
+layout: default
+title: Transposition Demo
+---
+<script language="JavaScript">
+	
+	//***** ENCIPHERING *****//
+	
+	function update(form){					// breaks down the plaintext on the screen
+		var finaltext, keyvalue, textlength, i, boxvalue, boxchar, linelength, linepos;
+
+		if (form.key.value != "" && form.usertext.value != "") { // forces the user to enter in a key and plaintext
+
+			if (form.key.value == 2 || form.key.value == 3 || form.key.value == 4 || form.key.value == 5 || form.key.value == 6 || form.key.value == 7 || form.key.value == 8 || form.key.value == 9 || form.key.value == 10) {
+				keyvalue = form.key.value;			// grabs the user defined key value
+				finaltext = crunchtext(form);		// calls crunchtext() to shorten the plaintext
+				textlength = finaltext.length;
+				linelength = textlength / keyvalue;
+				linepos = 1;
+				i = 0;
+				boxvalue = 10;						// to help fill the boxes, starting at "box10"
+
+				while (boxvalue <= 89) {			// resets all the plaintext boxes to blanks
+					boxchar = "box";
+					boxchar = boxchar + boxvalue;
+					form[boxchar].value = "";
+					boxvalue = boxvalue + 1;
+				}
+				i = 0;
+				boxvalue = 10;
+
+				while (i < textlength){				// fills in the plaintext boxes on the page
+					boxchar = "box";
+					boxchar = boxchar + boxvalue;
+					form[boxchar].value = finaltext.charAt(i);
+
+					if (linepos < linelength) {		// correctly positions the letters in the appropriate boxes
+						boxvalue = boxvalue + 1;
+						linepos = linepos + 1;
+					}
+					else {
+						boxvalue = boxvalue + 21 - linelength;
+						linepos = 1;
+					}
+
+					i++;
+				} // end while
+				
+				form.plaintext.value = finaltext;
+				encipher(form);						// calls the enciphering functions
+
+			} // end if
+			else {
+				alert("Please enter in a key value of 2-10.");
+			} // end else
+
+		} //end if
+		else {
+		alert("Please enter in a key value and some plaintext.");
+		} //end else
+
+	} // end update()
+
+
+	function crunchtext(form)
+	{
+		var sometext, textlength, newtext, i, keyvalue;
+
+		sometext = form.usertext.value;		// grabs the user defined plaintext
+		sometext = sometext.toUpperCase();	// puts all the letters in uppercase
+		textlength = sometext.length;		// finds the length of the plaintext
+		i = 0;								// a counter variable
+		newtext = "";						// the result of cleaning out all non-letters from the key
+		keyvalue = form.key.value;			// grabs the user defined key value
+
+		while (i <= textlength){				// clean the key, leaves only the letters
+			if (sometext.charCodeAt(i) >= 65 && sometext.charCodeAt(i) <= 90){
+				newtext = newtext + sometext.charAt(i);
+			}
+		    i++;
+		}
+		textlength = newtext.length;
+
+		while (textlength % keyvalue != 0) {		// pads the plaintext with the letter "z" if necessary
+			newtext = newtext + "Z";
+			textlength = newtext.length;
+		}
+
+		if (textlength == 0) {
+			alert("Your plaintext contains no letters.  Please enter in a different plaintext.");
+		}
+
+		return newtext;
+
+	} // end crunchtext()
+
+
+	function encipher(form)
+	{
+		var encipheredtext = "";
+		var i = 1;
+		var j = 1;
+		var boxvalue = 10;
+		var boxchar = "box";
+
+		while (boxvalue <= 89 && j <= 20) {
+			boxchar = "box";
+			boxchar = boxchar + boxvalue;
+			if (form[boxchar].value != "") {
+				encipheredtext = encipheredtext + form[boxchar].value;
+			}
+			if (i == 4) {
+				boxvalue = 10 + j;
+				j++;
+				i = 0;
+			}
+			else {
+				boxvalue = boxvalue + 20;
+			}
+			i++;
+		} // end while
+		
+		form.ciphertext.value = encipheredtext;
+		form.usertext2.value = encipheredtext;		// for deciphering
+		form.key2.value = form.key.value;			// for deciphering
+
+	} // end encipher()
+	
+	
+	
+	//***** DECIPHERING *****//
+	
+	function update2(form){					// breaks down the plaintext on the screen
+		var finaltext, keyvalue, textlength, i, boxvalue, boxchar, j, linepos;
+
+		if (form.key2.value != "" && form.usertext2.value != "") { // forces the user to enter in a key and plaintext
+
+			if (form.key2.value == 2 || form.key2.value == 3 || form.key2.value == 4 || form.key2.value == 5 || form.key2.value == 6 || form.key2.value == 7 || form.key2.value == 8 || form.key2.value == 9 || form.key2.value == 10) {
+				keyvalue = form.key2.value;			// grabs the user defined key value
+				finaltext = crunchtext2(form);		// calls crunchtext() to shorten the plaintext
+				textlength = finaltext.length;
+				j = 1;;
+				linepos = 1;
+				i = 0;
+				boxvalue = 10;						// to help fill the boxes, starting at "box10"
+
+				while (boxvalue <= 89) {			// resets all the plaintext boxes to blanks
+					boxchar = "box";
+					boxchar = boxchar + boxvalue;
+					form[boxchar].value = "";
+					boxvalue = boxvalue + 1;
+				}
+				i = 0;
+				boxvalue = 10;
+
+				while (i < textlength){				// fills in the text boxes on the page
+					boxchar = "box";
+					boxchar = boxchar + boxvalue;
+					form[boxchar].value = finaltext.charAt(i);
+
+					if (linepos < keyvalue) {		// correctly positions the letters in the appropriate boxes
+						boxvalue = boxvalue + 20;
+						linepos = linepos + 1;
+					}
+					else {
+						boxvalue = 10 + j;
+						j++;
+						linepos = 1;
+					}
+
+					i++;
+				} // end while
+				
+				form.ciphertext.value = finaltext;
+				decipher(form);						// calls the enciphering functions
+
+			} // end if
+			else {
+				alert("Please enter in a key value of 2-10.");
+			} // end else
+
+		} //end if
+		else {
+		alert("Please enter in a key value and some ciphertext.");
+		} //end else
+
+	} // end update2()
+	
+	
+	function crunchtext2(form)
+	{
+		var sometext, textlength, newtext, i, keyvalue;
+
+		sometext = form.usertext2.value;		// grabs the user defined plaintext
+		sometext = sometext.toUpperCase();	// puts all the letters in uppercase
+		textlength = sometext.length;		// finds the length of the plaintext
+		i = 0;								// a counter variable
+		newtext = "";						// the result of cleaning out all non-letters from the key
+		keyvalue = form.key2.value;			// grabs the user defined key value
+
+		while (i <= textlength){				// clean the key, leaves only the letters
+			if (sometext.charCodeAt(i) >= 65 && sometext.charCodeAt(i) <= 90){
+				newtext = newtext + sometext.charAt(i);
+			}
+		    i++;
+		}
+		textlength = newtext.length;
+
+		while (textlength % keyvalue != 0) {		// pads the plaintext with the letter "z" if necessary
+			newtext = newtext + "Z";
+			textlength = newtext.length;
+		}
+
+		if (textlength == 0) {
+			alert("Your ciphertext contains no letters.  Please enter in a different ciphertext.");
+		}
+
+		return newtext;
+
+	} // end crunchtext2()
+	
+	
+	function decipher(form)
+	{
+		var decipheredtext = "";
+		var i = 1;
+		var j = 1;
+		var boxvalue = 10;
+		var boxchar = "box";
+
+		while (boxvalue <= 89 && j <= 20) {
+			boxchar = "box";
+			boxchar = boxchar + boxvalue;
+			if (form[boxchar].value != "") {
+				decipheredtext = decipheredtext + form[boxchar].value;
+			}
+
+			boxvalue = boxvalue + 1;
+
+		} // end while
+
+		form.plaintext.value = decipheredtext;
+		form.usertext.value = decipheredtext;		// for deciphering
+		form.key.value = form.key2.value;			// for deciphering
+
+	} // end decipher()
+	
+
+</script>
+
+<table width="933" height="884" border="0" cellpadding="0" ="0">
+
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Transposition Cipher Interactive Demo</p>
+      <p class="style8">
+      <form name="form1" method="post" onSubmit="return false">
+        <table width="100%" border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                <tr bgcolor="#CCCCCC">
+                  <td width="16%">
+                    <div align="center">
+                      <p class="style8"><strong>Key (2-10)</strong>
+                    </div>
+                  </td>
+                  <td width="56%">
+                    <div align="center">
+                      <p class="style8"><strong>Plaintext (up to 200 characters
+                      long, including spaces)</strong>
+                    </div>
+                  </td>
+                  <td width="28%">
+                    <div align="center">
+                      <p class="style8"><strong>Click to encipher the plaintext</strong>
+                    </div>
+                  </td>
+                </tr>
+                <tr bgcolor="#CCCCCC">
+                  <td width="16%">
+                    <div align="center">
+                      <p align="center"><input name="key" id="key" type="text" size="3" maxlength="2">
+                    </div>
+                  </td>
+                  <td width="56%">
+                    <div align="center">
+                      <p class="style8"><input name="usertext" id="usertext" type="text" size="50" maxlength="200"> 
+                    </div>
+                  </td>
+                  <td width="28%">
+                    <div align="center">
+                      <p align="center"><input type="submit" name="updatekey" value=" Encipher " onclick="update(this.form)">
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table width="100%" align="center">
+                <tr bgcolor="#EEEEEE">
+                  <td width="15%">
+                    <div align="center">
+                      <p class="style8"><strong>Plaintext</strong>
+                    </div>
+                  </td>
+                  <td width="85%">
+                    <div align="center">
+                      <p class="style8"><input name="plaintext" id="plaintext" type="text" size="85" maxlength="200" readonly>
+                    </div>
+                  </td>
+                </tr>
+                <tr bgcolor="#EEEEEE">
+                  <td>
+                    <p class="style8">&nbsp;</p>
+                  </td>
+                  <td align="right" colspan="2">
+                    <p class="style8">:: to be written horizontally across the
+                    scytale ::</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="style13">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td align="center">
+                    <p class="style8"><input name="box10" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box11" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box12" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box13" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box14" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box15" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box16" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box17" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box18" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box19" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box20" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box21" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box22" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box23" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box24" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box25" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box26" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box27" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box28" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box29" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                    <p class="style8"><input name="box30" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box31" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box32" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box33" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box34" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box35" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box36" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box37" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box38" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box39" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box40" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box41" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box42" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box43" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box44" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box45" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box46" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box47" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box48" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box49" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                    <p class="style8"><input name="box50" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box51" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box52" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box53" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box54" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box55" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box56" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box57" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box58" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box59" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box60" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box61" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box62" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box63" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box64" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box65" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box66" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box67" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box68" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box69" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                    <p class="style8"><input name="box70" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box71" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box72" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box73" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box74" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box75" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box76" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box77" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box78" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box79" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box80" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box81" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box82" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box83" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box84" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box85" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box86" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box87" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box88" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                  <td align="center">
+                    <p class="style8"><input name="box89" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+                </tr>
+				<tr>
+				  <td align="center">
+                    <p class="style8"><input name="box90" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box91" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box92" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box93" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box94" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box95" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box96" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box97" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box98" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box99" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box100" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box101" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box102" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box103" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box104" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box105" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box106" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box107" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box108" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box109" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				</tr>
+				<tr>
+				  <td align="center">
+                    <p class="style8"><input name="box110" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box111" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box112" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box113" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box114" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box115" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box116" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box117" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box118" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box119" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box120" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box121" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box122" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box123" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box124" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box125" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box126" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box127" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box128" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box129" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				</tr>
+				<tr>
+				  <td align="center">
+                    <p class="style8"><input name="box130" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box131" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box132" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box133" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box134" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box135" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box136" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box137" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box138" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box139" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box140" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box141" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box142" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box143" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box144" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box145" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box146" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box147" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box148" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box149" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				</tr>
+				<tr>
+				  <td align="center">
+                    <p class="style8"><input name="box150" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box151" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box152" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box153" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box154" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box155" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box156" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box157" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box158" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box159" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box160" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box161" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box162" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box163" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box164" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box165" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box166" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box167" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box168" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box169" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				</tr>
+				<tr>
+				  <td align="center">
+                    <p class="style8"><input name="box170" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box171" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box172" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box173" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box174" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box175" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box176" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box177" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box178" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box179" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box180" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box181" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box182" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box183" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box184" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box185" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box186" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box187" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box188" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box189" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				</tr>
+				<tr>
+				  <td align="center">
+                    <p class="style8"><input name="box190" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box191" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box192" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box193" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box194" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box195" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box196" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box197" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box198" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box199" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box200" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box201" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box202" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box203" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box204" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box205" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box206" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box207" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box208" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				  <td align="center">
+                    <p class="style8"><input name="box209" type="text" size="1" maxlength="1" readonly></p>
+                  </td>
+				</tr>
+                <tr bgcolor="#EEEEEE">
+                  <td align="right" colspan="20">
+                    <p class="style8">:: the scytale with the paper on it ::</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table width="100%" align="center">
+                <tr bgcolor="#EEEEEE">
+                  <td width="15%">
+                    <div align="center">
+                      <p class="style8"><strong>Ciphertext</strong>
+                    </div>
+                  </td>
+                  <td width="85%">
+                    <div align="center">
+                      <p class="style8"><input name="ciphertext" id="ciphertext" type="text" size="85" maxlength="200" readonly>
+                    </div>
+                  </td>
+                </tr>
+                <tr bgcolor="#EEEEEE">
+                  <td>
+                    <p class="style8">&nbsp;</p>
+                  </td>
+                  <td align="right" colspan="2">
+                    <p class="style8">:: the paper when removed from the scytale
+                    ::</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                <tr bgcolor="#CCCCCC">
+                  <td width="16%">
+                    <div align="center">
+                      <p class="style8"><strong>Key (2-10)</strong>
+                    </div>
+                  </td>
+                  <td width="55%">
+                    <div align="center">
+                      <p class="style8"><strong>Ciphertext (up to 200 characters
+                      long, including spaces)</strong>
+                    </div>
+                  </td>
+                  <td width="29%">
+                    <div align="center">
+                      <p class="style8"><strong>Click to decipher the ciphertext</strong>
+                    </div>
+                  </td>
+                </tr>
+                <tr bgcolor="#CCCCCC">
+                  <td width="16%">
+                    <div align="center">
+                      <input name="key2" id="key2" type="text" size="3" maxlength="2">
+                    </div>
+                  </td>
+                  <td width="55%">
+                    <div align="center">
+                      <p class="style8"><input name="usertext2" id="usertext2" type="text" size="50" maxlength="200">
+                    </div>
+                  </td>
+                  <td width="29%">
+                    <div align="center">
+                      <p align="center"><input type="submit" name="decipher" value=" Decipher " onclick="update2(this.form)">
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div align="center">
+                <p align="center"><input type="reset" name="clear" value="   Clear   ">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </td>
+
+  </tr>
+
+</table>

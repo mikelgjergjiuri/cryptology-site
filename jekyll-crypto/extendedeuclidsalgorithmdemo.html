@@ -1,0 +1,176 @@
+---
+layout: default
+title: Extended Euclids Algorithm Demo
+---
+<script language="JavaScript">
+	
+	function extended(form)
+	{
+		var origU, origV, q, ans;
+		var u = new Array(); //array of u values
+		var v = new Array(); //array of v values
+		var r = new Array(); //array of remainder values
+
+		ans = ""; //giving our output an initial value
+		//store the original u and v values so we can display the remainders in terms of them
+		origU = eval(form.gcd1.value);
+		origV = eval(form.gcd2.value);
+		
+		//default starting values for u and v
+		u[0] = Math.abs(origU); //first number user entered
+		u[1] = 1; //number is itself times 1
+		u[2] = 0; //plus none of the second number
+		
+		v[0] = Math.abs(origV); //second number user entered
+		v[1] = 0; //plus none of the first number
+		v[2] = 1; //number is itself times 1
+		
+		while(v[0] != 0)
+		{
+			q = Math.floor(u[0] / v[0]); //how many times (integer) v goes into u
+			
+			//finds the remainders
+			r[0] = u[0] - (q*v[0]);
+			r[1] = u[1] - (q*v[1]);
+			r[2] = u[2] - (q*v[2]);
+			
+			//prints greatest common denominator with the values were using for this step, then prints an line
+			ans = ans + "gcd(" + u[0] + ", " + v[0] + ")";
+			ans = ans + "\r\n";
+			//prints what the remainder is equal to, in terms of u and v, then prints an emptly line
+			ans = ans + r[0]+" = " + u[0] + " - " + q + "*" + v[0];
+			ans = ans + "\r\n";
+			
+			//only want print the remainder in terms of original u and v if we're not done. no need to see math when it equals zero
+			if(r[0] != 0)
+			{
+				//prints what the remainder is equal to, in terms of u and v with regards to the original u and original v, then prints an emtpy line
+				ans = ans + r[0] + " = (";
+				ans = ans + u[1] + "*" + origU + " + " + u[2] + "*" + origV + ") - " + q + "(";
+				ans = ans + v[1] + "*" + origU + " + " + v[2] + "*" + origV + ")";
+				ans = ans + "\r\n";
+				//simplifies so it's easier for the user to read
+				ans = ans + r[0] + " = (";
+				ans = ans + (u[1]-(q*v[1])) + "*" + origU + ") + (" + (u[2]-(q*v[2])) + "*" + origV + ")";
+				ans = ans + "\r\n";
+			}
+			//we're done, print the stuff that we only want to print once we're done
+			else
+			{
+				//print what the gcd is
+				ans = ans+"The Greatest Common Denominator is: ";
+				ans = ans+v[0];
+				ans = ans+"\r\n"; //new line
+				
+				//if the gcd is one, then tell the user that the numbers are relatively prime
+				if(u[0] == 1)
+				{
+					ans = ans+"These numbers are relatively prime."; //output that they are relatively prime
+					ans = ans+"\r\n"; //new line
+				}
+				//if not relaitvely prime, print u and v values
+				else
+				{
+					ans = ans + "The final u and v values are: " + v[1] + " and " + v[2];
+				}	
+			}
+			
+			//u is now equal to what v was equal to
+			u[0] = v[0];
+			u[1] = v[1];
+			u[2] = v[2];
+			//v is now equal to what the remainder was equal to
+			v[0] = r[0];
+			v[1] = r[1];
+			v[2] = r[2];
+		}
+		
+		
+		//output
+		form.result.value = ans; 
+	}
+		
+	
+</script>
+
+<table width="933" height="884" border="0" cellpadding="0" ="0">
+
+      <div align="center" class="style5 style14">
+        <p class="style5">Extended Euclid's Algorithm Demo</div></td>
+  
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Extended Euclid's Algorithm Interactive Demo</p>
+      <form name="form1" method="post" onSubmit="return false">
+        <table width="100%" border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td>
+              <p class="style9">Step 1. Enter the
+              integers</p>
+              <p class="style8">Please enter the two numbers for which you'd like to find the
+			  greatest common denominator</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table width="60%" border="0" cellspacing="1" cellpadding="5">
+                <tr bgcolor="#CCCCCC">
+                  <td width="10%">
+                    <div align="right">
+                      <p class="style8"><strong>GCD:</strong>
+                    </div>
+                  </td>
+                  <td width="90%">
+                    <p class="style8"><input name="gcd1" type="text" id="gcd1" size="5"><input name="gcd2" type="text" id="gcd2" size="5">
+                    &nbsp;&nbsp;&nbsp; <input type="submit" name="start" value="  Start  " onclick="extended(this.form)"></p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+		  
+		  
+		 
+		  <tr>
+            <td>
+              <p class="style9">Step 2.
+              Step Through the Algorithm</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                <tr>
+                  <td>
+                    <div align="left">
+                      <p class="style8"><strong>Steps</strong>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="50%">
+                    <div align="left">
+					  <p><textarea name="result" rows="20" wrap="VIRTUAL" id="result" cols="50"></textarea>
+                    </div>
+                  </td>
+                </tr>
+			  </table>
+			</td>
+		  </tr>
+		</table>
+	  </form>
+
+    </td>
+
+  </tr>
+
+</table>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>
+

@@ -1,0 +1,468 @@
+---
+title: Affine Cipher Demo
+layout: default
+---
+
+<script language="JavaScript">
+
+	function Mod(a, b) {
+		return a-Math.floor(a/b)*b
+	}
+
+	function getGCD(x, y)
+	{
+		var w;
+		while (y != 0) {
+			w = x % y;
+			x = y;
+			y = w;
+		}
+		return x;
+	}
+	
+	function update(form)
+	{
+		var index, firstchar, a, b, y, x, translate;
+		translate = true;
+
+		//	Verify the keys
+		var somea = form.multipler.value;
+		var someb = form.shifter.value;
+		
+		
+		if (isNaN(somea) == true || somea == "" || isNaN(someb) == true || someb == "" ){
+			translate = false;
+			alert("Please enter valid multipher and shifer, then click on Update button.");
+		}
+		
+		a = eval(form.multipler.value);
+		b = eval(form.shifter.value);
+
+		// Check if inverse exist
+		if (translate)
+			if (getGCD(a, 26) != 1) {
+				translate = false;
+				alert("Invalid key: No inverse exists");
+			}
+
+		// Update the corresponding letters
+		if (translate) {
+			firstchar = "A";
+			var firstindex = firstchar.charCodeAt(0);
+			
+			for (i = 0; i < 26; i++) {
+				y = i * a + b;
+				y = y % 26;
+				form[i+3].value = String.fromCharCode(firstindex + y);
+			}
+		}
+		else {
+			for (i = 0; i < 26; i++) {
+				form[i+3].value = "";
+			}
+		}
+			
+	}
+	
+	function encipher(form)
+	{
+		var ans, text, len, index, a, b, y, x, translate;
+	
+		ans = "";		
+		text = form.plaintext.value;
+		text = text.toUpperCase();
+		len = text.length;
+		translate = true;
+
+		var firstchar = "A", lastchar = "Z";
+		var firstindex = firstchar.charCodeAt(0);
+		
+		//	Verify the keys
+		var somea = form.multipler.value;
+		var someb = form.shifter.value;
+		if (isNaN(somea) == true || somea == "" || isNaN(someb) == true || someb == "" ){
+			translate = false;
+			alert("Please enter valid multipher and shifer, then click on Update button.");
+		}
+		// Then, we initial values a and b
+		a = eval(form.multipler.value);
+		b = eval(form.shifter.value);
+
+		// Check if inverse exist
+		if (translate)
+			if (getGCD(a, 26) != 1) {
+				translate = false;
+				alert("Invalid key: No inverse exists");
+			}
+		
+		if (translate) {
+			for (i = 0; i < len; i++)
+			{
+				//encrypt letter
+				if (text.charCodeAt(i) >= firstchar.charCodeAt(0) && text.charCodeAt(i) <= lastchar.charCodeAt(0)) {
+					index = text.charCodeAt(i) - firstindex;
+					y = index * a + b;
+					y = y % 26;
+					ans += String.fromCharCode(firstindex + y);
+				}
+			}
+		}
+		form.ciphertext.value = ans;
+	}
+
+	function decipher(form)
+	{
+		var ans, text, len, index, a, b, y, x, translate;
+	
+		ans = "";
+		text = form.ciphertext.value;
+		text = text.toUpperCase();
+		len = text.length;
+		translate = true;
+
+		var firstchar = "A", lastchar = "Z";
+		var firstindex = firstchar.charCodeAt(0);
+
+		//	Verify the keys
+		var somea = form.multipler.value;
+		var someb = form.shifter.value;
+		if (isNaN(somea) == true || somea == "" || isNaN(someb) == true || someb == "" ){
+			translate = false;
+			alert("Please enter valid multipher and shifer, then click on Update button.");
+		}
+		// Then, we initial values a and b
+		a = eval(form.multipler.value);
+		b = eval(form.shifter.value);
+		
+		// Check if inverse exist
+		if (translate)
+			if (getGCD(a, 26) != 1) {
+				translate = false;
+				alert("Invalid key: No inverse exists");
+			}
+		
+		if (translate) {	
+			// Compute inverse of a
+			var j = 0;
+			var inverse = 0;
+			while(true) {
+				if ((26*j+1)%a == 0) {
+					inverse = (26*j+1)/a;
+					break;
+				}
+				else {j++}
+			}
+			a = inverse;
+			
+			for (i = 0; i < len; i++)
+			{
+				//decrypt letter
+				if (text.charCodeAt(i) >= firstchar.charCodeAt(0) && text.charCodeAt(i) <= lastchar.charCodeAt(0)) {
+					index = text.charCodeAt(i) - firstindex;
+					//a = (1/a) % 26;
+					x = a * (index - b);
+					x = Mod(x, 26);
+					ans += String.fromCharCode(firstindex + x);
+				}
+			}
+		}
+		form.plaintext.value = ans;
+	}
+	
+</script>
+
+
+
+<table width="933" height="884" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Affine Cipher Interactive Demo</p>
+      <br>
+      <form name="affineform" method="post" onSubmit="return false">
+        <table width="100%" border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td class="style8">
+              <p class="style9">Step1. Enter the key</p>
+              <p class="style8">Please enter key here:</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="style8">
+              <table width="60%" border="0" cellspacing="1" cellpadding="5" height="130">
+                <tr>
+                  <td bgcolor="#CCCCCC" height="29">
+                    <p class="style11"><strong>Multiplier:</strong></p>
+                  </td>
+                  <td bgcolor="#CCCCCC" height="29"><input name="multipler" type="text" id="multipler" size="5"></td>
+                </tr>
+                <tr>
+                  <td bgcolor="#CCCCCC" height="38">
+                    <p class="style11"><strong>Shift:</strong></p>
+                  </td>
+                  <td bgcolor="#CCCCCC" height="38"><input name="shifter" type="text" id="shifter" size="5"></td>
+                </tr>
+                <tr>
+                  <td width="10%" bgcolor="#CCCCCC" height="27">
+                    <div align="right">
+                    </div>
+                  </td>
+                  <td width="90%" bgcolor="#CCCCCC" height="27"><input name="updatekey" type="submit" id="updatekey" value="  Update  " onclick="update(this.form)"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="style8">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="style8">Corresponding alphabets are produced based on the
+              entered key:</td>
+          </tr>
+          <tr>
+            <td class="style8">
+              <table width="100%" border="0" cellspacing="1" cellpadding="0" height="54">
+                <tr bgcolor="#999999">
+                  <td width="9%" class="style11" height="25">Plaintext
+                    Alphabet</font></strong></td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      A
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      B
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      C
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      D
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      E
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      F
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      G
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      H
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      I
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      J
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      K
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      L
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      M
+                    </div>
+                  </td>
+                </tr>
+                <tr bgcolor="#EEEEEE">
+                  <td class="style11" height="25">Ciphertext
+                    Alphabet</font></strong></td>
+                  <td class="style13" height="25"><input name="boxa" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxb" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxc" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxd" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxe" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxf" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxg" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxh" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxi" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxj" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxk" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxl" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxm" type="text" size="1" maxlength="1" align="center" readonly></td>
+                </tr>
+              </table>
+              <br>
+              <table width="100%" border="0" cellspacing="1" cellpadding="0" height="54">
+                <tr bgcolor="#999999">
+                  <td width="9%" class="style11" height="25">Plaintext
+                    Alphabet</font></strong></td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      N
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      O
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      P
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      Q
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      R
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      S
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      T
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      U
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      V
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      W
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      X
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      Y
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="25">
+                    <div align="center">
+                      Z
+                    </div>
+                  </td>
+                </tr>
+                <tr bgcolor="#EEEEEE">
+                  <td class="style11" height="25"><strong><font color="#000033">Ciphertext
+                    Alphabet</font></strong></td>
+                  <td class="style13" height="25"><input name="boxn" type="text" size="1" maxlength="1" align="center"></td>
+                  <td class="style13" height="25"><input name="boxo" type="text" size="1" maxlength="1" align="center"></td>
+                  <td class="style13" height="25"><input name="boxp" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxq" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxr" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxs" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxt" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxu" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxv" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxw" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxx" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxy" type="text" size="1" maxlength="1" align="center" readonly></td>
+                  <td class="style13" height="25"><input name="boxz" type="text" size="1" maxlength="1" align="center" readonly></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="style8">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="style8">
+              <p class="style9">Step2. Encipher/Decipher</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="style8">
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                <tr>
+                  <td>
+                    <div align="center">
+                      <p class="style11"><strong>Plaintext</strong>
+                    </div>
+                  </td>
+                  <td>
+                    <div align="center">
+                      <p class="style11"><strong>Ciphertext</strong>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="50%">
+                    <div align="center">
+                      <textarea name="plaintext" rows="6" wrap="VIRTUAL" cols="20"></textarea>
+                    </div>
+                  </td>
+                  <td width="50%">
+                    <div align="center">
+                      <textarea name="ciphertext" rows="6" wrap="VIRTUAL" id="ciphertext" cols="20"></textarea>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="50%">
+                    <div align="center">
+                      <input name="decrypt" type="submit" id="encrypt" onclick="encipher(this.form)" value="Encrypt Plaintext">
+                    </div>
+                  </td>
+                  <td width="50%">
+                    <div align="center">
+                      <input name="decrypt" type="submit" id="decrypt" onclick="decipher(this.form)" value="Decrypt Ciphertext">
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="style8">
+              <div align="center">
+                <input name="clearform" type="reset" id="clearform" value="   Clear   ">
+              </div>
+            </td>
+          </tr>
+        </table>
+      </form>
+
+      <p class="style12">&nbsp;</p>
+    </td>
+
+  </tr>
+</table>

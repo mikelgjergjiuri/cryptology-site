@@ -1,0 +1,178 @@
+---
+layout: default
+title: Euclid's Algorithm Demo
+---
+<script language="JavaScript">
+	
+	function update(form)
+	{
+		var ans, gcd1, gcd2; //declaring variables
+
+		
+		// Verify the num
+		/*var somekey = form.num.value;
+		if (isNaN(somekey) == true){
+			alert("Please enter a valid num and then click on Update button.");
+		}*/
+		
+		
+		//get the values from the input boxes
+		gcd1 = eval(form.gcd1.value);
+		gcd2 = eval(form.gcd2.value);
+		
+		//get the absolute value
+		gcd1 = Math.abs(gcd1);
+		gcd2 = Math.abs(gcd2);
+		
+		//output the first gcd(m, n) statement
+		ans = "gcd(";
+		ans = ans+gcd1;
+		ans = ans+", ";
+		ans = ans+gcd2;
+		ans = ans+")";
+		ans = ans+"\r\n";
+		
+		//calculate the value of the greatest common denominator with the numbers entered by the user
+		calculate(form, gcd1, gcd2, ans);
+	}
+	
+	//this function calculates the value of the greatest common denominator recursively and
+	//outputs each calculation done
+	function calculate(form, gcd1, gcd2, ans)
+	{
+		var u, v, temp; //declaring variables
+		
+		//just to make it a little easier to read by using u and v
+		u = gcd1;
+		v = gcd2;
+		//stores the value of u mod v
+		temp = u%v;
+		
+		//if v is zero we are done. output the value of the greatest common denominator
+		if(v == 0)
+		{
+			ans = ans+"The Greatest Common Denominator is: ";
+			ans = ans+u;
+			form.result.value = ans;
+			
+			//if the gcd is one, then tell the user that the numbers are relatively prime
+			if(u == 1)
+			{
+				ans = ans+"\r\n"; //new line
+				ans = ans+"These numbers are relatively prime."; //output that they are relatively prime
+				form.result.value = ans; //give output to textbox
+			}
+		}
+		//otherwise output the result of the mod calculation, and output the next gcd to calculate, and
+		//call the method again with the new values of u and v
+		else
+		{
+			//outputing mod statement
+			/*
+			ans = ans+u;
+			ans = ans+" mod ";
+			ans = ans+v;
+			ans = ans+" is ";
+			ans = ans+(u%v);
+			ans = ans+"\r\n"; //new line
+			*/
+			//outputing the next gcd calculation to compute
+			ans = ans+"gcd(";
+			ans = ans+v;
+			ans = ans+", ";
+			ans = ans+temp;
+			ans = ans+")";
+			ans = ans+"\r\n"; //new line
+			//give the output to the textbox
+			form.result.value = ans;
+			//recursively call the calculate method with new values of u and v
+			calculate(form, v, temp, ans);
+		}
+	}
+	
+	
+	
+</script>
+
+<table width="933" height="884" border="0" cellpadding="0" ="0">
+
+      <div align="center" class="style5 style14">
+        <p class="style5">Euclid's Algorithm Demo</div></td>
+
+  </tr>
+
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="5" width="752"> <div align="left"><font color="#FF6600"><img src="Images/linespacer.gif" width="750" height="16"> </font></div></td>
+
+  </tr>
+  
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Euclid's Algorithm Interactive Demo</p>
+      <form name="form1" method="post" onSubmit="return false">
+        <table width="100%" border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td>
+              <p class="style9">Step 1. Enter the
+              integers</p>
+              <p class="style8">Please enter the two numbers for which you'd like to find the
+			  greatest common denominator</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table width="60%" border="0" cellspacing="1" cellpadding="5">
+                <tr bgcolor="#CCCCCC">
+                  <td width="10%">
+                    <div align="right">
+                      <p class="style8"><strong>GCD:</strong>
+                    </div>
+                  </td>
+                  <td width="90%">
+                    <p class="style8"><input name="gcd1" type="text" id="gcd1" size="5"><input name="gcd2" type="text" id="gcd2" size="5">
+                    &nbsp;&nbsp;&nbsp; <input type="submit" name="start" value="  Start  " onclick="update(this.form)"></p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+		  
+		  
+		 
+		  <tr>
+            <td>
+              <p class="style9">Step 2.
+              Step Through the Algorithm</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                <tr>
+                  <td>
+                    <div align="left">
+                      <p class="style8"><strong>Steps</strong>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="50%">
+                    <div align="left">
+					  <p><textarea name="result" rows="20" wrap="VIRTUAL" id="result" cols="50"></textarea>
+                    </div>
+                  </td>
+                </tr>
+			  </table>
+			</td>
+		  </tr>
+		</table>
+	  </form>
+
+    </td>
+
+  </tr>
+
+</table>

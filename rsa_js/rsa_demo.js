@@ -105,8 +105,8 @@ function encode(){
     
     // chunk text into blocks of keySize
     var text = document.getElementById("encode-text").value
-    if(text.indexOf(";") > -1){
-        text = text.split(";");
+    if(text.indexOf("/") > -1){
+        text = text.split("/");
     }
     else{
         text = text.match(new RegExp('.{1,' + keySize + '}', 'g'));
@@ -173,7 +173,7 @@ function decode(){
         while(tempString.length < keySize){
             tempString += " ";
 	}
-        str += tempString + ";";
+        str += tempString + "/";
     }
 
     //remove trailing semicolon
@@ -181,7 +181,7 @@ function decode(){
     
     //remove all semicolons if all blocks are of valid keysize, indicating that a valid block of text is entered
     const matchesKeySize = (substring) => substring.length === keySize; 
-    if(str.split(";").every(matchesKeySize)) str = str.split(";").join("");
+    if(str.split("/").every(matchesKeySize)) str = str.split("/").join("");
 
     document.getElementById("encode-text-2").value = str;
     

@@ -1,0 +1,118 @@
+---
+layout: default
+title: Modular Arithmetic Demo
+---
+<script language="JavaScript">
+	
+	//computes the modular addition
+	function update(form)
+	{
+		var ma1, ma2, ma3, ma4; //declaring variables
+
+		
+		// Verify the num
+		/*var somekey = form.num.value;
+		if (isNaN(somekey) == true){
+			alert("Please enter a valid num and then click on Update button.");
+		}*/
+		
+		
+		//get the values from the input boxes
+		ma1 = eval(form.ma1.value);
+		ma2 = eval(form.ma2.value);
+		ma3 = eval(form.ma3.value);
+		
+		//calculating answers
+		ma4 = (ma1 + ma2) % ma3;
+		
+		//updating values
+		form.ma4.value = ma4;
+	}
+	
+	//computes the modular multiplication
+	function update2(form)
+	{
+		var ma5, ma6, ma7, ma8; //declaring variables
+
+		
+		// Verify the num
+		/*var somekey = form.num.value;
+		if (isNaN(somekey) == true){
+			alert("Please enter a valid num and then click on Update button.");
+		}*/
+		
+		
+		//get the values from the input boxes
+		ma5 = eval(form.ma5.value);
+		ma6 = eval(form.ma6.value);
+		ma7 = eval(form.ma7.value);
+		
+		//calculating answers
+		ma8 = (ma5 * ma6) % ma7;
+		
+		//updating values
+		form.ma8.value = ma8;
+	}
+		
+	
+</script>
+
+<table width=745 border=0 cellpadding=0 cellspacing=0 height="51">
+
+  <tr> 
+
+      <div align="center" class="style5 style14">
+        <p class="style5">Modular Arithmetic</div></td>
+
+  </tr>
+  
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Modular Addition and Multiplication</p>
+      <form name="form1" method="post" onSubmit="return false">
+        <table width="100%" border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td>
+              <p class="style9">Step 1. Enter the
+              integers</p>
+              <p class="style8">Please enter the integers on which to perform the modular arithmetic</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table width="70%" border="0" cellspacing="1" cellpadding="5">
+                <tr bgcolor="#CCCCCC">
+                  <td width="90%">
+                    <p class="style8"><input name="ma1" type="text" id="ma1" size="5"> +
+					<input name="ma2" type="text" id="ma2" size="5"> mod
+					<input name="ma3" type="text" id="ma3" size="5"> =
+					<input name="ma4" type="text" id="ma4" size="5">
+                    &nbsp;&nbsp;&nbsp; <input type="submit" name="compute1" value="  Compute  " onclick="update(this.form)"></p>
+					
+					<p class="style8"><input name="ma5" type="text" id="ma5" size="5"> *
+					<input name="ma6" type="text" id="ma6" size="5"> mod
+					<input name="ma7" type="text" id="ma7" size="5"> =
+					<input name="ma8" type="text" id="ma8" size="5">
+                    &nbsp;&nbsp;&nbsp; <input type="submit" name="compute2" value="  Compute  " onclick="update2(this.form)"></p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+		</table>
+	  </form>
+
+    </td>
+
+  </tr>
+
+</table>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>
+

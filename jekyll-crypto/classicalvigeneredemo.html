@@ -1,0 +1,160 @@
+---
+layout: default
+title: Classical Vigenere Demo
+---
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function Encode (text){
+  var i, j=0, t, uc, et=new Array(), k;
+  t=""+text+"";
+  for(i=0; i<(t.length); i++){
+    uc = t.charCodeAt(i);
+    if(uc >= 97 && uc <= 122){k = uc-97; et[j]=k; j++;}
+	if(uc >= 65 && uc <= 90){k= uc-65; et[j] = k; j++;}}
+  return et;	
+}
+
+function Vigenere_encipher(key, text){
+   var i, j, kl, k, t, vt = new Array(), eta = new Array(), et, s;
+   k = Encode(key);
+   t = Encode(text);
+   kl = k.length;
+   //initialize Vigenere table
+   for (i=0; i < 26; i++) {   
+     vt[i] = new Array(26)   
+	 for (j=0; j < 26; j++) {vt[i][j] = (i+j) % 26;}}
+   //enciphering with the keyword
+   if(kl>1){	 
+   j=0;
+   //vorking w/Vigenere table to encipher message
+   for(i=0; i<(t.length); i++){
+     eta[i]= vt[k[j]][t[i]] + 65;
+	 if (j == kl-1){j=0}
+	 else j++;}}
+   //enciphering w/autokey
+   else{
+     for(i=0; i<(t.length); i++){eta[i]= vt[k[0]][t[i]] + 65; k[0]=t[i];}}	 
+   //convert from Unicode to character presentation 
+   et = "";
+   for(i=0; i<(eta.length); i++){et = et + String.fromCharCode(eta[i]);}
+   //document.vigenere.output.value = et;
+   return(et); 
+}
+
+function Vigenere_decipher(key, text){
+   var i, j, kl, k, t, vt = new Array(), eta = new Array(), et, c;
+   k = Encode(key);
+   t = Encode(text);
+   kl = k.length;
+   //initialize Vigenere table
+   for (i=0; i < 26; i++) {   
+     vt[i] = new Array(26)   
+	 for (j=0; j < 26; j++) {vt[i][j] = (i+j) % 26}}
+   j=0;
+   //deciphering with the keyword
+   if (kl > 1){
+   //vorking w/Vigenere table to decipher message
+   for(i=0; i<(t.length); i++){
+     for(c=0; c<26; c++){
+	   if(vt[k[j]][c]==t[i]){
+	     eta[i] = c+97;
+		 if (j == kl-1){j=0}
+	     else j++;
+		 break;}}}}
+   //enciphering w/ autokey
+   else{
+     for(i=0; i<(t.length); i++){
+     for(c=0; c<26; c++){
+	   if(vt[k[0]][c]==t[i]){
+	     eta[i] = c+97;
+		 k[0]=c;
+		 break;}}}}		 
+   //convert from Unicode to character presentation 
+   et = "";
+   for(i=0; i<(eta.length); i++){et = et + String.fromCharCode(eta[i])}
+   //document.vigenere.output.value = et; 
+   return(et);	    
+}   
+//-->
+</script>
+<table width="933" height="884" border="0" cellpadding="0" cellspacing="0">
+
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Vigenere Cipher Interactive Demo</p>
+      <br>
+      <p class="style9">&nbsp;Step1.
+      Type your keyword or autokey (characters only) into the 'Keyword' box.</p>
+      <form action method="post" name="vigenere" id="vigenere">
+        <table width="766" border="0" cellpadding="0" cellspacing="0" class="textstyle" height="541">
+          <tr>
+            <td align="center" width="750" height="491">
+              <table width="330" border="0" cellpadding="0" cellspacing="0" class="textstyle">
+                <tr>
+                  <td width="62">
+                    <p class="style11"><strong>Keyword&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+                  </td>
+                  <td width="268">
+                    <p class="style9"><input name="keyword" type="text" class="textstyle" id="keyword" size="35"></p>
+                  </td>
+                </tr>
+              </table>
+              <p align="left" class="style9">Step 2.Encipher/Decipher
+              <div align="center">
+                <center>
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" height="226">
+                <tr>
+                  <td width="50%" align="center" height="32">
+                    <p class="style11" align="center">Plaintext</td>
+                  <td width="50%" height="32">
+                    <p class="style11">Ciphertext</td>
+                </tr>
+                <tr>
+                  <td width="50%" height="157"><textarea name="input" cols="27" rows="7" wrap="VIRTUAL" class="textstyle" id="input"></textarea>
+                  </td>
+                  <td width="50%" height="157">
+              <textarea name="output" cols="27" rows="7" wrap="VIRTUAL" class="textstyle" id="output"></textarea></td>
+                </tr>
+                <tr>
+                  <td width="50%" height="37"><input type="button" name="Encipher" id="Encipher" value="Encrypt Plaintext" onClick="form.output.value=Vigenere_encipher(form.keyword.value, form.input.value)"></td>
+                  <td width="50%" height="37"><input type="button" name="Decipher" id="Decipher" value="Decrypt Ciphertext" onClick="form.input.value=Vigenere_decipher(form.keyword.value, form.output.value)"></td>
+                </tr>
+              </table>
+                </center>
+              </div>
+              <table width="280" border="0" cellpadding="0" cellspacing="0" class="textstyle">
+                <tr>
+                  <td width="50"></td>
+                  <td width="70"></td>
+                  <td width="40">&nbsp;</td>
+                  <td width="70"><input type="button" name="Clear" id="Clear" value="Clear" onClick="form.input.value='', form.output.value='', form.keyword.value=''"></td>
+                  <td width="50">&nbsp;</td>
+                  <td width="70"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </form>
+
+      <p class="style12">&nbsp;</p>
+    </td>
+
+  </tr>
+
+</table></td>
+
+  </tr>
+
+  <tr>
+
+							<td valign="top" height="158" width="767">
+
+    </td>
+
+  </tr>
+
+</table>
