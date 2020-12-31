@@ -4,141 +4,55 @@
 - name: Introduction
   link: /intro.html
   sublink: []
-- name: Modular Arithmetic
-  link: modular-arithmetic
+- name: Number Theory
+  link: number-theory
   sublink:
     - name: Modular Arithmetic
-      link: modulararithmetic.html
-    - name: Modular Arithmetic Demo
-      link: modulararithmeticdemo.html
-- name: Euclid's Algorithm
-  link: euclids-algorithm
-  sublink:
+      link: /number-theory/modular-arithmetic/demo.html
     - name: Euclid's Algorithm
-      link: euclidsalgorithm.html
-    - name: Euclid's Algorithm Demo
-      link: euclidsalgorithmdemo.html
-    - name: Extended Euclid's Algorithm Demo
-      link: extendedeuclidsalgorithmdemo.html
-- name: Fermat's Little Theorem
-  link: fermat.html
-  sublink: []
-- name: Classical Ciphers Introduction
-  link: classical.html
-  sublink: []
-- name: Shift Cipher
-  link: shift-cipher
+      link: /number-theory/euclids-algorithm/demo.html
+    - name: Extended Euclid's Algorithm
+      link: /number-theory/extended-euclids-algorithm/demo.html
+    - name: Fermat's Little Theorem
+      link: /number-theory/fermats-little-theorem/fermat.html
+- name: Classical Ciphers
+  link: classical-ciphers
   sublink:
     - name: Shift Cipher
-      link: classicalshift.html
-    - name: Shift Cipher Demo
-      link: classicalshiftdemo.html
-- name: Affine Cipher
-  link: affine-cipher
-  sublink:
+      link: /classical-ciphers/shift/demo.html
     - name: Affine Cipher
-      link: classicalaffine.html
-    - name: Affine Cipher Demo
-      link: classicalaffinedemo.html
-- name: Substitution Cipher
-  link: substitution-cipher
-  sublink:
+      link: /classical-ciphers/affine/demo.html
     - name: Substitution Cipher
-      link: classicalsubstitution.html
-    - name: Substitution Cipher Demo
-      link: classicalsubstitutiondemo.html
-    - name: Substitution Cryptanalysis Demo
+      link: /classical-ciphers/substitution/demo.html
+    - name: Substitution Cryptanalysis
+      link: /classical-ciphers/substitution/cryptanalysis-demo.html
       link: substitutiondecrypt.html
-- name: Transposition Cipher
-  link: transposition-cipher
-  sublink:
     - name: Transposition Cipher
-      link: classicaltransposition.html
-    - name: Transposition Cipher Demo
       link: classicaltranspositiondemo.html
-- name: Hill Cipher
-  link: hill-cipher
-  sublink:
+      link: /classical-ciphers/transposition/demo.html
     - name: Hill Cipher
-      link: classicalhill.html
-    - name: Hill Cipher Demo
-      link: classicalhilldemo.html
-- name: Vigenere Cipher
-  link: vigenere-cipher
-  sublink:
+      link: /classical-ciphers/hill/demo.html
     - name: Vigenere Cipher
-      link: classicalvigenere.html
-    - name: Vigenere Cipher Demo
       link: classicalvigeneredemo.html
+      link: /classical-ciphers/vigenere/demo.html
     - name: Vigenere Cryptanalysis
-      link: classicalvigenerecrypt.html
-    - name: Vigenere Cryptanalysis Demo
       link: classicalvigenerecryptdemo.html
+      link: /classical-ciphers/vigenere/cryptanalysis-demo.html
 - name: Enigma Machine
-  link: enigma-machine
-  sublink:
-    - name: Introduction
-      link: enigma.html
-      sublink: []
-    - name: History
-      link: enigmahistory.html
-      sublink: []
-    - name: Description
-      link: enigmadescription.html
-      sublink: []
-    - name: Demo
-      link: enigmademo.html
-      sublink: []
+  link: /enigma-machine/demo.html
 - name: DES
-  link: des
-  sublink:
-    - name: Introduction
-      link: des.html
-      sublink: []
-    - name: Description
-      link: desdescription.html
-      sublink: []
-    - name: DES Simplified
-      link: dessimplified.html
-      sublink: []
-    - name: Demo
-      link: dessimplifieddemo.html
-      sublink: []
+  link: dessimplifieddemo.html
 - name: Hashing
-  link: hashing
+  link: hashingdemo.html
+- name: Public Key Cryptography
+  link: public-key
   sublink:
-    - name: Introduction
-      link: hashing.html
-      sublink: []
-    - name: Demo
-      link: hashingdemo.html
-      sublink: []
-- name: Diffie-Hellman Key Exchange
-  link: diffie-hellman
-  sublink:
-    - name: Description
-      link: publickeykeyagreement.html
-    - name: Demo
+    - name: Diffie-Hellman Key Exchange
       link: publickeykeyagreementdemo.html
-- name: R.S.A.
-  link: rsa
-  sublink:
-    - name: Description
-      link: publickeyrsa.html
-    - name: Demo
+    - name: R.S.A
       link: publickeyrsademo.html
-- name: ElGamal
-  link: elgamal.html
-  sublink: []
-- name: PGP
-  link: pgp
-  sublink:
-    - name: Introduction
-      link: pgpintro.html
-      sublink: []
-    - name: Description
-      link: pgp.html
-      sublink: []
+    - name: ElGamal
+      link: elgamal.html
 - name: Other Links
   link: other-links
   sublink:
