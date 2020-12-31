@@ -2,86 +2,80 @@
   link: /
   sublink: []
 - name: Introduction
-  link: /introduction.html
+  link: /intro.html
   sublink: []
-- name: Number Theory
-  link: #
+- name: Modular Arithmetic
+  link: modular-arithmetic
   sublink:
     - name: Modular Arithmetic
-      link: #
-      sublink:
-        - name: Modular Arithmetic
-          link: modulararithmetic.html
-        - name: Modular Arithmetic Demo
-          link: modulararithmeticdemo.html
-    - name: Euclid's Algorithm
-      link: #
-      sublink:
-        - name: Euclid's Algorithm
-          link: euclidsalgorithm.html
-        - name: Euclid's Algorithm Demo
-          link: euclidsalgorithmdemo.html
-        - name: Extended Euclid's Algorithm Demo
-          link: extendedeuclidsalgorithmdemo.html
-    - name: Fermat's Little Theorem
-      link: fermat.html
-      sublink: []
-- name: Classical Ciphers
-  link: #
+      link: modulararithmetic.html
+    - name: Modular Arithmetic Demo
+      link: modulararithmeticdemo.html
+- name: Euclid's Algorithm
+  link: euclids-algorithm
   sublink:
-    - name: Introduction
-      link: #
-      sublink: []
+    - name: Euclid's Algorithm
+      link: euclidsalgorithm.html
+    - name: Euclid's Algorithm Demo
+      link: euclidsalgorithmdemo.html
+    - name: Extended Euclid's Algorithm Demo
+      link: extendedeuclidsalgorithmdemo.html
+- name: Fermat's Little Theorem
+  link: fermat.html
+  sublink: []
+- name: Classical Ciphers Introduction
+  link: classical.html
+  sublink: []
+- name: Shift Cipher
+  link: shift-cipher
+  sublink:
     - name: Shift Cipher
-      link: #
-      sublink:
-        - name: Shift Cipher
-          link: classicalshift.html
-        - name: Shift Cipher Demo
-          link: classicalshiftdemo.html
+      link: classicalshift.html
+    - name: Shift Cipher Demo
+      link: classicalshiftdemo.html
+- name: Affine Cipher
+  link: affine-cipher
+  sublink:
     - name: Affine Cipher
-      link: #
-      sublink:
-        - name: Affine Cipher
-          link: classicalaffine.html
-        - name: Affine Cipher Demo
-          link: classicalaffinedemo.html
+      link: classicalaffine.html
+    - name: Affine Cipher Demo
+      link: classicalaffinedemo.html
+- name: Substitution Cipher
+  link: substitution-cipher
+  sublink:
     - name: Substitution Cipher
-      link: #
-      sublink:
-        - name: Substitution Cipher
-          link: classicalsubstitution.html
-        - name: Substitution Cipher Demo
-          link: classicalsubstitutiondemo.html
-        - name: Substitution Cryptanalysis Demo
-          link: substitutiondecrypt.html
+      link: classicalsubstitution.html
+    - name: Substitution Cipher Demo
+      link: classicalsubstitutiondemo.html
+    - name: Substitution Cryptanalysis Demo
+      link: substitutiondecrypt.html
+- name: Transposition Cipher
+  link: transposition-cipher
+  sublink:
     - name: Transposition Cipher
-      link: #
-      sublink:
-        - name: Transposition Cipher
-          link: classicaltransposition.html
-        - name: Transposition Cipher Demo
-          link: classicaltranspositiondemo.html
+      link: classicaltransposition.html
+    - name: Transposition Cipher Demo
+      link: classicaltranspositiondemo.html
+- name: Hill Cipher
+  link: hill-cipher
+  sublink:
     - name: Hill Cipher
-      link: #
-      sublink:
-        - name: Hill Cipher
-          link: classicalhill.html
-        - name: Hill Cipher Demo
-          link: classicalhilldemo.html
+      link: classicalhill.html
+    - name: Hill Cipher Demo
+      link: classicalhilldemo.html
+- name: Vigenere Cipher
+  link: vigenere-cipher
+  sublink:
     - name: Vigenere Cipher
-      link: #
-      sublink:
-        - name: Vigenere Cipher
-          link: classicalvigenere.html
-        - name: Vigenere Cipher Demo
-          link: classicalvigeneredemo.html
-        - name: Vigenere Cryptanalysis
-          link: classicalvigenerecrypt.html
-        - name: Vigenere Cryptanalysis Demo
-          link: classicalvigenerecryptdemo.html
+      link: classicalvigenere.html
+    - name: Vigenere Cipher Demo
+      link: classicalvigeneredemo.html
+    - name: Vigenere Cryptanalysis
+      link: classicalvigenerecrypt.html
+    - name: Vigenere Cryptanalysis Demo
+      link: classicalvigenerecryptdemo.html
 - name: Enigma Machine
-  link: #
+  link: enigma-machine
   sublink:
     - name: Introduction
       link: enigma.html
@@ -96,7 +90,7 @@
       link: enigmademo.html
       sublink: []
 - name: DES
-  link: #
+  link: des
   sublink:
     - name: Introduction
       link: des.html
@@ -111,7 +105,7 @@
       link: dessimplifieddemo.html
       sublink: []
 - name: Hashing
-  link: #
+  link: hashing
   sublink:
     - name: Introduction
       link: hashing.html
@@ -119,28 +113,25 @@
     - name: Demo
       link: hashingdemo.html
       sublink: []
-- name: Public Key Cryptography
-  link: #
+- name: Diffie-Hellman Key Exchange
+  link: diffie-hellman
   sublink:
-    - name: Diffie-Hellman Key Exchange
-      link: #
-      sublink:
-        - name: Description
-          link: publickeykeyagreement.html
-        - name: Demo
-          link: publickeykeyagreementdemo.html
-    - name: R.S.A.
-      link: #
-      sublink:
-        - name: Description
-          link: publickeyrsa.html
-        - name: Demo
-          link: publickeyrsademo.html
-    - name: ElGamal
-      link: elgamal.html
-      sublink: []
+    - name: Description
+      link: publickeykeyagreement.html
+    - name: Demo
+      link: publickeykeyagreementdemo.html
+- name: R.S.A.
+  link: rsa
+  sublink:
+    - name: Description
+      link: publickeyrsa.html
+    - name: Demo
+      link: publickeyrsademo.html
+- name: ElGamal
+  link: elgamal.html
+  sublink: []
 - name: PGP
-  link: #
+  link: pgp
   sublink:
     - name: Introduction
       link: pgpintro.html
@@ -149,7 +140,7 @@
       link: pgp.html
       sublink: []
 - name: Other Links
-  link: #
+  link: other-links
   sublink:
     - name: Outside Links
       link: links.html
