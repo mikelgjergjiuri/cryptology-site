@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    
+		<meta charset="utf-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Fermat's Little Theorem</title>
+	
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/Cstylesheet.css">
+    <link rel="stylesheet" href="/css/cryptography-additional.css">
+    <!-- Additional CSS supplied through jekyll format -->
+    
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="https://www.cs.uri.edu">
+                	<img style="width:85px; display:block; margin:auto;" src="/Images/uri-logo.png">
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+                
+				
+				
+				    <li>
+                    	<a href="/index.html">Introduction</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#number-theorysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Number Theory</a>
+		                <ul class="collapse list-unstyled" id="number-theorysubmenu">
+				            
+			                <li>
+			                    <a href="/number-theory/modular-arithmetic/demo.html">Modular Arithmetic</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/euclids-algorithm/demo.html">Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/extended-euclids-algorithm/demo.html">Extended Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/fermats-little-theorem/fermat.html">Fermat's Little Theorem</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#classical-cipherssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classical Ciphers</a>
+		                <ul class="collapse list-unstyled" id="classical-cipherssubmenu">
+				            
+			                <li>
+			                    <a href="/classical-ciphers/shift/demo.html">Shift Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/affine/demo.html">Affine Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/demo.html">Substitution Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/cryptanalysis-demo.html">Substitution Cryptanalysis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/transposition/demo.html">Transposition Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/hill/demo.html">Hill Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/demo.html">Vigenere Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/cryptanalysis-demo.html">Vigenere Cryptanalysis</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/enigma-machine/demo.html">Enigma Machine</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/des/demo.html">DES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/hashing/demo.html">Hashing</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <ul class="collapse list-unstyled" id="public-keysubmenu">
+				            
+			                <li>
+			                    <a href="publickeykeyagreementdemo.html">Diffie-Hellman Key Exchange</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="publickeyrsademo.html">R.S.A</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="elgamal.html">ElGamal</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#other-linkssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Other Links</a>
+		                <ul class="collapse list-unstyled" id="other-linkssubmenu">
+				            
+			                <li>
+			                    <a href="links.html">Outside Links</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="thesis.html">Thesis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="www.cs.uri.edu">URI CSC Homepage</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+			<div class="jumbotron gradient-jumbotron">
+			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
+			  <hr class="my-4">
+			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+			  <p class="lead">
+			  </p>
+			</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
+                <div class="container-fluid">
+                    
+                    
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+            
+ 				      Fermat's little theorem states that for a prime number \(p\), and any integer \(a\)
+      $$a^p \equiv a \mod{p}$$
+      Dividing both sides by \(a\) gives us
+      $$a^{p-1} \equiv 1 \mod{p}$$
+      
+      Why this is important.
+      Fermat's little theorem allows us to drastically speed up computation time on large exponents where applicable.
+      An example of which is shown below.
+      $$561^{996001} \equiv X \mod{997}$$
+      Even using an efficient method for computing large exponents such as the binary method still requires a lot of work to solve for \(X\). 
+      But using the theorem, we know that we can drastically reduce the exponent by dividing our exponent by \((p-1)\), where p is 997 for this equation.
+      Doing so we are able to rewrite the equation as
+      $$561^{996*1000 + 1} \equiv X \mod{997}$$
+      Further reducing our problem we can rewrite this as
+      $$561^{1}*561^{996*1000} \equiv X \mod{997}$$
+      Now we can exploit Fermat's little theorem by realizing the \(561^{996*1000} \equiv 1\) and our problem becomes
+      $$561 \equiv X \mod{997}$$
+      Now it is obvious to see that \(X \equiv 561\).
+
+
+ 			
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    
+</body>
+<!-- sourced from https://bootstrapious.com/p/bootstrap-sidebar under MIT license - https://bootstrapious.com/terms-of-service-->
+</html>

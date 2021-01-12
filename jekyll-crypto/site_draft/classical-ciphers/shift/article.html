@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    
+		<meta charset="utf-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Shift Cipher</title>
+	
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/Cstylesheet.css">
+    <link rel="stylesheet" href="/css/cryptography-additional.css">
+    <!-- Additional CSS supplied through jekyll format -->
+    
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="https://www.cs.uri.edu">
+                	<img style="width:85px; display:block; margin:auto;" src="/Images/uri-logo.png">
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+                
+				
+				
+				    <li>
+                    	<a href="/index.html">Introduction</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#number-theorysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Number Theory</a>
+		                <ul class="collapse list-unstyled" id="number-theorysubmenu">
+				            
+			                <li>
+			                    <a href="/number-theory/modular-arithmetic/demo.html">Modular Arithmetic</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/euclids-algorithm/demo.html">Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/extended-euclids-algorithm/demo.html">Extended Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/fermats-little-theorem/fermat.html">Fermat's Little Theorem</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#classical-cipherssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classical Ciphers</a>
+		                <ul class="collapse list-unstyled" id="classical-cipherssubmenu">
+				            
+			                <li>
+			                    <a href="/classical-ciphers/shift/demo.html">Shift Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/affine/demo.html">Affine Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/demo.html">Substitution Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/cryptanalysis-demo.html">Substitution Cryptanalysis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/transposition/demo.html">Transposition Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/hill/demo.html">Hill Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/demo.html">Vigenere Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/cryptanalysis-demo.html">Vigenere Cryptanalysis</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/enigma-machine/demo.html">Enigma Machine</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/des/demo.html">DES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/hashing/demo.html">Hashing</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <ul class="collapse list-unstyled" id="public-keysubmenu">
+				            
+			                <li>
+			                    <a href="publickeykeyagreementdemo.html">Diffie-Hellman Key Exchange</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="publickeyrsademo.html">R.S.A</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="elgamal.html">ElGamal</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#other-linkssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Other Links</a>
+		                <ul class="collapse list-unstyled" id="other-linkssubmenu">
+				            
+			                <li>
+			                    <a href="links.html">Outside Links</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="thesis.html">Thesis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="www.cs.uri.edu">URI CSC Homepage</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+			<div class="jumbotron gradient-jumbotron">
+			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
+			  <hr class="my-4">
+			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+			  <p class="lead">
+			  </p>
+			</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
+                <div class="container-fluid">
+                    
+                    
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+            
+ 				<table width="933" height="884" border="0" cellpadding="0" cellspacing="0">
+
+  
+
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Shift Cipher</p>
+      <p class="style9">History and Description</p>
+      <p class="style8">In the first century B.C., Julius Caesar developed the shift cipher. Based on a shift key, each letter in the
+      alphabet is replaced by the new shifted letter. The message which is
+      enciphered by replacing the corresponding new letter is called plaintext,
+      and the new message which is produced by the substitution is called
+      ciphertext. The key gives the number of letters the alphabet is shifted
+      between plaintext and ciphertext.
+      <p class="style9">Example</p>
+      <p class="style8"><strong>Encipher</strong><br>
+      Given: The shift key is 5<br>
+      Plaintext: I AM A STUDENT</p>
+      <p class="style8">The corresponding ciphertext letter is computed for each letter in the
+      plaintext as follows<br>
+      I + Shift(5) = N</p>
+      <p class="style8">A + Shift(5) = F<br>
+      M + Shift(5) = R</p>
+      <p class="style8">A + Shift(5) = F</p>
+      <p class="style8">S + Shift(5) = X<br>
+      T + Shift(5) = Y<br>
+      U + Shift(5) = Z<br>
+      D + Shift(5) = I<br>
+      E + Shift(5) = J<br>
+      N + Shift(5) = S<br>
+      T + Shift(5) = Y</p>
+      <p class="style8">Therefore, the ciphertext is NFRFXYZIJSY.</p>
+      <p class="style8"><strong>Decipher<br>
+      </strong>We decipher NFRFXYZIJSY. by computing the corresponding plaintext
+      letter
+      for each letter in the ciphertext as follows<br>
+      N - Shift(5) = I</p>
+      <p class="style8">F - Shift(5) = A<br>
+      R - Shift(5) = M</p>
+      <p class="style8">F - Shift(5) = A</p>
+      <p class="style8">X - Shift(5) = S<br>
+      Y Shift(5) = T<br>
+      Z - Shift(5) = U<br>
+      I - Shift(5) = D<br>
+      J - Shift(5) = E<br>
+      S - Shift(5) = N<br>
+      Y - Shift(5) = T</p>
+      <p class="style8">Therefore, the plaintext is IAMASTUDENT.</p>
+      <p class="style9">Disadvantages</p>
+      <p class="style8">As there are 26 letters in alphabet, each letter can be
+      shifted up to 25 places. To break the ciphertext, we can list all the
+      possible plaintext and choose the most reasonable message.<br>
+      <br>
+      For example, if we have the ciphertext which is NFRFXYZIJSY, possible
+      corresponding plaintexts are:</p>
+      <table cellSpacing="0" cellPadding="0" width="100%" border="0">
+        <tbody>
+          <tr>
+            <td width="10%" class="style8"><strong>Shift</strong></td>
+            <td class="style8"><strong>Plaintext</strong></td>
+          </tr>
+          <tr>
+            <td width="10%" class="style8">1<br>
+              2<br>
+              3<br>
+              4<br>
+              5<br>
+              6<br>
+              7<br>
+              8<br>
+              9<br>
+              10<br>
+              11<br>
+              12<br>
+              13<br>
+              14<br>
+              15<br>
+              16<br>
+              17<br>
+              18<br>
+              19<br>
+              20<br>
+              21<br>
+              22<br>
+              23<br>
+              24<br>
+              25</td>
+            <td class="style8">MEQEWXYHIRX<br>
+              LDPDVWXGHQW<br>
+              KCOCUVWFGPV<br>
+              JBNBTUVEFOU<br>
+              IAMASTUDENT<br>
+              HZLZRSTCDMS<br>
+              GYKYQRSBCLR<br>
+              FXJXPQRABKQ<br>
+              EWIWOPQZAJP<br>
+              DVHVNOPYZIO<br>
+              CUGUMNOXYHN<br>
+              BTFTLMNWXGM<br>
+              ASESKLMVWFL<br>
+              ZRDRJKLUVEK<br>
+              YQCQIJKTUDJ<br>
+              XPBPHIJSTCI<br>
+              WOAOGHIRSBH<br>
+              VNZNFGHQRAG<br>
+              UMYMEFGPQZF<br>
+              TLXLDEFOPYE<br>
+              SKWKCDENOXD<br>
+              RJVJBCDMNWC<br>
+              QIUIABCLMVB<br>
+              PHTHZABKLUA<br>
+              OGSGYZAJKTZ</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="style8">By locating the only reasonable message, we can decide
+      that the shift key is 5 and the plaintext is IAMASTUDENT.
+    </td>
+
+  </tr>
+
+</table>
+
+ 			
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    
+</body>
+<!-- sourced from https://bootstrapious.com/p/bootstrap-sidebar under MIT license - https://bootstrapious.com/terms-of-service-->
+</html>

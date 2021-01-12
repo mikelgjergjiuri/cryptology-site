@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    
+		<meta charset="utf-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Modular Arithmetic Demo</title>
+	
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/Cstylesheet.css">
+    <link rel="stylesheet" href="/css/cryptography-additional.css">
+    <!-- Additional CSS supplied through jekyll format -->
+    
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="https://www.cs.uri.edu">
+                	<img style="width:85px; display:block; margin:auto;" src="/Images/uri-logo.png">
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+                
+				
+				
+				    <li>
+                    	<a href="/index.html">Introduction</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#number-theorysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Number Theory</a>
+		                <ul class="collapse list-unstyled" id="number-theorysubmenu">
+				            
+			                <li>
+			                    <a href="/number-theory/modular-arithmetic/demo.html">Modular Arithmetic</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/euclids-algorithm/demo.html">Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/extended-euclids-algorithm/demo.html">Extended Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/fermats-little-theorem/fermat.html">Fermat's Little Theorem</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#classical-cipherssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classical Ciphers</a>
+		                <ul class="collapse list-unstyled" id="classical-cipherssubmenu">
+				            
+			                <li>
+			                    <a href="/classical-ciphers/shift/demo.html">Shift Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/affine/demo.html">Affine Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/demo.html">Substitution Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/cryptanalysis-demo.html">Substitution Cryptanalysis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/transposition/demo.html">Transposition Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/hill/demo.html">Hill Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/demo.html">Vigenere Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/cryptanalysis-demo.html">Vigenere Cryptanalysis</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/enigma-machine/demo.html">Enigma Machine</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/des/demo.html">DES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/hashing/demo.html">Hashing</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <ul class="collapse list-unstyled" id="public-keysubmenu">
+				            
+			                <li>
+			                    <a href="publickeykeyagreementdemo.html">Diffie-Hellman Key Exchange</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="publickeyrsademo.html">R.S.A</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="elgamal.html">ElGamal</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#other-linkssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Other Links</a>
+		                <ul class="collapse list-unstyled" id="other-linkssubmenu">
+				            
+			                <li>
+			                    <a href="links.html">Outside Links</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="thesis.html">Thesis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="www.cs.uri.edu">URI CSC Homepage</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+			<div class="jumbotron gradient-jumbotron">
+			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
+			  <hr class="my-4">
+			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+			  <p class="lead">
+			  </p>
+			</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
+                <div class="container-fluid">
+                    
+                    
+                        
+                        <a class="btn btn-info" href="/number-theory/modular-arithmetic/article.html" role="button">Article</a>
+                        
+                    
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+            
+ 				<script language="JavaScript">
+	
+	//computes the modular addition
+	function update(form)
+	{
+		var ma1, ma2, ma3, ma4; //declaring variables
+
+		
+		// Verify the num
+		/*var somekey = form.num.value;
+		if (isNaN(somekey) == true){
+			alert("Please enter a valid num and then click on Update button.");
+		}*/
+		
+		
+		//get the values from the input boxes
+		ma1 = eval(form.ma1.value);
+		ma2 = eval(form.ma2.value);
+		ma3 = eval(form.ma3.value);
+		
+		//calculating answers
+		ma4 = (ma1 + ma2) % ma3;
+		
+		//updating values
+		form.ma4.value = ma4;
+	}
+	
+	//computes the modular multiplication
+	function update2(form)
+	{
+		var ma5, ma6, ma7, ma8; //declaring variables
+
+		
+		// Verify the num
+		/*var somekey = form.num.value;
+		if (isNaN(somekey) == true){
+			alert("Please enter a valid num and then click on Update button.");
+		}*/
+		
+		
+		//get the values from the input boxes
+		ma5 = eval(form.ma5.value);
+		ma6 = eval(form.ma6.value);
+		ma7 = eval(form.ma7.value);
+		
+		//calculating answers
+		ma8 = (ma5 * ma6) % ma7;
+		
+		//updating values
+		form.ma8.value = ma8;
+	}
+		
+	
+</script>
+
+<table width=745 border=0 cellpadding=0 cellspacing=0 height="51">
+
+  <tr> 
+
+      <div align="center" class="style5 style14">
+        <p class="style5">Modular Arithmetic</div></td>
+
+  </tr>
+  
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Modular Addition and Multiplication</p>
+      <form name="form1" method="post" onSubmit="return false">
+        <table width="100%" border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td>
+              <p class="style9">Step 1. Enter the
+              integers</p>
+              <p class="style8">Please enter the integers on which to perform the modular arithmetic</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table width="70%" border="0" cellspacing="1" cellpadding="5">
+                <tr bgcolor="#CCCCCC">
+                  <td width="90%">
+                    <p class="style8"><input name="ma1" type="text" id="ma1" size="5"> +
+					<input name="ma2" type="text" id="ma2" size="5"> mod
+					<input name="ma3" type="text" id="ma3" size="5"> =
+					<input name="ma4" type="text" id="ma4" size="5">
+                    &nbsp;&nbsp;&nbsp; <input type="submit" name="compute1" value="  Compute  " onclick="update(this.form)"></p>
+					
+					<p class="style8"><input name="ma5" type="text" id="ma5" size="5"> *
+					<input name="ma6" type="text" id="ma6" size="5"> mod
+					<input name="ma7" type="text" id="ma7" size="5"> =
+					<input name="ma8" type="text" id="ma8" size="5">
+                    &nbsp;&nbsp;&nbsp; <input type="submit" name="compute2" value="  Compute  " onclick="update2(this.form)"></p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+		</table>
+	  </form>
+
+    </td>
+
+  </tr>
+
+</table>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>
+
+
+ 			
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    
+</body>
+<!-- sourced from https://bootstrapious.com/p/bootstrap-sidebar under MIT license - https://bootstrapious.com/terms-of-service-->
+</html>

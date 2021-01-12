@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    
+		<meta charset="utf-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Substitution Cipher</title>
+	
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/Cstylesheet.css">
+    <link rel="stylesheet" href="/css/cryptography-additional.css">
+    <!-- Additional CSS supplied through jekyll format -->
+    
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="https://www.cs.uri.edu">
+                	<img style="width:85px; display:block; margin:auto;" src="/Images/uri-logo.png">
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+                
+				
+				
+				    <li>
+                    	<a href="/index.html">Introduction</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#number-theorysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Number Theory</a>
+		                <ul class="collapse list-unstyled" id="number-theorysubmenu">
+				            
+			                <li>
+			                    <a href="/number-theory/modular-arithmetic/demo.html">Modular Arithmetic</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/euclids-algorithm/demo.html">Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/extended-euclids-algorithm/demo.html">Extended Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/fermats-little-theorem/fermat.html">Fermat's Little Theorem</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#classical-cipherssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classical Ciphers</a>
+		                <ul class="collapse list-unstyled" id="classical-cipherssubmenu">
+				            
+			                <li>
+			                    <a href="/classical-ciphers/shift/demo.html">Shift Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/affine/demo.html">Affine Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/demo.html">Substitution Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/cryptanalysis-demo.html">Substitution Cryptanalysis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/transposition/demo.html">Transposition Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/hill/demo.html">Hill Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/demo.html">Vigenere Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/cryptanalysis-demo.html">Vigenere Cryptanalysis</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/enigma-machine/demo.html">Enigma Machine</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/des/demo.html">DES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/hashing/demo.html">Hashing</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <ul class="collapse list-unstyled" id="public-keysubmenu">
+				            
+			                <li>
+			                    <a href="publickeykeyagreementdemo.html">Diffie-Hellman Key Exchange</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="publickeyrsademo.html">R.S.A</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="elgamal.html">ElGamal</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#other-linkssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Other Links</a>
+		                <ul class="collapse list-unstyled" id="other-linkssubmenu">
+				            
+			                <li>
+			                    <a href="links.html">Outside Links</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="thesis.html">Thesis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="www.cs.uri.edu">URI CSC Homepage</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+			<div class="jumbotron gradient-jumbotron">
+			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
+			  <hr class="my-4">
+			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+			  <p class="lead">
+			  </p>
+			</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
+                <div class="container-fluid">
+                    
+                    
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+            
+ 				<table width="933" height="726" border="0" cellpadding="0" cellspacing="0">
+
+ <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Simple Substitution Cipher</p>
+      <p class="style9">Description</p>
+      <p class="style8">A monoalphabetic, or simple substitution, cipher is one
+      in which the ciphertext alphabet is a rearrangement of the plaintext
+      alphabet. Substitution ciphers, despite having 26! possible permutations,
+      are actually very insecure and are easily solved&nbsp; using letter
+      frequencies. As Thomas Barr explains, They are analogous to the cheap
+      locks that sometimes come with luggage: a deterrent to the casual intruder
+      but not to someone with even modest intentions of breaking in.
+      (Invitation to Cryptology, 84). Simple substitutions are a great way to
+      encipher messages that need to be visually enciphered but easily
+      deciphered.&nbsp;<br>
+      <p class="style9">Example, Mixed Alphabet with
+      Keywords</p>
+      <p class="style8">The sender and receiver decides up on a keyword or
+      phrase. In
+      this case, lets use the phrase the cows go moo in the field. The
+      plaintext and ciphertext are laid out, with the key being made from the
+      distinct letters of the key phrase:<br>
+      <table cellSpacing="2" cellPadding="2" width="100%" border="0">
+        <tbody>
+          <tr>
+            <td align="left">
+              <p class="style8">plaintext</p>
+            </td>
+            <td align="middle">
+              <p class="style8">A</p>
+            </td>
+            <td align="middle">
+              <p class="style8">B</p>
+            </td>
+            <td align="middle">
+              <p class="style8">C</p>
+            </td>
+            <td align="middle">
+              <p class="style8">D</p>
+            </td>
+            <td align="middle">
+              <p class="style8">E</p>
+            </td>
+            <td align="middle">
+              <p class="style8">F</p>
+            </td>
+            <td align="middle">
+              <p class="style8">G</p>
+            </td>
+            <td align="middle">
+              <p class="style8">H</p>
+            </td>
+            <td align="middle">
+              <p class="style8">I</p>
+            </td>
+            <td align="middle">
+              <p class="style8">J</p>
+            </td>
+            <td align="middle">
+              <p class="style8">K</p>
+            </td>
+            <td align="middle">
+              <p class="style8">L</p>
+            </td>
+            <td align="middle">
+              <p class="style8">M</p>
+            </td>
+            <td align="middle">
+              <p class="style8">N</p>
+            </td>
+            <td align="middle">
+              <p class="style8">O</p>
+            </td>
+            <td align="middle">
+              <p class="style8">P</p>
+            </td>
+            <td align="middle">
+              <p class="style8">Q</p>
+            </td>
+            <td align="middle">
+              <p class="style8">R</p>
+            </td>
+            <td align="middle">
+              <p class="style8">S</p>
+            </td>
+            <td align="middle">
+              <p class="style8">T</p>
+            </td>
+            <td align="middle">
+              <p class="style8">U</p>
+            </td>
+            <td align="middle">
+              <p class="style8">V</p>
+            </td>
+            <td align="middle">
+              <p class="style8">W</p>
+            </td>
+            <td align="middle">
+              <p class="style8">X</p>
+            </td>
+            <td align="middle">
+              <p class="style8">Y</p>
+            </td>
+            <td align="middle">
+              <p class="style8">Z</p>
+            </td>
+          </tr>
+          <tr>
+            <td align="left">
+              <p class="style8">ciphertext</p>
+            </td>
+            <td align="middle">
+              <p class="style8">T</p>
+            </td>
+            <td align="middle">
+              <p class="style8">H</p>
+            </td>
+            <td align="middle">
+              <p class="style8">E</p>
+            </td>
+            <td align="middle">
+              <p class="style8">C</p>
+            </td>
+            <td align="middle">
+              <p class="style8">O</p>
+            </td>
+            <td align="middle">
+              <p class="style8">W</p>
+            </td>
+            <td align="middle">
+              <p class="style8">S</p>
+            </td>
+            <td align="middle">
+              <p class="style8">G</p>
+            </td>
+            <td align="middle">
+              <p class="style8">M</p>
+            </td>
+            <td align="middle">
+              <p class="style8">I</p>
+            </td>
+            <td align="middle">
+              <p class="style8">N</p>
+            </td>
+            <td align="middle">
+              <p class="style8">F</p>
+            </td>
+            <td align="middle">
+              <p class="style8">L</p>
+            </td>
+            <td align="middle">
+              <p class="style8">D</p>
+            </td>
+            <td align="middle">
+              <p class="style8">A</p>
+            </td>
+            <td align="middle">
+              <p class="style8">B</p>
+            </td>
+            <td align="middle">
+              <p class="style8">J</p>
+            </td>
+            <td align="middle">
+              <p class="style8">K</p>
+            </td>
+            <td align="middle">
+              <p class="style8">P</p>
+            </td>
+            <td align="middle">
+              <p class="style8">Q</p>
+            </td>
+            <td align="middle">
+              <p class="style8">R</p>
+            </td>
+            <td align="middle">
+              <p class="style8">U</p>
+            </td>
+            <td align="middle">
+              <p class="style8">V</p>
+            </td>
+            <td align="middle">
+              <p class="style8">X</p>
+            </td>
+            <td align="middle">
+              <p class="style8">Y</p>
+            </td>
+            <td align="middle">
+              <p class="style8">Z</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="style8"><br>
+      The first half of the ciphertext letters were mapped&nbsp; via the key
+      phrase (omitting any repeated letters), and the second half was created by
+      using the remaining letters of the alphabet in order from A to Z.<br>
+      <br>
+      <strong>Encipher</strong><br>
+      The sender enciphers the message <span style="text-transform: uppercase">Meet me at five oclock</span> for the
+      receiver to decrypt. To encipher this message, simply line up each
+      plaintext letter from the message with the ciphertext letter in the chart.<br>
+      <table cellSpacing="0" cellPadding="0" width="40%" border="0">
+        <tbody>
+          <tr>
+            <td width="20%">
+              <p class="style8"><u>plain</u></p>
+            </td>
+            <td width="3%">
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td width="20%">
+              <p class="style8"><u>cipher</u></p>
+            </td>
+            <td width="14%">
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td width="20%">
+              <p class="style8"><u>plain</u></p>
+            </td>
+            <td width="3%">
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td width="20%">
+              <p class="style8"><u>cipher</u></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">M</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">L</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">V</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">U</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">E</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">O</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">O</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">A</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">T</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">Q</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">C</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">E</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">A</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">T</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">L</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">F</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">F</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">W</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">K</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">N</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">I</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">M</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="style8">This gives the enciphered message LOOQLOTQWMUOAEFAEN<br>
+      <br>
+      <strong>Decipher</strong><br>
+      Since the receiver knows the key phrase, they can set up the above chart
+      just like the sender di, and easily decrypt the enciphered message.
+      <table cellSpacing="0" cellPadding="0" width="40%" border="0">
+        <tbody>
+          <tr>
+            <td width="20%">
+              <p class="style8"><u>cipher</u></p>
+            </td>
+            <td width="3%">
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td width="20%">
+              <p class="style8"><u>plain</u></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">L</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">M</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">O</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">E</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">Q</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">T</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">...</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">...</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">F</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">L</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">N</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">K</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="style8">This gives the deciphered message <span style="text-transform: uppercase">meetmeatfiveoclock</span><br>
+      <p class="style8">&nbsp;
+      <p class="style9">Disadvantage</p>
+      <p class="style8">The major problem with simple substitution ciphers is
+      that the frequencies of letters are not masked at all. If the enciphered
+      message LOOQLOTQWMUOAEFAEN was intercepted, the interceptor
+      could look at the frequencies of each letter and compare them to the
+      frequencies of English:<br>
+      'O' is used four times in the enciphered message, and L, Q, A, and E all
+      appear twice.<br>
+      The top nine letters for English frequencies are E, T, A, O, N, I, S, R,
+      and H.<br>
+      As a guess, the interceptor could line up the letters as follows:
+      <table cellSpacing="0" cellPadding="0" width="40%" border="0">
+        <tbody>
+          <tr>
+            <td width="20%">
+              <p class="style8"><u>cipher</u></p>
+            </td>
+            <td width="3%">
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td width="20%">
+              <p class="style8"><u>plain</u></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">O</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">E</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">L</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">A</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">Q</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">T</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">A</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">O</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="style8">E</p>
+            </td>
+            <td>
+              <p class="style8">&nbsp;</p>
+            </td>
+            <td>
+              <p class="style8">N</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="style8">A quick deciphering test gives the answer
+      AEETAE?T???EON?ON?<br>
+      If the interceptor agrees that O = E and sees that the first phrase could
+      decipher as <span style="text-transform: uppercase">meet me at</span> then they would have an easy time
+      deciphering the rest of the message.
+    </td>
+
+  </tr>
+
+</table>
+
+ 			
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    
+</body>
+<!-- sourced from https://bootstrapious.com/p/bootstrap-sidebar under MIT license - https://bootstrapious.com/terms-of-service-->
+</html>
