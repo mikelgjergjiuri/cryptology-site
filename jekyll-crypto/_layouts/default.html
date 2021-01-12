@@ -2,7 +2,12 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    
+    {% if page.old_charset %}
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	{% else %}
+		<meta charset="utf-8">
+	{% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -11,14 +16,22 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="/style2.css">
-    <link rel="stylesheet" href="/Cstylesheet.css">
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/Cstylesheet.css">
+    <link rel="stylesheet" href="/css/cryptography-additional.css">
+    <!-- Additional CSS supplied through jekyll format -->
+    {% for css in page.css %}
+    <link rel="stylesheet" href="{{ css }}">
+    {% endfor %}
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    {% for js in page.header_js %}
+    <script async src="{{ js }}"></script>
+    {% endfor %}
 
 </head>
 
@@ -28,11 +41,13 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Computer Science and Statistics @ URI</h3>
+                <a href="https://www.cs.uri.edu">
+                	<img style="width:85px; display:block; margin:auto;" src="/Images/uri-logo.png">
+                </a>
             </div>
 
             <ul class="list-unstyled components">
-                <p>Cryptography</p>
+                
                 {% for item in site.data.navigation %}
 				{% assign arraysize = item.sublink | size %}
 				{% if arraysize != 0 %}
@@ -56,10 +71,21 @@
 
         <!-- Page Content  -->
         <div id="content">
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="jumbotron gradient-jumbotron">
+			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
+			  <hr class="my-4">
+			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+			  <p class="lead">
+			  </p>
+			</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
                 <div class="container-fluid">
-
+                    {% assign numbersubpages = page.subpages | size %}
+                    {% if numbersubpages != 0 %}
+                        {% for subpage in page.subpages %}
+                        <a class="btn btn-info" href="{{ subpage.link }}" role="button">{{ subpage.title }}</a>
+                        {% endfor %}
+                    {% endif %}
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
                         <span>Toggle Sidebar</span>
@@ -69,12 +95,7 @@
                     </button>
 
                 </div>
-                    {% assign numbersubpages = page.subpages | size %}
-                    {% if numbersubpages != 0 %}
-                        {% for subpage in page.subpages %}
-                        <a class="btn btn-info" href="{{ subpage.link }}" role="button">{{ subpage.title }}</a>
-                        {% endfor %}
-                    {% endif %}
+
             </nav>
             {% if page.limitsize %}
             <div width="500" border="0" cellpadding="0" cellspacing="0">
@@ -108,6 +129,9 @@
             });
         });
     </script>
+    {% for js in page.footer_js %}
+    {{ js }}
+    {% endfor %}
 </body>
 <!-- sourced from https://bootstrapious.com/p/bootstrap-sidebar under MIT license - https://bootstrapious.com/terms-of-service-->
 </html>

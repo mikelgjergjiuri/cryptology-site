@@ -1,8 +1,5 @@
-- name: Home Page
-  link: /
-  sublink: []
 - name: Introduction
-  link: /intro.html
+  link: /index.html
   sublink: []
 - name: Number Theory
   link: number-theory
@@ -26,25 +23,21 @@
       link: /classical-ciphers/substitution/demo.html
     - name: Substitution Cryptanalysis
       link: /classical-ciphers/substitution/cryptanalysis-demo.html
-      link: substitutiondecrypt.html
     - name: Transposition Cipher
-      link: classicaltranspositiondemo.html
       link: /classical-ciphers/transposition/demo.html
     - name: Hill Cipher
       link: /classical-ciphers/hill/demo.html
     - name: Vigenere Cipher
-      link: classicalvigeneredemo.html
       link: /classical-ciphers/vigenere/demo.html
     - name: Vigenere Cryptanalysis
-      link: classicalvigenerecryptdemo.html
       link: /classical-ciphers/vigenere/cryptanalysis-demo.html
 - name: Enigma Machine
   link: /enigma-machine/demo.html
 - name: DES
-  link: dessimplifieddemo.html
+  link: /des/demo.html
 - name: Hashing
-  link: hashingdemo.html
-- name: Public Key Cryptography
+  link: /hashing/demo.html
+- name: Public Key Crypto
   link: public-key
   sublink:
     - name: Diffie-Hellman Key Exchange
