@@ -24,7 +24,7 @@ subpages:
 				i = 0;
 				boxvalue = 10;						// to help fill the boxes, starting at "box10"
 
-				while (boxvalue <= 89) {			// resets all the plaintext boxes to blanks
+				while (boxvalue <= 209) {			// resets all the plaintext boxes to blanks
 					boxchar = "box";
 					boxchar = boxchar + boxvalue;
 					form[boxchar].value = "";
@@ -107,19 +107,16 @@ subpages:
 		var boxvalue = 10;
 		var boxchar = "box";
 
-		while (boxvalue <= 89 && j <= 20) {
+		while (boxvalue <= 209 && j <= 20) {
 			boxchar = "box";
 			boxchar = boxchar + boxvalue;
 			if (form[boxchar].value != "") {
 				encipheredtext = encipheredtext + form[boxchar].value;
-			}
-			if (i == 4) {
-				boxvalue = 10 + j;
-				j++;
-				i = 0;
+				boxvalue += 20;
 			}
 			else {
-				boxvalue = boxvalue + 20;
+				boxvalue = 10 + j;
+				j++;
 			}
 			i++;
 		} // end while
@@ -148,7 +145,7 @@ subpages:
 				i = 0;
 				boxvalue = 10;						// to help fill the boxes, starting at "box10"
 
-				while (boxvalue <= 89) {			// resets all the plaintext boxes to blanks
+				while (boxvalue <= 209) {			// resets all the plaintext boxes to blanks
 					boxchar = "box";
 					boxchar = boxchar + boxvalue;
 					form[boxchar].value = "";
@@ -232,7 +229,7 @@ subpages:
 		var boxvalue = 10;
 		var boxchar = "box";
 
-		while (boxvalue <= 89 && j <= 20) {
+		while (boxvalue <= 209 && j <= 20) {
 			boxchar = "box";
 			boxchar = boxchar + boxvalue;
 			if (form[boxchar].value != "") {
