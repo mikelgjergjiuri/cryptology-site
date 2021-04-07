@@ -1,25 +1,16 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="transposition_demo.css">
-
-<div id="maincontrolbox" style="left:20px;top:50px; position: relative; width: 800px; height: 300px; outline: 1px solid black;">
+<div>
+<div id="maincontrolbox" style="position: relative; width: 700px; height: 300px; outline: 1px solid black;">
   
   <!-- User interactive elements -->
   <!-- Input text -->
-  <label for="input-text" style="position:absolute; width:200px; height: 100px; top:5px; left:10px;">Input text:</label>
-  <textarea name="input-text" style="position:absolute; width:200px; height: 75px; top:30px; left:10px;" id="input-text" value="Enter text you would like to encrypt/decrypt here."></textarea>
+  <label for="input-text" style="position:absolute; width:200px; height: 275px; top:5px; left:10px;">Input text:</label>
+  <textarea name="input-text" style="position:absolute; width:200px; height: 260px; top:30px; left:10px;" id="input-text" value="Enter text you would like to encrypt/decrypt here."></textarea>
   
-  <!-- Key Input -->
-  <label for="key-input" style="position:absolute; width:200px; height: 20px; top:145px; left:10px;">Permute Key:</label>
-  <textarea name="key-input" id="key-input" style="position: absolute; top:145px; left: 135px; height:25px; width: 75px;"></textarea>
-  
-  <!-- Number of Columns Input -->
-  <label for="column-input" style="position:absolute; width:200px; height: 20px; top:110px; left:10px;">Column Count:</label>
-  <textarea name="column-input" id="column-input" style="position: absolute; top:110px; left: 135px; height:25px; width: 75px;"></textarea>
-
-  <!-- Output text -->
-  <label for="output-text" style="position:absolute; width:200px; height: 200px; top:175px; left:10px;">Output text:</label>
-  <textarea name="output-text"  id="output-text" style="position: absolute; top:200px; left: 10px; height:75px; width: 200px;"></textarea>
+  <label for="output-text" style="position:absolute; width:200px; height: 200px; top:5px; left:490px;">Output text:</label>
+  <textarea name="output-text"  id="output-text" style="position: absolute; top:30px; left: 490px; height:260px; width: 200px;"></textarea>
 
   <!-- Slider for Delay -->
   <input style="position:absolute; top:80px; left:265px;" type="range" id="delay-slider" name="Delay"
@@ -31,12 +22,19 @@
   <button class="desbutton" style="top:120px; left:250px; position:absolute;" id="encrypt-button" type="button">Encrypt</button>
   <button class="desbutton" style="top:150px; left:300px; position:absolute;"  id="pause-button" type="button">Pause</button>
   
-  <!-- Encryption Log -->
-  <label for="encryption-log" style="position:absolute; width:200px; height: 200px; top:5px; left:470px;">Encryption Log:</label>
-  <textarea name="encryption-log" style="position:absolute; width:320px; height: 250px; top:30px; left:470px;" id="encryption-log"></textarea>
+  <!-- Key Input -->
+  <label for="key-input" style="position:absolute; width:200px; height: 20px; top:180px; left:250px;">Permute Key:</label>
+  <textarea name="key-input" id="key-input" style="position: absolute; top:180px; left: 375px; height:25px; width: 75px;"></textarea>
+  
+  <!-- Number of Columns Input -->
+  <label for="column-input" style="position:absolute; width:200px; height: 20px; top:210px; left:250px;">Column Count:</label>
+  <textarea name="column-input" id="column-input" style="position: absolute; top:210px; left: 375px; height:25px; width: 75px;"></textarea>
+
+  <!-- Output text -->
+  
 </div>
 
 <!-- Dynamically create transposition figure using javascript -->
-<div id="transposition-figure" style="position:relative"></div>
-
+<div id="transposition-figure" style="position:relative">NULL</div>
+<div>
 <script src="transposition_demo.js"></script>

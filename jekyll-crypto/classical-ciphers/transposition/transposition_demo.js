@@ -39,7 +39,7 @@ class Transposition {
 
     async sleep(){
         var delayString = document.getElementById("delay-slider").value;
-        var delay = parseInt(delayString, 10);
+	    var delay = parseInt(delayString, 10);
         while(this.pause){
             await this.pauseSleep();
         }
@@ -59,6 +59,7 @@ class Transposition {
         box.style.top = topPosition+"px";
         box.style.left = leftPosition;//+"px";
         box.style.position = 'absolute';
+	box.style.width = Math.floor(350/this.columns);
         box.innerHTML = character;
         var mainBox = document.getElementById("transposition-figure");
         mainBox.appendChild(box);
@@ -68,31 +69,40 @@ class Transposition {
         // https://stackoverflow.com/a/48758512 - Returns indices of sorted array
         //return Array.from(Array(key.length).keys()).sort((a, b) => key[a] < key[b] ? -1 : (key[b] < key[a]) | 0);
 	key = key.split('');
+	//var alphabet = "abcdefghijklmnopqrstuvwxyz";
+	//for(var i = 0; i < key.length; i++) key[i] = alphabet.indexOf(key[i]);
+	console.log(key);
         for(var i = 0; i < key.length; i++){
 	    key[i] = [key[i], i];
 	}
+	console.log(key);
 	key.sort(function(left, right) { return left[0] < right[0] ? -1 : 1;});
 	key.sortIndices = [];
+	console.log(key);
 	for(var j = 0; j < key.length; j++){
 		key.sortIndices.push(key[j][1]);
 		key[j] = key[j][0];
 	}
+	console.log(key);
 	return key.sortIndices;
     }
 
     arrayGenerator(text, length){
-        return text.match(new RegExp('.{1,' + length + '}', 'g'));;
+        var array_of_strings = text.match(new RegExp('.{1,' + length + '}', 'g'));
+	for(var i = 0; i < array_of_strings.length; i++) array_of_strings[i] = array_of_strings[i].split("");
+	return array_of_strings;
     }
     
     async initFigure(){
         var fig = document.getElementById("transposition-figure");
-        fig.style.width = this.columns*30;
-        fig.style.height = this.rows*30 + 90;
+        fig.style.width = 700;
+	var width = Math.floor(335/this.columns);
+        fig.style.height = this.rows*30 + 60;
         fig.style.outline = "1px solid black";
 	var sortedKey = this.sortKey(this.key);
 	for(var i = 0; i < sortedKey.length; i++){
-            await this.drawBox(this.rows*30+90-60, i*30, "sortedkey", i, sortedKey[i]);
-            await this.drawBox(this.rows*30+90-30, i*30, "key", i, this.key[i]);
+            await this.drawBox(0, i*width+365, "sortedkey", i, sortedKey[i]);
+            await this.drawBox(0, i*width, "key", i, this.key[i]);
 	}
 	console.log(sortedKey, this.key);
 	return sortedKey;
@@ -103,28 +113,38 @@ class Transposition {
         await this.initFigure();
         var decryptedText = "";
         var columnArray = this.arrayGenerator(this.text, Math.floor(this.text.length / this.columns));
+	var dupArray = columnArray;
 	var sortedIndices = await this.initFigure();
         console.log(this.text);console.log(columnArray);
+	var width = Math.floor(335/this.columns);
         for(var i = 0; i < this.rows; i++){
             for(var j = 0; j < this.columns; j++){
                 // make an attempt to get a character
                 // if nothing is there just move on
                 try {
-                    decryptedText += columnArray[j][sortedIndices[i]];
-                    await this.drawBox(i*30, j*30, i, j, columnArray[j][i]);
+                    await this.drawBox(i*30+60, j*width, i, j, columnArray[j][i]);
                     await this.sleep();
                 }
                 catch { continue };
             }
-        }	
+        }
         for(var i = 0; i < this.rows; i++){
             for(var j = 0; j < this.columns; j++){
-	    	var box = document.getElementById(i + "-" + j + "-box");
-		box.style.left = sortedIndices[j]*30 + "px";
+		await this.drawBox(i*30+60,sortedIndices[j]*width+365,j+'sorted',i,columnArray[j][i]);
+		}
 		await this.sleep();
-	    }
 	}
-	document.getElementById("output-text").value = decryptedText;
+	for(var j = 0; j < this.columns; j++){
+		for(var i = 0; i < this.rows; i++){
+                	dupArray[sortedIndices[j]][i] = columnArray[j][i];
+		}
+	}
+	for(var j = 0; j < this.columns; j++){
+		for(var i = 0; i < this.rows; i++){
+                	decryptedText += dupArray[j][i];
+		}
+	}
+	    document.getElementById("output-text").value = decryptedText;
     }
 
     async encryptText(){
@@ -133,13 +153,13 @@ class Transposition {
         var encryptedText = "";
         var rowArray = this.arrayGenerator(this.text, Math.floor(this.text.length / this.rows));
 	var sortedIndices = await this.initFigure();
+	var width = Math.floor(335/this.columns);
         for(var i = 0; i < this.columns; i++){
             for(var j = 0; j < this.rows; j++){
                 // make an attempt to get a character
                 // if nothing is there just move on
                 try {
-                    encryptedText += rowArray[j][sortedIndices[i]];
-                    await this.drawBox(j*30, i*30, j, i, rowArray[j][i]);
+                    await this.drawBox(j*30+60, i*width, j, i, rowArray[j][i]);
                     await this.sleep();
                 }
                 catch { continue };
@@ -147,10 +167,14 @@ class Transposition {
         }
         for(var i = 0; i < this.rows; i++){
             for(var j = 0; j < this.columns; j++){
-	    	var box = document.getElementById(i + "-" + j + "-box");
-		box.style.left = sortedIndices[j]*30 + "px";
+		await this.drawBox(i*30+60,j*width+365,j+'sorted',i,rowArray[i][sortedIndices[j]]);
+		}
 		await this.sleep();
-	    }
+	}
+	for(var j = 0; j < this.columns; j++){
+		for(var i = 0; i < this.rows; i++){
+                	encryptedText += rowArray[i][sortedIndices[j]];
+		}
 	}
 	document.getElementById("output-text").value = encryptedText;
     }
@@ -177,7 +201,6 @@ function pauseFunction(){
 
 async function encrypt(){
     var userInput = document.getElementById("input-text");
-    document.getElementById("encryption-log").innerHTML = "";
     document.getElementById("output-text").innerHTML = "";
 
     var key = document.getElementById("key-input").value;
@@ -190,7 +213,6 @@ async function encrypt(){
 }
 async function decrypt(){
     var userInput = document.getElementById("input-text");
-    document.getElementById("encryption-log").innerHTML = "";
     document.getElementById("output-text").innerHTML = "";
 
     var key = document.getElementById("key-input").value;
