@@ -115,6 +115,10 @@ class Des {
         return binaryString;
     }
 
+    async bitsToChar(bits){
+	    return this.encoding[parseInt(bits, 2)];
+    }
+
     async sbox(bits, sboxIndex){
         var arrayIndex = parseInt(bits[0], 2);
         var index = parseInt(bits.slice(1,4), 2);
@@ -304,7 +308,11 @@ async function encryptFunction(){
     while(userInput.value != ""){
         var userInputString = userInput.value.slice(0,2);
         userInput.value = userInput.value.slice(2);
-        document.getElementById("output-text").innerHTML += await des.encryptRounds(userInputString, rounds, key);
+	var encrypted = await des.encryptRounds(userInputString, rounds, key);
+        document.getElementById("output-text").innerHTML += encrypted;
+        for(var i = 0; i < encrypted.length; i++){
+		document.getElementById("output-text-bit").innerHTML += await des.charToBits(encrypted[i]) + ",";
+	}
     }
 }
 
@@ -357,7 +365,11 @@ async function decryptFunction(){
     while(userInput.value != ""){
         var userInputString = userInput.value.slice(0,2);
         userInput.value = userInput.value.slice(2);
-        document.getElementById("output-text").innerHTML += await des.decryptRounds(userInputString, rounds, key);
+	var decrypted = await des.decryptRounds(userInputString, rounds, key);
+        document.getElementById("output-text").innerHTML += decrypted;
+        for(var i = 0; i < decrypted.length; i++){
+		document.getElementById("output-text-bit").innerHTML += await des.charToBits(decrypted[i]) + ",";
+	}
     }
 }
 
@@ -373,7 +385,59 @@ async function resetFunction(){
 
 }
 
+async function inputFunction(){
+	var input_node = document.getElementById("input-text");
+	var output_node = document.getElementById("input-text-bit");
+	var input_node_values = input_node.value.split("");
+	output_node.value = ""
+	if (input_node.value.split("").length == 0){
+		output_node.value = "";
+	}
+	else{
+		for(var i = 0; i < input_node_values.length; i++){
+			output_node.value += await des.charToBits(input_node_values[i]) + ",";
+		}
+	}
+}
+
+async function inputBitFunction(){
+	var input_node = document.getElementById("input-text-bit");
+	var output_node = document.getElementById("input-text");
+	var input_node_values = input_node.value.split(",");
+	output_node.value = ""
+	if (input_node.value.split(",").length == 0){
+		output_node.value = "";
+	}
+	else{
+		for(var i = 0; i < input_node_values.length; i++){
+			if(input_node_values[i].length != 6){
+				continue;
+			}
+			output_node.value += await des.bitsToChar(input_node_values[i]);
+		}
+	}
+}
+
+async function outputFunction(){
+	var input_node = document.getElementById("output-text");
+	var output_node = document.getElementById("output-text-bit");
+	var input_node_values = input_node.value.split("");
+	output_node.value = ""
+	if (input_node.value.split("").length == 0){
+		output_node.value = "";
+	}
+	else{
+		for(var i = 0; i < input_node_values.length; i++){
+			output_node.value += await des.charToBits(input_node_values[i]) + ",";
+		}
+	}
+}
+
 document.getElementById("pause-button").addEventListener("click", pauseFunction);
 document.getElementById("encrypt-button").addEventListener("click", encryptFunction);
 document.getElementById("decrypt-button").addEventListener("click", decryptFunction);
 document.getElementById("reset-button").addEventListener("click", resetFunction);
+document.getElementById("input-text").addEventListener("input", inputFunction);
+document.getElementById("input-text-bit").addEventListener("input", inputBitFunction);
+document.getElementById("output-text").addEventListener("change", outputFunction);
+

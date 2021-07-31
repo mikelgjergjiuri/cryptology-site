@@ -124,16 +124,24 @@ subpages:
 
   <!-- User interactive elements -->
   <!-- Input text -->
-  <label for="input-text" style="position:absolute; width:200px; height: 100px; top:325px; left:350px;">Input text:</label>
-  <textarea name="input-text" style="position:absolute; width:200px; height: 75px; top:350px; left:350px;" id="input-text" value="Enter text you would like to encrypt or decrypt here."></textarea>
+  <label for="input-text" style="position:absolute; width:100px; height: 100px; top:325px; left:325px;">Input text:</label>
+  <textarea name="input-text" style="position:absolute; width:100px; height: 75px; top:350px; left:325px;" id="input-text" value="Enter text you would like to encrypt or decrypt here."></textarea>
+  
+  <!-- Input text -->
+  <label for="input-text-bit" style="position:absolute; width:100px; height: 100px; top:325px; left:450px;">Input bits:</label>
+  <textarea name="input-text-bit" style="position:absolute; width:100px; height: 75px; top:350px; left:450px;" id="input-text-bit" value="Enter text you would like to encrypt or decrypt here."></textarea>
   
   <!-- Key Input -->
   <label for="key-input" style="position:absolute; width:200px; height: 200px; top:440px; left:350px;">Key:</label>
   <textarea name="key-input" id="key-input" style="position: absolute; top:440px; left: 400px; height:25px; width: 100px;">101010101</textarea>
 
   <!-- Output text -->
-  <label for="output-text" style="position:absolute; width:200px; height: 200px; top:475px; left:350px;">Output text:</label>
-  <textarea readonly name="output-text"  id="output-text" style="position: absolute; top:500px; left: 350px; height:75px; width: 200px;"></textarea>
+  <label for="output-text" style="position:absolute; width:100px; height: 200px; top:475px; left:325px;">Output text:</label>
+  <textarea readonly name="output-text"  id="output-text" style="position: absolute; top:500px; left: 325px; height:75px; width: 100px;"></textarea>
+  
+  <!-- Output text -->
+  <label for="output-text-bit" style="position:absolute; width:100px; height: 200px; top:475px; left: 450px;">Output bits:</label>
+  <textarea readonly name="output-text"  id="output-text-bit" style="position: absolute; top:500px; left: 450px; height:75px; width: 100px;"></textarea>
 
   <!-- Slider for Delay -->
   <input style="position:absolute; top:450px; left:532px;" type="range" id="delay-slider" name="Delay"
