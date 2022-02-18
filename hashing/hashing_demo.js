@@ -54,8 +54,9 @@ class Hash {
         var bit = document.createElement("div");
         bit.setAttribute("id", name + "-" + column + "-bit-" + bitNumber);
         bit.setAttribute("class", "bit");
-        bit.style.top = topPosition;
-        bit.style.left = leftPosition;
+        bit.style.top = topPosition+"px";
+        bit.style.left = leftPosition+"px";
+        bit.style.position = 'absolute';
         var mainBox = document.getElementById("mainhashbox");
         mainBox.appendChild(bit);
     }
@@ -64,8 +65,9 @@ class Hash {
         var bit = document.createElement("div");
         bit.setAttribute("id", name + "-label-" + column);
         bit.setAttribute("class", "bit_label");
-        bit.style.top = topPosition;
-        bit.style.left = leftPosition;
+        bit.style.top = topPosition+"px";
+        bit.style.left = leftPosition+"px";
+        bit.style.position = 'absolute';
         var mainBox = document.getElementById("mainhashbox");
         mainBox.appendChild(bit);
     }
@@ -147,6 +149,7 @@ class Hash {
             var source_bit = document.getElementById("xored-" + grabbing_from + "-bit-" + i);
             var color_of_source_bit = this.colors[grabbing_from - 1][i-1];
             destination_bit.style.color = "rgb(" + color_of_source_bit + ")";
+            destination_bit.style.position = 'absolute';
             destination_bit.innerHTML = source_bit.innerHTML;
             bits += source_bit.innerHTML[3];
             this.sleep();

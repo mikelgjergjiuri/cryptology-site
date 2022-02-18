@@ -1,0 +1,184 @@
+---
+layout: default
+title: RSA
+---
+<table width="933" height="728" border="0" cellpadding="0" cellspacing="0">
+
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p style="LINE-HEIGHT: 150%" class="style12">RSA</p>
+      <p style="LINE-HEIGHT: 150%" class="style8"><span style="mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">The
+      RSA algorithm presented below was first published in <a href="/links.html">[6]</a></span></p>
+      <p style="LINE-HEIGHT: 150%" class="style9">Setup</p>
+      <ol style="margin-top:0in" start="1" type="1">
+        <li class="MsoNormal" style="text-align:justify;mso-list:l0 level1 lfo2;
+     tab-stops:list .5in">
+          <p class="style8">Alice picks up two very large prime numbers, usually of
+          order 100 decimal digits. These numbers are <b><i>p</i></b> and <b><i>q</i></b>.
+          <O:P>
+          </O:P>
+          <span style="mso-fareast-font-family:&quot;Arial Unicode MS&quot;"><o:p>
+          </o:p>
+          </span></li>
+        <li class="MsoNormal" style="text-align:justify;mso-list:l0 level1 lfo2;
+     tab-stops:list .5in">
+          <p class="style8">Calculate, <i>M</i> and <i>N</i>, such
+          that<O:P>
+          </O:P>
+        </li>
+        <ol style="margin-top:0in" start="1" type="a">
+          <li class="MsoNormal" style="text-align:justify;mso-list:l0 level2 lfo2;
+      tab-stops:list 1.0in">
+            <p class="style8"><i>M</i> = <i>p * q<O:P>
+            </i></li>
+          <li class="MsoNormal" style="text-align:justify;mso-list:l0 level2 lfo2;
+      tab-stops:list 1.0in">
+            <p class="style8"><i></O:P>
+            N </i>= (<i>p-1</i>)<i> * </i>(<i>q-1</i>)<O:P>
+            <o:p>
+            </o:p>
+          </li>
+        </ol>
+        </O:P>
+        <li class="MsoNormal" style="text-align:justify;mso-list:l0 level1 lfo2;
+     tab-stops:list .5in">
+          <p class="style8">Alice selects another number <i>e</i>, which is
+          relatively prime to <i>N</i>.<O:P>
+          </O:P>
+          <o:p>
+          </o:p>
+        </li>
+        <li class="MsoNormal" style="text-align:justify;mso-list:l0 level1 lfo2;
+     tab-stops:list .5in">
+          <p class="style8">Now she calculates <i>d</i> such that <i>e
+          * d </i>= 1 (mod <i>N</i>).<O:P>
+          <o:p>
+          </o:p>
+        </li>
+        </O:P>
+        <li class="MsoNormal" style="text-align:justify;mso-list:l0 level1 lfo2;
+     tab-stops:list .5in">
+          <p class="style8">Once <i>p</i>, <i>q</i>, <i>M</i>, <i>N</i>, <i>e</i> and
+          <i>d</i> are selected, she
+          publishes <i>e</i> and <i>M</i>. The rest of them are kept secret</li>
+        <ol style="margin-top:0in" start="1" type="a">
+          <li class="MsoNormal" style="text-align:justify;mso-list:l0 level2 lfo2;
+      tab-stops:list 1.0in">
+            <p class="style8"><span style="mso-spacerun: yes">&nbsp;</span>(<i>e</i>,
+            <i>M</i>) is the public key <O:P>
+            </O:P>
+            <o:p>
+            </o:p>
+          </li>
+          <li class="MsoNormal" style="text-align:justify;mso-list:l0 level2 lfo2;
+      tab-stops:list 1.0in">
+            <p class="style8"><i>d&nbsp; </i>is the private key <o:p>
+            </o:p>
+          </li>
+        </ol>
+      </ol>
+      <p style="LINE-HEIGHT: 150%" class="style9">Encryption and Decryption
+      <p style="LINE-HEIGHT: 150%; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto" class="style8"><span style="VERTICAL-ALIGN: baseline">Suppose
+      Bob has a message to Alice. Regarding it, or a block of numbers in it, as
+      a number <i>x</i> in the range of 0 to <i>M</i>-1.<O:P>
+      </O:P>
+      </span></p>
+      <p style="LINE-HEIGHT: 150%; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto" class="style8"><span style="VERTICAL-ALIGN: baseline">Bob
+      calculates the ciphertext as <O:P>
+      </O:P>
+      </span></p>
+      <p style="LINE-HEIGHT: 150%; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto" class="style8"><span style="VERTICAL-ALIGN: baseline; mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><i><span style="mso-bidi-font-size: 12.0pt">y</span></i> = <i><span style="mso-bidi-font-size: 12.0pt">x</span><sup><span style="mso-bidi-font-size: 12.0pt">e</span></sup></i>
+      mod <i>M<O:P>
+      </O:P>
+      </i></p>
+      <p style="LINE-HEIGHT: 150%; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto" class="style8"><span style="VERTICAL-ALIGN: baseline">Now
+      Alice can decrypt it <O:P>
+      </O:P>
+      </span></p>
+      <p style="LINE-HEIGHT: 150%; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto" class="style8"><span style="VERTICAL-ALIGN: baseline; mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><i><span style="mso-bidi-font-size: 12.0pt">x</span></i> = <i><span style="mso-bidi-font-size: 12.0pt">y</span><sup><span style="mso-bidi-font-size: 12.0pt">d</span></sup></i>
+      mod <i>M</i><O:P>
+      </O:P>
+      </p>
+      <p style="LINE-HEIGHT: 150%; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto" class="style8"><span style="VERTICAL-ALIGN: baseline">Since
+      Alice publishes <i>e</i> and <i>M</i>, any one who wants to
+      send encrypted messages to Alice can do so, but these messages cannot be
+      decrypted without the knowledge of <i>d</i>. <i>d </i>is
+      kept secret and only Alice knows it, she can only decrypt messages.</span></p>
+      <p style="LINE-HEIGHT: 150%" class="style11">Example</p>
+      <ol style="MARGIN-TOP: 0in" type="1">
+        <li class="MsoNormal" style="MARGIN-TOP: 6pt; MARGIN-BOTTOM: 6pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; mso-list: l1 level1 lfo2; tab-stops: list .5in">
+          <p style="LINE-HEIGHT: 150%" class="style8">Choose <i> p</i> and <i>q</i>;<span style="mso-spacerun: yes">&nbsp;
+          </span><i>p</i> =5 and <i> q</i> =11<O:P>
+          </O:P>
+          </p>
+        <li class="MsoNormal" style="MARGIN-TOP: 6pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; mso-list: l1 level1 lfo2; tab-stops: list .5in">
+          <p style="LINE-HEIGHT: 150%" class="style8">Calculate <i> M</i> and <i> N</i><O:P>
+          </O:P>
+          </p>
+        </li>
+      </ol>
+      <p style="MARGIN-LEFT: 0.25in; TEXT-INDENT: 0.25in; LINE-HEIGHT: 150%; MARGIN-RIGHT: 0in; TEXT-ALIGN: justify" class="style8"><i>M</i>
+      = <i> p</i> * <i> q</i> = 5 * 11 = 55<O:P>
+      </O:P>
+      </p>
+      <p style="MARGIN-LEFT: 0.25in; TEXT-INDENT: 0.25in; LINE-HEIGHT: 150%; MARGIN-RIGHT: 0in; TEXT-ALIGN: justify" class="style8"><i>N</i>
+      = (<i>p</i>-1) * (<i>q</i>-1) = 4 * 10 = 40<O:P>
+      </O:P>
+      </p>
+      <ol style="MARGIN-TOP: 0in" type="1" start="3">
+        <li class="MsoNormal" style="MARGIN-TOP: 6pt; MARGIN-BOTTOM: 6pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; mso-list: l1 level1 lfo2; tab-stops: list .5in">
+          <p style="LINE-HEIGHT: 150%" class="style8">Select <i>e</i>, <i> e</i> = 7<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;
+          </span><O:P>
+          </O:P>
+          </p>
+        <li class="MsoNormal" style="MARGIN-TOP: 6pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; mso-list: l1 level1 lfo2; tab-stops: list .5in">
+          <p style="LINE-HEIGHT: 150%" class="style8">Calculate <i> d</i><O:P>
+          </O:P>
+          </p>
+        </li>
+      </ol>
+      <p style="MARGIN-LEFT: 0.25in; TEXT-INDENT: 0.25in; LINE-HEIGHT: 150%; MARGIN-RIGHT: 0in; TEXT-ALIGN: justify" class="style8"><i>d</i>
+      = <i> e</i><sup>-1</sup> mod <i>N</i> = (1/7) mod 40 = 23<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><O:P>
+      </O:P>
+      </p>
+      <ol style="MARGIN-TOP: 0in" type="1" start="5">
+        <li class="MsoNormal" style="MARGIN-TOP: 6pt; MARGIN-BOTTOM: 6pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; mso-list: l1 level1 lfo2; tab-stops: list .5in">
+          <p style="LINE-HEIGHT: 150%" class="style8">Let the message be <i> x</i> = 24<O:P>
+          </O:P>
+          </p>
+        <li class="MsoNormal" style="MARGIN-TOP: 6pt; MARGIN-BOTTOM: 6pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; mso-list: l1 level1 lfo2; tab-stops: list .5in">
+          <p style="LINE-HEIGHT: 150%" class="style8">For <b>encryption,</b>  <i> y</i> =
+          <i>
+          x</i><sup>e</sup> mod M = (24 <sup>7 </sup>) mod 55 = 4586471424<span class="MapleInput" style="font-weight: normal">
+          mod 55 = 29.</span></p>
+        </li>
+      </ol>
+      <p style="MARGIN-LEFT: 0in; TEXT-INDENT: 0.25in; LINE-HEIGHT: 150%; MARGIN-RIGHT: 0in; TEXT-ALIGN: justify" class="style8"><i>so
+      the encrypted message is 29.<O:P>
+      </O:P>
+      </i></p>
+      <ol style="MARGIN-TOP: 0in" type="1" start="7">
+        <li class="MsoNormal" style="MARGIN-TOP: 6pt; MARGIN-BOTTOM: 6pt; LINE-HEIGHT: 150%; TEXT-ALIGN: justify; mso-list: l1 level1 lfo2; tab-stops: list .5in">
+          <p style="LINE-HEIGHT: 150%" class="style8">For <b>decryption, </b><i>x</i> =
+          <i>
+          y</i><sup>d</sup> mod M = (29<sup>23 </sup>) mod 55 =<span style="mso-spacerun: yes">&nbsp;
+          </span><O:P>
+          </O:P>
+          </p>
+        </li>
+      </ol>
+      <p style="MARGIN-LEFT: 2in; LINE-HEIGHT: 150%; MARGIN-RIGHT: 0in; TEXT-ALIGN: justify" class="style8"><span class="MapleInput" style="font-weight: normal">4316720717749415770740818372739989
+      mod 55 = 24</span><b><O:P>
+      </O:P>
+      </b></p>
+      <p style="MARGIN-LEFT: 0.25in; LINE-HEIGHT: 150%; MARGIN-RIGHT: 0in; TEXT-ALIGN: justify" class="style8"><i>so
+      the decrypted message is 24, which is the initial message</i></p>
+    </td>
+
+  </tr>
+
+</table>

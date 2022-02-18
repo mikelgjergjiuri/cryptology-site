@@ -41,10 +41,10 @@
   link: public-key
   sublink:
     - name: Diffie-Hellman Key Exchange
-      link: publickeykeyagreementdemo.html
+      link: /public-key-cryptography/diffie-hellman-key-exchange/demo.html
     - name: R.S.A
-      link: publickeyrsademo.html
+      link: /public-key-cryptography/rsa/demo.html
     - name: ElGamal
-      link: elgamal.html
-- name: URI Computer Science Department
-  link: www.cs.uri.edu
+      link: /public-key-cryptography/elgamal/article.html
+- name: URI CSC
+  link: https://www.cs.uri.edu

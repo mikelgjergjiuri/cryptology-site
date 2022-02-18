@@ -1,0 +1,285 @@
+/*
+		
+Copyright 2016 Summerside Makerspace Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.		
+		
+*/
+
+
+
+.wf-active{
+	visibility: visible;
+}
+
+enigma-wrapper{
+	color: #1f1f1f;
+	font-family: Raleway;
+	font-size: 17px;
+}
+
+enigma-wrapper.modal-open{
+    padding-right: 0 !important;
+}
+
+
+
+.social-links i{
+	font-size: 32px;
+}
+
+.page-header{
+	border-bottom-color: #96172e;
+	position: relative;
+}
+
+.page-header h1 a{
+	color: #1f1f1f;
+	text-decoration: none;
+}
+
+ 
+.modal-content{
+	padding: 15px;
+}
+
+.modal-footer{
+	text-align: left;
+}
+
+.modal-close{
+	font-size: 32px;
+}
+
+.modal ul{
+	font-size: 16px;
+}
+
+.footer{
+	margin-top: 30px;
+	border-top: 1px solid #96172e;
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.field{
+	font-size: 12px;
+}
+
+.reflector{
+	position: relative;
+}
+
+.wire-path-targets{
+	position: absolute;
+	left: -15px;
+	top: 5px;
+	width: 30px;
+	font-size: 10px;
+	line-height: 9px;
+	color: #eeeeee;
+}
+
+.contacts{
+	width: 28px;
+	line-height: 18px;
+}
+
+.text-muted .contacts{
+	color: #eeeeee;
+}
+
+.alphabet-left{
+	float: left;
+}
+
+.alphabet-right{
+	float: right;
+}
+
+.alphabet-offset{
+	margin-top: 9px;
+}
+
+.alphabet-pair-left{
+	float: left;
+}
+
+.alphabet-pair-right{
+	float: right;
+}
+
+.wire{
+	position: absolute;
+	height: 1px;
+	background-color: #dcdcdc;
+	-webkit-transform-origin: 0 100%;
+	-moz-transform-origin: 0 100%;
+	-o-transform-origin: 0 100%;
+	-ms-transform-origin: 0 100%;	
+	transform-origin: 0 100%;
+}
+
+.wire.hot-in{
+	background-color: #ff0000;
+	z-index: 99;
+}
+
+.wire.hot-out{
+	background-color: #0000FF;
+	z-index: 98;
+}
+
+.reflector-wire.wire.hot-in-out{
+	background-image: -webkit-linear-gradient(0, #ff0000, #0000ff);
+	background-image: -moz-linear-gradient(0, #ff0000, #0000ff);
+	background-image: -o-linear-gradient(0, #ff0000, #0000ff);
+	background-image: linear-gradient(90deg, #ff0000, #0000ff);
+	z-index: 97;
+}
+
+.reflector-wire.wire.hot-out-in{
+	background-image: -webkit-linear-gradient(0, #0000ff, #ff0000);
+	background-image: -moz-linear-gradient(0, #0000ff, #ff0000);
+	background-image: -o-linear-gradient(0, #0000ff, #ff0000);
+	background-image: linear-gradient(90deg, #0000ff, #ff0000);
+	z-index: 97;
+}
+
+.wire-path-targets .hot-in{
+	color: #ff0000;	
+}
+
+.contacts .hot-in{
+	color: #ff0000;
+	text-decoration: underline;
+}
+
+.wire-path-targets .hot-out{
+	color: #0000FF;	
+}
+
+.contacts .hot-out{
+	color: #0000FF;
+	text-decoration: underline;	
+}
+
+.entry-wheel .contacts .hot-in:after{
+	content: "<<<";
+	text-align: right;
+	width: 80px;
+	position: absolute;
+	right: 0;
+	left: 0;
+	margin: auto;
+}
+
+.entry-wheel .contacts .hot-out:after{
+	content: ">>>";
+	text-align: right;
+	width: 80px;
+	position: absolute;
+	right: 0;
+	left: 0;
+	margin: auto;
+}
+
+.field .fa{
+	font-size: 16px;
+}
+
+.field .separator{
+	display: block;
+	height: 15px;
+}
+
+.alphabet-pair-left .alphabet-ring-setting:before{
+	content: "\2022";
+	font-weight: bold;
+	position: absolute;
+	color: #00CC00;
+}
+
+.alphabet-pair-right .alphabet-ring-setting:after{
+	content: "\2022";
+	font-weight: bold;
+	position: absolute;
+	color: #00CC00;
+}
+
+.alphabet-pair-left .alphabet-evens .alphabet-ring-setting:before{
+	left: 11px;
+}
+
+.alphabet-pair-left .alphabet-odds .alphabet-ring-setting:before{
+	left: 28px;
+}
+
+.alphabet-pair-right .alphabet-odds .alphabet-ring-setting:after{
+	right: 28px;
+}
+
+.alphabet-pair-right .alphabet-evens .alphabet-ring-setting:after{
+	right: 11px;
+}
+
+.ukw-d-settings-field .input-group,
+.plugboard-settings-field .input-group{
+	margin-bottom: 5px;
+}
+
+.ukw-d-settings-field .input-group-addon,
+.plugboard-settings-field .input-group-addon{
+	width: 48px;
+}
+
+.enigma-controls button{
+	margin-bottom: 15px;
+}
+
+.enigma-controls div:last-child button{
+	margin-bottom: 0;
+}
+
+.enigma-io::-webkit-input-placeholder {
+   color: #009900;
+}
+
+.enigma-io:-moz-placeholder {
+   color: #009900;  
+}
+
+.enigma-io::-moz-placeholder {
+   color: #009900;  
+}
+
+.enigma-io:-ms-input-placeholder {  
+   color: #009900;  
+}
+
+.bulk-text-output{
+	font-size: 16px;
+}
+
+@media screen and (min-width: 992px){
+	.page-header h1{
+		margin-bottom: 10px;
+	}
+	
+	.social-links{
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}

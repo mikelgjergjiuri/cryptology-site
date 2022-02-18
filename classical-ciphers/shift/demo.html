@@ -14,11 +14,13 @@ subpages:
 
 		//	Verify the key
 		var somekey = form.key.value;
-		if (isNaN(somekey) == true){
+		if (isNaN(somekey) == true || somekey == ""){
 			alert("Please enter a valid key and then click on Update button.");
+			return;
 		}
-		
-		key = eval(form.key.value);
+		else{
+			key = eval(form.key.value);
+		}
 		
 		firstchar = "A";
 		var firstindex = firstchar.charCodeAt(0);

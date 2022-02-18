@@ -4,7 +4,8 @@
   outline: 1px solid black;
   text-align: center;
   position: absolute;
-  padding-top: 10px;
+  
+  text-align: center;
 }
 
 .sbox {
