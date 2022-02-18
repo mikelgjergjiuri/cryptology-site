@@ -46,15 +46,5 @@
       link: publickeyrsademo.html
     - name: ElGamal
       link: elgamal.html
-- name: Other Links
-  link: other-links
-  sublink:
-    - name: Outside Links
-      link: links.html
-      sublink: []
-    - name: Thesis
-      link: thesis.html
-      sublink: []
-    - name: URI CSC Homepage
-      link: www.cs.uri.edu
-      sublink: []
+- name: URI Computer Science Department
+  link: www.cs.uri.edu
