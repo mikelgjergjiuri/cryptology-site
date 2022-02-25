@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    
+		<meta charset="utf-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Diffie-Hellman Key Exchange</title>
+	
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/Cstylesheet.css">
+    <link rel="stylesheet" href="/css/cryptography-additional.css">
+    <!-- Additional CSS supplied through jekyll format -->
+    
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="https://www.cs.uri.edu">
+                	<img style="width:85px; display:block; margin:auto;" src="/Images/uri-logo.png">
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+                
+				
+				
+				    <li>
+                    	<a href="/index.html">Introduction</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#number-theorysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Number Theory</a>
+		                <ul class="collapse list-unstyled" id="number-theorysubmenu">
+				            
+			                <li>
+			                    <a href="/number-theory/modular-arithmetic/demo.html">Modular Arithmetic</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/euclids-algorithm/demo.html">Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/extended-euclids-algorithm/demo.html">Extended Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/fermats-little-theorem/fermat.html">Fermat's Little Theorem</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#classical-cipherssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classical Ciphers</a>
+		                <ul class="collapse list-unstyled" id="classical-cipherssubmenu">
+				            
+			                <li>
+			                    <a href="/classical-ciphers/shift/demo.html">Shift Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/affine/demo.html">Affine Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/demo.html">Substitution Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/cryptanalysis-demo.html">Substitution Cryptanalysis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/transposition/demo.html">Transposition Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/hill/demo.html">Hill Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/demo.html">Vigenere Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/cryptanalysis-demo.html">Vigenere Cryptanalysis</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/enigma-machine/demo.html">Enigma Machine</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/des/demo.html">DES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/hashing/demo.html">Hashing</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <ul class="collapse list-unstyled" id="public-keysubmenu">
+				            
+			                <li>
+			                    <a href="/public-key-cryptography/diffie-hellman-key-exchange/demo.html">Diffie-Hellman Key Exchange</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/public-key-cryptography/rsa/demo.html">R.S.A</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/public-key-cryptography/elgamal/article.html">ElGamal</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="https://www.cs.uri.edu">URI CSC</a>
+                	</li>
+				
+				
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+			<div class="jumbotron gradient-jumbotron">
+			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
+			  <hr class="my-4">
+			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+			  <p class="lead">
+			  </p>
+			</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
+                <div class="container-fluid">
+                    
+                    
+                        
+                        <a class="btn btn-info" href="/public-key-cryptography/diffie-hellman-key-exchange/article.html" role="button">Article</a>
+                        
+                    
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+            
+ 				<script language="JavaScript">
+	
+	function clickPS(form)
+	{
+		var p, s, pValid, sValid, ans, pMinusOne;
+		p = eval(form.theP.value);
+		s = eval(form.theS.value);
+		ans = ""; //giving our output an initial value
+		pValid = false;
+		sValid = false;
+		pMinusOne = p-1;
+
+		//checking the inputed value of p
+		if(p>45000)
+			ans = ans + "You entered " + p + ", for p, which is too large. Please enter a prime number less than 45,000";
+		else if(!isPrime(p))
+			ans = ans + "You entered " + p + " for p, which is not prime. Please enter a prime number for P.";
+		else
+		{
+			ans = ans + "P = " + p;
+			pValid = true;
+		}
+		
+		ans = ans + "\r\n"; //new line
+		
+		//checking the inputed value of s
+		if(s<2)
+			ans = ans + "You entered " + s + ", for s, which is too small. Please enter a number greater than 2 and less than " + pMinusOne + ".";
+		else if(s>pMinusOne)
+			ans = ans + "You entered " + s + ", for s, which is too large. Please enter a number greater than 2 and less than " + pMinusOne + ".";
+		else
+		{
+			ans = ans + "S = " + s;
+			sValid = true;
+		}
+		
+		ans = ans + "\r\n"; //new line
+		
+		//IF I CAN FIGURE OUT HOW TO DISABLE/ENABLE BUTTONS
+		if(pValid && sValid)
+		{
+			ans = ans + "Please enter a value for a (between 2 and P-1) and click submit.";
+			ans = ans + "\r\n"; //new line
+			form.submitSmallA.disabled = false; //enabling next submit box
+		}
+		
+		//output
+		form.result.value = ans; 
+	}
+	
+	function clickSmallA(form)
+	{
+		var a, s, p, ans, pMinusOne, bigA;
+		a = eval(form.smallA.value); //stores value of small a
+		p = eval(form.theP.value);
+		pMinusOne = p - 1; //stores p minus one
+		s = eval(form.theS.value);
+		bigA = (Math.pow(s, a)) % p; //can't work with numbers that are too big
+		ans = "";
+		
+		if(a<2)
+			ans = ans + "You entered " + a + ", for a, which is too small. Please enter a number greater than 2 and less than " + pMinusOne + ".";
+		else if(a>pMinusOne)
+			ans = ans + "You entered " + a + ", for a, which is too large. Please enter a number greater than 2 and less than " + pMinusOne + ".";
+		else
+		{
+			ans = ans + "a = " + a;
+			ans = ans + "\r\n"; //new line
+			ans = ans + "A = (s^a) mod p";
+			ans = ans + "\r\n"; //new line
+			ans = ans + "A = (" + s + "^" + a + ") mod " + p;
+			ans = ans + "\r\n"; //new line
+			ans = ans + "A = " + bigA;
+			ans = ans + "\r\n"; //new line
+			ans = ans + "Please enter a value for b (between 2 and P-1) and click submit.";
+			form.submitSmallB.disabled = false; //enabling next submit box
+		}
+			
+		ans = ans + "\r\n"; //new line
+		
+		//output
+		form.result.value = ans;
+		form.bigA.value = bigA;
+	}
+	
+	function clickSmallB(form)
+	{
+		var b, s, p, ans, pMinusOne, bigB;
+		b = eval(form.smallB.value); //stores value of small a
+		p = eval(form.theP.value);
+		pMinusOne = p - 1; //stores p minus one
+		s = eval(form.theS.value);
+		bigB = (Math.pow(s, b)) % p;
+		ans = ""; //giving our output an initial value
+		
+		if(b<2)
+			ans = ans + "You entered " + b + ", for b, which is too small. Please enter a number greater than 2 and less than " + pMinusOne + ".";
+		else if(b>pMinusOne)
+			ans = ans + "You entered " + b + ", for b, which is too large. Please enter a number greater than 2 and less than " + pMinusOne + ".";
+		else
+		{
+			ans = ans + "b = " + b;
+			ans = ans + "\r\n"; //new line
+			ans = ans + "B = (s^b) mod p";
+			ans = ans + "\r\n"; //new line
+			ans = ans + "B = (" + s + "^" + b + ") mod " + p;
+			ans = ans + "\r\n"; //new line
+			ans = ans + "B = " + bigB;
+			ans = ans + "\r\n"; //new line
+			ans = ans + "Please click Solve to solve for A's key.";
+			form.solveKeyA.disabled = false; //enabling next submit box
+		}
+			
+		ans = ans + "\r\n"; //new line
+		
+		//output
+		form.result.value = ans;
+		form.bigB.value = bigB;
+	}
+	
+	function clickKeyA(form)
+	{
+		var a, p, ans, bigB, k;
+		a = eval(form.smallA.value);
+		p = eval(form.theP.value);
+		bigB = eval(form.bigB.value); 
+		k = (Math.pow(bigB, a)) % p;
+		ans = "";
+		
+		ans = ans + "k = (B^a) mod p";
+		ans = ans + "\r\n"; //new line
+		ans = ans + "k = (" + bigB + "^" + a + ") mod " + p;
+		ans = ans + "\r\n"; //new line
+		ans = ans + "k = " + k;
+		ans = ans + "\r\n"; //new line
+		ans = ans + "Please click Solve to solve for B's key.";
+		form.solveKeyB.disabled = false; //enabling next submit box
+		
+		//output
+		form.result.value = ans;
+		form.keyA.value = k;
+	}
+	
+	function clickKeyB(form)
+	{
+		var b, p, ans, bigA, k;
+		b = eval(form.smallB.value);
+		p = eval(form.theP.value);
+		bigA = eval(form.bigA.value); 
+		k = (Math.pow(bigA, b)) % p;
+		ans = "";
+		
+		ans = ans + "\r\n"; //new line
+		
+		ans = ans + "k = (A^b) mod p";
+		ans = ans + "\r\n"; //new line
+		ans = ans + "k = (" + bigA + "^" + b + ") mod " + p;
+		ans = ans + "\r\n"; //new line
+		ans = ans + "k = " + k;
+		ans = ans + "\r\n"; //new line
+		ans = ans + "Both keys are the same.";
+		
+		//output
+		form.result.value = ans;
+		form.keyB.value = k;
+	}
+	
+	
+	//the code for the following two methods (isPrime and leastFactor) were used from the website:
+	//http://www.javascripter.net/faq/numberisprime.htm
+	/*isPrime =*/ function isPrime(n) 
+	{
+		if (isNaN(n) || !isFinite(n) || n%1 || n<2) return false; 
+		if (n==leastFactor(n)) return true;
+		return false;
+	}
+	// leastFactor(n)
+	// returns the smallest prime that divides n
+	//     NaN if n is NaN or Infinity
+	//      0  if n=0
+	//      1  if n=1, n=-1, or n is not an integer
+	/*leastFactor =*/ function leastFactor(n)
+	{
+		if (isNaN(n) || !isFinite(n)) return NaN;  
+		if (n==0) return 0;  
+		if (n%1 || n*n<2) return 1;
+		if (n%2==0) return 2;  
+		if (n%3==0) return 3;  
+		if (n%5==0) return 5;  
+		var m = Math.sqrt(n);
+		for (var i=7;i<=m;i+=30) 
+		{
+			if (n%i==0)      return i;
+			if (n%(i+4)==0)  return i+4;
+			if (n%(i+6)==0)  return i+6;
+			if (n%(i+10)==0) return i+10;
+			if (n%(i+12)==0) return i+12;
+			if (n%(i+16)==0) return i+16;
+			if (n%(i+22)==0) return i+22;
+			if (n%(i+24)==0) return i+24;
+		}
+	 return n;
+	}
+		
+	
+</script>
+
+<table width="933" height="884" border="0" cellpadding="0" cellspacing="0">
+
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+	 <form name="form1" method="post" onSubmit="return false">
+      <table>
+        <tr>
+          <td width="766" bgColor="#ffffff" height="3">
+            <p align="left" class="style12">Key Agreement Interactive Demo</p>
+            <p style="MARGIN: 6pt 0in; LINE-HEIGHT: 150%" class="style9"><font color="#d75a22">Instructions</font></p>
+            <p style="MARGIN: 6pt 0in; LINE-HEIGHT: 150%; TEXT-ALIGN: justify" class="style8">First
+            enter public base <b><i>P</i></b>(prime number below
+            45000), and <b><i>S</i></b> (between 2 and P-1) and click submit. <O:P>
+            </O:P>
+            </p>
+            <p style="MARGIN: 6pt 0in; LINE-HEIGHT: 150%; TEXT-ALIGN: justify" class="style8">Then enter <b><i>a</i></b> (between 2 and P-1)
+            and click submit.
+            <O:P>
+            </O:P>
+            </p>
+			<p style="MARGIN: 6pt 0in; LINE-HEIGHT: 150%; TEXT-ALIGN: justify" class="style8"> Then enter <b><i>b</i></b> (between 2 and P-1)
+			and click sibmit.
+			<O:P>
+            </O:P>
+            </p>
+            <p style="MARGIN: 6pt 0in; LINE-HEIGHT: 150%; TEXT-ALIGN: justify" class="style8">You
+            can also change <b><i>p</i></b>, <b><i>s</i></b>, <b><i>a</i></b>
+            and <b><i>b</i></b> at anytime by just clicking on the corresponding
+            text box.<O:P>
+            </O:P>
+            </p>
+         <tr>
+            <td>
+              <table width="60%" border="0" cellspacing="1" cellpadding="5">
+                <tr bgcolor="#CCCCCC">
+                  <td width="10%">
+                    <div align="right">
+                      <p class="style8"><strong>P:</strong></p>
+					  <p class="style8"><strong>S:</strong></p>
+                    </div>
+                  </td>
+                  <td width="90%">
+                    <p class="style8"><input name="theP" type="text" id="theP" size="5">
+					<p class="style8"><input name="theS" type="text" id="theS" size="5">
+                    &nbsp;&nbsp;&nbsp; <input type="submit" name="submitS" value="  Submit  " onclick="clickPS(this.form)"></p>
+                  </td>
+				</tr>
+              </table>
+			</td> 
+          </tr>
+
+		  
+		   <tr>
+            <td>
+              <table width="60%" border="0" cellspacing="1" cellpadding="5">
+                <tr bgcolor="#CCCCCC">
+                  <td width="10%">
+                    <div align="right">
+                      <p class="style8"><strong>a:</strong></p>
+					  <p class="style8"><strong>A:</strong></p>
+					  <p class="style8"><strong>Key:</strong></p>
+                    </div>
+                  </td>
+                  <td width="90%">
+                    <p class="style8"><input  type="text" name="smallA" id="smallA" size="5">
+                    &nbsp;&nbsp;&nbsp; <input type="submit" id="submitSmallA" name="sumbitSmallA" disabled="disabled" value="  Submit  " onclick="clickSmallA(this.form)"></p>
+					<p class="style8"><input name="bigA" type="text" id="bigA" size="5">
+					<p class="style8"><input name="keyA" type="text" id="keyA" size="5">
+					&nbsp;&nbsp;&nbsp; <input type="submit" id="solveKeyA" name="solveKeyA" disabled="disabled" value="  Solve  " onclick="clickKeyA(this.form)"></p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+		  
+		  <tr>
+            <td>
+              <table width="60%" border="0" cellspacing="1" cellpadding="5">
+                <tr bgcolor="#CCCCCC">
+                  <td width="10%">
+                    <div align="right">
+                      <p class="style8"><strong>b:</strong></p>
+					  <p class="style8"><strong>B:</strong></p>
+					  <p class="style8"><strong>Key:</strong></p>
+                    </div>
+                  </td>
+                  <td width="90%">
+                    <p class="style8"><input name="smallB" type="text" id="smallB" size="5">
+                    &nbsp;&nbsp;&nbsp; <input type="submit" id="submitSmallB" name="submitSmallB" disabled="disabled" value="  Submit  " onclick="clickSmallB(this.form)"></p>
+					<p class="style8"><input name="bigB" type="text" id="bigB" size="5">
+					<p class="style8"><input name="keyB" type="text" id="keyB" size="5">
+					&nbsp;&nbsp;&nbsp; <input type="submit" id="solveKeyB" name="solveKeyB" disabled="disabled" value="  Solve  " onclick="clickKeyB(this.form)"></p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+		  <tr>
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                <tr>
+                  <td>
+                    <div align="left">
+                      <p class="style8"><strong>Explanation and Instructions</strong>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="50%">
+                    <div align="left">
+					  <p><textarea name="result" rows="20" wrap="VIRTUAL" id="result" cols="50"></textarea>
+                    </div>
+                  </td>
+                </tr>
+			  </table>
+			</td>
+		  </tr>
+		  
+		  
+          </td>
+        </tr>
+      </table>
+	 </form>
+    </td>
+
+  </tr>
+
+</table>
+
+ 			
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="/js/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    
+</body>
+<!-- sourced from https://bootstrapious.com/p/bootstrap-sidebar under MIT license - https://bootstrapious.com/terms-of-service-->
+</html>
