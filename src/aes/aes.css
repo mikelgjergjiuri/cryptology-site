@@ -1,0 +1,42 @@
+.aesbox{
+  width:4%;
+  height:4%;
+  outline: 1px solid black;
+  text-align: center;
+  position: absolute;
+  font-size: 16px;
+  text-align: center;
+}
+
+.nibble {
+  text-align: center;
+  position: absolute;
+  width:4%;
+  height:3%;
+  outline: 1px solid black;
+}
+
+input[type="range"] {
+  position: absolute;
+  transform: rotate(270deg);
+  width: 125px;
+}
+
+.aesbutton {
+  width: 80px;
+  height: 20px;
+  position: absolute;
+  font-size: 12px;
+}
+
+textarea {
+	resize: none;
+}
+
+.aestextbox {
+    width: 20%;
+    height: 27.5%;
+    position: absolute;
+    font-size: 14px;
+}
+

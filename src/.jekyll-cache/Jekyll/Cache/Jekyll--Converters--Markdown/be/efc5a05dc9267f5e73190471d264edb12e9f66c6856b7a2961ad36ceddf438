@@ -1,0 +1,35 @@
+I"J<h2 id="fermats-little-theorem">Fermat’s Little Theorem</h2>
+
+<p>Fermat’s Little Theorem states that for a prime number \(p\), and any integer \(a\)</p>
+
+\[a^p \equiv a \mod{p}\]
+
+<p>Dividing both sides by \(a\) gives us</p>
+
+\[a^{p-1} \equiv 1 \mod{p}\]
+
+<p>Why this is important?</p>
+
+<p>Fermat’s Little Theorem allows us to drastically speed up computation time for large exponents where it is applicable.</p>
+
+<p>Here’s an example:</p>
+
+\[561^{996001} \equiv X \mod{997}\]
+
+<p>Even using an efficient method for computing large exponents such as the binary method, still requires a lot of work.</p>
+
+<p>But using the theorem, we know that we can drastically reduce the exponent by dividing our exponent by \((p-1)\), where \(p\) is 997.</p>
+
+<p>Doing so we are able to rewrite the equation as</p>
+
+\[561^{996*1000 + 1} \equiv X \mod{997}\]
+
+<p>Further reducing our problem we can rewrite this as</p>
+
+\[561^{1}*561^{996*1000} \equiv X \mod{997}\]
+
+<p>Now we can exploit Fermat’s Little Theorem by realizing the \(561^{996*1000} \equiv 1\) and we have</p>
+
+\[561 \equiv X \mod{997}\]
+
+:ET

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    
+		<meta charset="utf-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Diffie-Hellman Key Exchange</title>
+	
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/Cstylesheet.css">
+    <link rel="stylesheet" href="/css/cryptography-additional.css">
+    <!-- Additional CSS supplied through jekyll format -->
+    
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="https://www.cs.uri.edu">
+                	<img style="width:85px; display:block; margin:auto;" src="/Images/uri-logo.png">
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+                
+				
+				
+				    <li>
+                    	<a href="/index.html">Introduction</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#number-theorysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Number Theory</a>
+		                <ul class="collapse list-unstyled" id="number-theorysubmenu">
+				            
+			                <li>
+			                    <a href="/number-theory/modular-arithmetic/demo.html">Modular Arithmetic</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/euclids-algorithm/demo.html">Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/extended-euclids-algorithm/demo.html">Extended Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/fermats-little-theorem/fermat.html">Fermat's Little Theorem</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#classical-cipherssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classical Ciphers</a>
+		                <ul class="collapse list-unstyled" id="classical-cipherssubmenu">
+				            
+			                <li>
+			                    <a href="/classical-ciphers/shift/demo.html">Shift Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/affine/demo.html">Affine Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/demo.html">Substitution Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/cryptanalysis-demo.html">Substitution Cryptanalysis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/transposition/demo.html">Transposition Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/hill/demo.html">Hill Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/demo.html">Vigenere Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/cryptanalysis-demo.html">Vigenere Cryptanalysis</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/enigma-machine/demo.html">Enigma Machine</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/des/demo.html">DES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/hashing/demo.html">Hashing</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <ul class="collapse list-unstyled" id="public-keysubmenu">
+				            
+			                <li>
+			                    <a href="/public-key-cryptography/diffie-hellman-key-exchange/demo.html">Diffie-Hellman Key Exchange</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/public-key-cryptography/rsa/demo.html">R.S.A</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/public-key-cryptography/elgamal/article.html">ElGamal</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="https://www.cs.uri.edu">URI CSC</a>
+                	</li>
+				
+				
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+			<div class="jumbotron gradient-jumbotron">
+			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
+			  <hr class="my-4">
+			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+			  <p class="lead">
+			  </p>
+			</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
+                <div class="container-fluid">
+                    
+                    
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+            
+ 				<table width="933" height="725" border="0" cellpadding="0" cellspacing="0">
+
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <table>
+        <tr>
+          <td width="766" bgColor="#ffffff" height="3">
+            <p align="left" class="style12">Diffie- Hellman Key Agreement
+            Protocol</p>
+            <p style="LINE-HEIGHT: 150%" class="style8"><span style="mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">Diffie-Hellman
+            Key Agreement protocol <a href="/links.html">[7]</a> can be used to
+            exchange keys for a symmetric cryptosystem over an insecure
+            channe</span>l</p>
+            <p style="MARGIN-LEFT: 0in; LINE-HEIGHT: 150%; MARGIN-RIGHT: 0in" class="style9">Setup</p>
+            <ul>
+              <li>
+                <p style="LINE-HEIGHT: 150%" class="style8"><i>p</i><span style="mso-spacerun: yes">&nbsp;is
+                </span>a
+                large prime number called the public prime</p>
+              <li>
+                <p style="LINE-HEIGHT: 150%" class="style8"><i>s is</i> a
+                number in the range of 2 to <i>p</i>-1, called the public
+                base</p>
+              <li>
+                <p style="LINE-HEIGHT: 150%" class="style8">Alice chooses a
+                number <i>a</i> at random in the range of 2 to <i>p</i>-2, then
+                calculates <i>A</i> = <i>s<sup>a</sup></i> mod <i>p</i>
+                and sends it to Bob</p>
+              <li>
+                <p style="LINE-HEIGHT: 150%" class="style8">Bob chooses a number
+                <i>b</i> at random in the range of 2 to <i>p</i>-2, then
+                calculates <i>B</i> = <i>s<sup>b</sup></i> mod <i>p</i>
+                and sends it to Alice</p>
+              </li>
+            </ul>
+            <p style="MARGIN-LEFT: 0in; LINE-HEIGHT: 150%; MARGIN-RIGHT: 0in" class="style9">&nbsp;</p>
+            <p style="MARGIN-LEFT: 0in; LINE-HEIGHT: 150%; MARGIN-RIGHT: 0in" class="style9">Key
+            Retrieval</p>
+            <ul>
+              <li>
+                <p style="LINE-HEIGHT: 150%" class="style8">Alice calculates <i>k</i>
+                = <i>B<sup>a</sup></i> mod <i>p</i> = (<i>s<sup>b</sup>)<sup>a</sup></i>
+                mod <i>p</i> = <i>s<sup>ba</sup></i> mod <i>p</i></p>
+              <li>
+                <p style="LINE-HEIGHT: 150%" class="style8">Bob calculates <i>k</i>
+                = <i>A<sup>b</sup></i> mod <i>p</i> = (<i>s<sup>a</sup>)<sup>b</sup></i>
+                mod <i>p</i> = <i>s<sup>ab</sup></i> mod <i>p</i></p>
+              </li>
+            </ul>
+            <p style="MARGIN-LEFT: 0in; LINE-HEIGHT: 200%; MARGIN-RIGHT: 0in" class="style8">Now
+            both Alice and Bob have the same key <i>k</i> and they can use
+            it in a symmetric cryptosystem like DES. Since Alice knows <i>a</i>
+            and <i>B</i> and Bob knows <i>b</i> and <i>A</i>,&nbsp; both of them can calculate
+            <i>s<sup>ab</sup></i>. But someone with the knowledge of <i>p</i>,<i> s</i>,<i> A</i>,<i>
+            B</i> will not be able to calculate the key <i>k</i></p>
+            <p style="MARGIN-LEFT: 0in; LINE-HEIGHT: 200%; MARGIN-RIGHT: 0in" class="style9">The
+            Diffie-
+            Hellman Problem</p>
+            <p style="LINE-HEIGHT: 200%" class="style8">Find <i>s<sup>ab</sup></i>
+            mod <i>p</i> from <i>s<sup>a</sup></i> and<i> s<sup>b</sup></i>
+            in a time-efficient manner.</p>
+            <p style="LINE-HEIGHT: 200%" class="style8">It is obvious that for
+            an eavesdropper, Eve, to find the key <i>k</i>, she has to find <i>a</i>
+            and <i>b</i> given <i>s<sup>a</sup></i> = <i>A</i> mod <i>p</i> and<span style="mso-spacerun: yes">&nbsp; </span><i>S<sup>b</sup></i>
+            = <i>B</i> mod <i>p</i> . There is no such efficient algorithm to solve for <i>a</i> and <i>b</i>.
+            The Diffie- Hellman problem is still an open question without an
+            efficient solution. You might want to try to crack it, rest assured you and
+            your algorithm will be more famous than any of the existing
+            algorithms related to cryptography. Good luck!</p>
+            <p style="LINE-HEIGHT: 200%" class="style8">&nbsp;</p>
+            <p style="MARGIN-LEFT: 0in; LINE-HEIGHT: 150%; MARGIN-RIGHT: 0in" class="style9">Example</p>
+            <ul>
+              <li>
+                <p style="MARGIN-LEFT: 0in; LINE-HEIGHT: 200%; MARGIN-RIGHT: 0in; TEXT-ALIGN: justify" class="style8">Public
+                prime <i>p</i> = 79<O:P>
+                </O:P>
+                </p>
+              <li>
+                <p style="MARGIN-LEFT: 0in; LINE-HEIGHT: 200%; MARGIN-RIGHT: 0in; TEXT-ALIGN: justify" class="style8">Public
+                base<span style="mso-spacerun: yes">&nbsp;&nbsp; </span><i>s</i>
+                = 56<O:P>
+                </O:P>
+                </p>
+              <li>
+                <p style="MARGIN-LEFT: 0in; LINE-HEIGHT: 200%; MARGIN-RIGHT: 0in; TEXT-ALIGN: justify" class="style8">Alice
+                chooses <i>a</i>= 35<O:P>
+                </O:P>
+                </p>
+              <li>
+                <p style="LINE-HEIGHT: 200%" class="style8">Alice calculates <i>A</i><span style="mso-spacerun: yes">&nbsp;
+                </span>= <i>s<sup>a</sup></i> mod <i>p = </i>(56)<sup>35</sup> mod
+                79 =<span style="mso-spacerun: yes">&nbsp; </span><span class="MapleInput" style="font-weight: normal; mso-bidi-font-family: Times New Roman; mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman">15366711764103772265936719131269189389773889471090594389426176
+                mod 79 = 24</span></p>
+              <li>
+                <p style="MARGIN-LEFT: 0in; LINE-HEIGHT: 200%; MARGIN-RIGHT: 0in; TEXT-ALIGN: justify" class="style8">Bob
+                chooses <i>b</i>= 12<O:P>
+                </O:P>
+                </p>
+              <li>
+                <p style="LINE-HEIGHT: 200%" class="style8">Bob calculates <i>B</i><span style="mso-spacerun: yes">&nbsp;
+                </span>= <i>s<sup>b</sup></i> mod <i>p</i><span style="mso-spacerun: yes">&nbsp;
+                </span>= <i><span style="mso-spacerun: yes">&nbsp;</span></i>(56)<sup>12</sup>
+                mod 79 = <span class="MapleInput" style="font-weight: normal; mso-bidi-font-family: Times New Roman; mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman">951166013805414055936</span><span class="MapleInput" style="font-weight: normal; mso-bidi-font-family: Times New Roman">
+                mod 79 = 1</span> <O:P>
+                </O:P>
+                </p>
+              <li>
+                <p style="MARGIN-LEFT: 0in; LINE-HEIGHT: 200%; MARGIN-RIGHT: 0in; TEXT-ALIGN: justify" class="style8">Alice
+                calculates key<span style="mso-spacerun: yes">&nbsp; </span><i>k</i>
+                =<span style="mso-spacerun: yes">&nbsp; </span><i>B<sup>a</sup></i>
+                mod <i>p</i> <i>= </i>(1)<sup>35</sup> mod 79 = 1 mod 79 = 1<O:P>
+                </O:P>
+                </p>
+              <li>
+                <p style="LINE-HEIGHT: 200%" class="style8">Bob calculates key <i>k</i>
+                = <i>A<sup>b</sup></i> mod <i>p</i> <span style="mso-spacerun: yes">&nbsp;</span>=
+                <i><span style="mso-spacerun: yes">&nbsp;</span></i>(24)<sup>12</sup>
+                mod 79 = <span class="MapleInput" style="font-weight: normal; mso-bidi-font-family: Times New Roman">36520347436056576
+                </span><span style="mso-spacerun: yes">&nbsp;</span>mod 79 = 1</p>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </td>
+
+  </tr>
+
+</table>
+
+ 			
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="/js/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    
+</body>
+<!-- sourced from https://bootstrapious.com/p/bootstrap-sidebar under MIT license - https://bootstrapious.com/terms-of-service-->
+</html>

@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    
+		<meta charset="utf-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Vigenere Cipher</title>
+	
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/Cstylesheet.css">
+    <link rel="stylesheet" href="/css/cryptography-additional.css">
+    <!-- Additional CSS supplied through jekyll format -->
+    
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="https://www.cs.uri.edu">
+                	<img style="width:85px; display:block; margin:auto;" src="/Images/uri-logo.png">
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+                
+				
+				
+				    <li>
+                    	<a href="/index.html">Introduction</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#number-theorysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Number Theory</a>
+		                <ul class="collapse list-unstyled" id="number-theorysubmenu">
+				            
+			                <li>
+			                    <a href="/number-theory/modular-arithmetic/demo.html">Modular Arithmetic</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/euclids-algorithm/demo.html">Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/extended-euclids-algorithm/demo.html">Extended Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/fermats-little-theorem/fermat.html">Fermat's Little Theorem</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#classical-cipherssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classical Ciphers</a>
+		                <ul class="collapse list-unstyled" id="classical-cipherssubmenu">
+				            
+			                <li>
+			                    <a href="/classical-ciphers/shift/demo.html">Shift Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/affine/demo.html">Affine Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/demo.html">Substitution Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/cryptanalysis-demo.html">Substitution Cryptanalysis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/transposition/demo.html">Transposition Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/hill/demo.html">Hill Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/demo.html">Vigenere Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/cryptanalysis-demo.html">Vigenere Cryptanalysis</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/enigma-machine/demo.html">Enigma Machine</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/des/demo.html">DES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/hashing/demo.html">Hashing</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <ul class="collapse list-unstyled" id="public-keysubmenu">
+				            
+			                <li>
+			                    <a href="/public-key-cryptography/diffie-hellman-key-exchange/demo.html">Diffie-Hellman Key Exchange</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/public-key-cryptography/rsa/demo.html">R.S.A</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/public-key-cryptography/elgamal/article.html">ElGamal</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="https://www.cs.uri.edu">URI CSC</a>
+                	</li>
+				
+				
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+			<div class="jumbotron gradient-jumbotron">
+			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
+			  <hr class="my-4">
+			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+			  <p class="lead">
+			  </p>
+			</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
+                <div class="container-fluid">
+                    
+                    
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+            
+ 				<table width="933" height="725" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Vigenère Cipher</p>
+      <p class="style9">Description</p>
+      <p class="style8">The Vigenère cipher is an example of
+      a polyalphabetic substitution cipher. A polyalphabetic substitution
+      cipher is similar to a monoalphabetic substitution except that the cipher
+      alphabet is changed periodically while enciphering the message. This makes
+      the cipher less vulnerable to cryptanalysis using letter frequencies.</p>
+      <p class="style8">Blaise de Vigenère developed what
+      is now called the Vigenère cipher in 1585. He used a table known as the Vigenère
+      square, to
+      encipher messages. This page discusses two different versions of the Vigenère
+      cipher, the autokey method and the keyword method.</p>
+      <p class="style12">Autokey Method</p>
+      <p class="style9"><strong>Encipher</strong></p>
+      <p class="style8">In order to encipher a message using the Vigenère
+      autokey method,<span style="mso-spacerun: yes">&nbsp; </span>the sender
+      and receiver must first agree on a <i>priming key</i>. The priming
+      key is a single letter that will be added to the beginning of the message
+      to form the key. The sender will encrypt the message by writing the
+      plaintext on one line and writing the key on the line beneath it. The
+      sender will use the plaintext and key letters to select a row and a column
+      in the Vigenère square. The selected row is the row in which the
+      plaintext letter is in the first column and the selected column is the
+      column in which the key letter is in the first row. A ciphertext letter will
+      be the letter that appears in the Vigenère square at the position corresponds to the selected row and&nbsp;
+      column. In the following example, to find the ciphertext
+      letter, first locate the row in the Vigenère square that corresponds to
+      plaintext letter T. Next locate the column that corresponds to the key
+      letter L. The letter at which they intersect is the ciphertext letter, in
+      this case E. Continue to do this for each pair of letters to form the
+      compete ciphertext.
+      <table width="703">
+        <tr>
+          <td width="387">
+            <p class="style8">Priming key: L
+            <p class="style8">&nbsp;
+      <table border="0" cellpadding="0" style="mso-cellspacing: 1.5pt" height="78" width="347">
+        <tr>
+          <td style="padding: .75pt" class="style8" height="26" width="20">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">plaintext:</span><span style="font-family:&quot;Arial Unicode MS&quot;;
+  color:black"><o:p>
+            </span></p>
+          </td>
+          <td style="background-color: #CCCCCC; background-repeat: repeat; background-attachment: scroll; padding: .75pt; background-position: 0% 50%" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align:justify"><span style="color: black">T</span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">B</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">E</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">R</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">N</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">T</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">T</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">B</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">E</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: .75pt" class="style8" height="26" width="20">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size: 10.0pt; color: black">key</span><span style="font-size:10.0pt;
+  color:black">:</span><span style="font-family:&quot;Arial Unicode MS&quot;;
+  color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="background-color: #CCCCCC; background-repeat: repeat; background-attachment: scroll; padding: .75pt; background-position: 0% 50%" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align:justify"><span style="color: black; font-size: 10.0pt">L</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">T</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">B</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">E</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">R</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">N</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">T</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">T</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">B</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: .75pt" class="style8" height="26" width="20">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">ciphertext:</span><span style="font-family:&quot;Arial Unicode MS&quot;;
+  color:black"></o:p>
+            </span></p>
+          </td>
+          <td style="background-color: #888888; background-repeat: repeat; background-attachment: scroll; padding: .75pt; background-position: 0% 50%" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align:justify"><span style="color: black">E</span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">H</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">P</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">F</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">S</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">F</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">E</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">B</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">H</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">M</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">H</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">P</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">F</span>
+          </td>
+        </tr>
+      </table>
+          </td>
+          <td width="302"><img height="300" src="/Images/VigenereAutokey1.jpg" width="300" td )</td>
+        </table>
+      <p class="style9">
+      <br>
+      <strong>Decipher</strong>
+      <p class="style8">To decrypt a message, the row is selected using the
+      priming key. Next, the receiver locates the first letter of the ciphertext in
+      the selected row. The letter at the top of the column that contains the
+      ciphertext letter is the first letter of the plaintext. Add the first
+      letter of the plaintext to the key and use it with next ciphertext letter
+      to continue decipherment.
+      <table width="705">
+        <tr>
+          <td width="389">
+            <p class="style8">Example:<br>
+            Message: EHPFS FEBHM HPF<br>
+            Priming key: L<br>
+            <span style="color:black">
+      </o:p>
+      </span>
+      <table border="0" cellpadding="0" style="mso-cellspacing: 1.5pt" height="78" width="347">
+        <tr>
+          <td style="padding: .75pt" class="style8" height="26" width="20">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">key:</span><span style="font-family:&quot;Arial Unicode MS&quot;;
+  color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="background-color: #CCCCCC; background-repeat: repeat; background-attachment: scroll; padding: .75pt; background-position: 0% 50%" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align:justify"><span style="color: black">E</span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">H</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">P</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">F</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">S</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">F</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">E</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">B</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">H</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">M</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">H</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">P</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">F</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: .75pt" class="style8" height="26" width="20">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">ciphertext:</span><span style="font-family:&quot;Arial Unicode MS&quot;;
+  color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="background-color: #CCCCCC; background-repeat: repeat; background-attachment: scroll; padding: .75pt; background-position: 0% 50%" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align:justify"><span style="color: black; font-size: 10.0pt">L</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">T</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">B</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">E</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">R</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">N</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">T</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">T</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">B</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: .75pt" class="style8" height="26" width="20">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">plaintext:</span><span style="font-family:&quot;Arial Unicode MS&quot;;
+  color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="background-color: #888888; background-repeat: repeat; background-attachment: scroll; padding: .75pt; background-position: 0% 50%" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align:justify"><span style="color: black; font-size: 10.0pt">T</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">B</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">E</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">R</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">N</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">T</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="21">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">T</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">O</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">B</span>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="22">
+            <p class="MsoNormal" style="text-align: justify"><span style="color: black">E</span>
+          </td>
+        </tr>
+      </table>
+          </td>
+          <td width="302"><img src="/Images/viginereautokey01.jpg" td )< width="300" height="299"></td>
+        </table>
+      <p class="style9">Security</p>
+      <p class="style8">The Vigenère autokey method is not very secure. There
+      are only 26 possible keys (the 26 letters of the alphabet). The code can
+      be broken easily with an exhaustive search. Someone who wants to read a
+      message encrypted using the autokey method need only try using each letter
+      of the alphabet as the priming key until they produced a sensible message.
+      This can be done, even without a computer, in a short amount of time. The
+      basic idea behind the autokey Vigenère cipher can, however, be used to
+      produce a more secure cipher.
+      </p>
+      <p class="style12">Keyword Method</p>
+      <p class="style9"><strong>Encipher</strong></p>
+      <p class="style8">The keyword Vigenère cipher is similar to the autokey
+      method, but instead of using a single letter priming key, it uses a
+      keyword. The keyword can be of any length greater than one, which provides an
+      unlimited number of possible keys. To form the key, the sender&nbsp; writes
+      the keyword repeatedly on the line underneath the plaintext. The
+      plaintext-key pairs in each column will then be enciphered using the Vigenère
+      square in the same way as the autokey method.<br>
+      <br>
+      Example:<br>
+      Message: &quot;What fools these mortals be&quot;</p>
+      <p class="style8">
+      Keyword: Puck
+      <table border="0" cellpadding="0" style="mso-cellspacing: 1.5pt" width="549" height="81">
+        <tr style="height:25.5pt">
+          <td style="padding: .75pt" width="87" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">plaintext:</span><span style="font-family:&quot;Arial Unicode MS&quot;"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="background-color: #CCCCCC; background-repeat: repeat; background-attachment: scroll; padding: .75pt; background-position: 0% 50%" width="16" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">W</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="16" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">H</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="16" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">A</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="16" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">T</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="16" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">F</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-family:&quot;Arial Unicode MS&quot;">
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size: 10.0pt">O</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">O</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">L</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">S</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">T</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-family:&quot;Arial Unicode MS&quot;">
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">H</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">E</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">S</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">E</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">M</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">O</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">R</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">T</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">A</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">L</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">S</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">B</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26" class="style14">
+            <p class="style8"><span style="font-size:10.0pt">E</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+        </tr>
+        <tr style="height:25.5pt">
+          <td style="padding: .75pt" width="87" height="26">
+            <p class="style8"><span style="font-size:10.0pt">key:</span><span style="font-family:&quot;Arial Unicode MS&quot;"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="background-color: #CCCCCC; background-repeat: repeat; background-attachment: scroll; padding: .75pt; background-position: 0%" width="16" height="26">
+            <p class="style8"><span style="font-size:10.0pt">P</span><span style="font-family:&quot;Arial Unicode MS&quot;"><o:p></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="16" height="26">
+            <p class="style8"><span style="font-size:10.0pt">U</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="16" height="26">
+            <p class="style8"><span style="font-size:10.0pt">C</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="16" height="26">
+            <p class="style8"><span style="font-size:10.0pt">K</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="16" height="26">
+            <p class="style8"><span style="font-size:10.0pt">P</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">U</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">C</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">K</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">P</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">U</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">C</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">K</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">P</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">U</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">C</span><span style="font-family:&quot;Arial Unicode MS&quot;"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">K</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">P</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">U</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">C</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">K</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">P</span><span style="font-family:&quot;Arial Unicode MS&quot;"><o:p></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">U</span><span style="font-family:&quot;Arial Unicode MS&quot;"><o:p></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="26">
+            <p class="style8"><span style="font-size:10.0pt">C</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+        </tr>
+        <tr style="height:25.5pt">
+          <td style="padding: .75pt" width="87" height="33">
+            <p class="style8"><span style="font-size:10.0pt">ciphertext:</span><span style="font-family:&quot;Arial Unicode MS&quot;"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="background-color: #888888; background-repeat: repeat; background-attachment: scroll; padding: .75pt; background-position: 0% 50%" width="16" height="33">
+            <p class="style8"><span style="font-size:10.0pt">L</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="16" height="33">
+            <p class="style8"><span style="font-size:10.0pt">B</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="16" height="33">
+            <p class="style8"><span style="font-size:10.0pt">C</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="16" height="33">
+            <p class="style8"><span style="font-size:10.0pt">D</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="16" height="33">
+            <p class="style8"><span style="font-size:10.0pt">U</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-family:&quot;Arial Unicode MS&quot;">
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">I</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">Q</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">V</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">H</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">N</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">J</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">O</span><span style="font-family:&quot;Arial Unicode MS&quot;"><o:p></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">H</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">Y</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">O</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">Y</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">G</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">N</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">C</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">V</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">H</span><span style="font-family:&quot;Arial Unicode MS&quot;"><o:p></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p class="style8"><span style="font-size:10.0pt">V</span><span style="font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" width="17" height="33">
+            <p align="center" style="text-align:center" class="style8"><span style="font-size:10.0pt">G</span><span style="mso-fareast-font-family:&quot;Arial Unicode MS&quot;"></o:p>
+            </span></p>
+          </td>
+        </tr>
+      </table>
+      <p class="style9" style="text-align:justify">Decryption<span style="color:
+black"><o:p>
+      </o:p>
+      </span></p>
+      <p class="style8" style="text-align:justify"><span style="color:black">To
+      decrypt a message encoded with the Vigenère keyword method, first write
+      the key repeatedly. Write the ciphertext beneath it. Decode each pair of
+      key-ciphertext letters using the Vigenère Square the same way they were
+      decoded with the autokey method.<o:p>
+      </o:p>
+      </span></p>
+      <p class="style8" style="text-align:justify"><span style="color:black">Example:<br>
+      Message: LBCDU IQVHN JOHYO YGNCV HVG<O:P>
+      </O:P>
+      <o:p>
+      </o:p>
+      </span></p>
+      <p class="style8" style="text-align:justify"><span style="color:black">Keyword:
+      Puck<o:p>
+      </o:p>
+      </span></p>
+      <table border="0" cellpadding="0" style="mso-cellspacing: 1.5pt" height="78" width="447">
+        <tr>
+          <td style="padding: .75pt" class="style8" height="26" width="20">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">key:</span><span style="font-family:&quot;Arial Unicode MS&quot;;
+  color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="background-color: #CCCCCC; background-repeat: repeat; background-attachment: scroll; padding: .75pt; background-position: 0%" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">P</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">U</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">C</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">K</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">P</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">U</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">C</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">K</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">P</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">U</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">C</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">K</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">P</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">U</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">C</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">K</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">P</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">U</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">C</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">K</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">P</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">U</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">C</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: .75pt" class="style8" height="26" width="20">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">ciphertext:</span><span style="font-family:&quot;Arial Unicode MS&quot;;
+  color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="background-color: #CCCCCC; background-repeat: repeat; background-attachment: scroll; padding: .75pt; background-position: 0%" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">L</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">B</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">C</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">D</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">U</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">I</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">Q</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">V</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">H</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">N</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">J</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">O</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">H</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">Y</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">O</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">Y</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">G</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">N</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">C</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">V</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">H</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">V</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">G</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: .75pt" class="style8" height="26" width="20">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">plaintext:</span><span style="font-family:&quot;Arial Unicode MS&quot;;
+  color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="background-color: #888888; background-repeat: repeat; background-attachment: scroll; padding: .75pt; background-position: 0%" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">W</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">H</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">A</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">T</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">F</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">O</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="15">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">O</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">L</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">S</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">T</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">H</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">E</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">S</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">E</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">M</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">O</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">R</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">T</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">A</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">L</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify">&nbsp;<span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">S</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">B</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+          <td style="padding: .75pt" class="style8" height="26" width="16">
+            <p class="MsoNormal" style="text-align:justify"><span style="font-size:10.0pt;
+  color:black">E</span><span style="font-family:&quot;Arial Unicode MS&quot;;color:black"><o:p>
+            </o:p>
+            </span></p>
+          </td>
+        </tr>
+      </table>
+      <p class="style9" style="text-align:justify">Security<span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+      <p class="style8" style="text-align:justify"><span style="color:black">The
+      keyword Vigenère cipher is much more secure then the autokey method, but
+      it is still vulnerable. The longer the keyword, the more secure the
+      cipher. If the keyword is as long as the plaintext, for example, a
+      previously agreed upon sample of text, the cipher is unbreakable if a new
+      key is used for every message. In fact, suppose you received the following
+      encrypted message:<O:P>
+      </O:P>
+      <o:p>
+      </o:p>
+      </span></p>
+      <p class="style8" style="text-align:justify"><span style="color:black">JTLOM
+      FJRCS XM<O:P>
+      </O:P>
+      <o:p>
+      </o:p>
+      </span></p>
+      <p class="style8" style="text-align:justify"><span style="color:black">If
+      the receiver uses the keyword hfikeniaoitz they would receive the message:<o:p>
+      </o:p>
+      </span></p>
+      <p class="style8" style="text-align:justify"><span style="color:black">CODE
+      IS BROKEN<O:P>
+      </O:P>
+      <o:p>
+      </o:p>
+      </span></p>
+      <p class="style8" style="text-align:justify"><span style="color:black">If
+      the receiver uses the keyword hfikenrnaygi they would receive te message:<o:p>
+      </o:p>
+      </span></p>
+      <p style="text-align:justify" class="style8"><span style="color:black">CODE
+      IS SECURE<O:P>
+      </O:P>
+      <o:p>
+      </o:p>
+      </span></p>
+      <p class="style8">Even if it were possible to calculate all the possible
+      keywords of length 12 in a reasonable amount of time, the ciphertext would produce every sensible message of length 12. There is no way to
+      determine which message the sender wished to communicate
+    </td>
+
+  </tr>
+
+</table>
+
+ 			
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="/js/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    
+</body>
+<!-- sourced from https://bootstrapious.com/p/bootstrap-sidebar under MIT license - https://bootstrapious.com/terms-of-service-->
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    
+		<meta charset="utf-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Enigma Machine Description</title>
+	
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/Cstylesheet.css">
+    <link rel="stylesheet" href="/css/cryptography-additional.css">
+    <!-- Additional CSS supplied through jekyll format -->
+    
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="https://www.cs.uri.edu">
+                	<img style="width:85px; display:block; margin:auto;" src="/Images/uri-logo.png">
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+                
+				
+				
+				    <li>
+                    	<a href="/index.html">Introduction</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#number-theorysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Number Theory</a>
+		                <ul class="collapse list-unstyled" id="number-theorysubmenu">
+				            
+			                <li>
+			                    <a href="/number-theory/modular-arithmetic/demo.html">Modular Arithmetic</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/euclids-algorithm/demo.html">Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/extended-euclids-algorithm/demo.html">Extended Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/number-theory/fermats-little-theorem/fermat.html">Fermat's Little Theorem</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#classical-cipherssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classical Ciphers</a>
+		                <ul class="collapse list-unstyled" id="classical-cipherssubmenu">
+				            
+			                <li>
+			                    <a href="/classical-ciphers/shift/demo.html">Shift Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/affine/demo.html">Affine Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/demo.html">Substitution Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/substitution/cryptanalysis-demo.html">Substitution Cryptanalysis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/transposition/demo.html">Transposition Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/hill/demo.html">Hill Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/demo.html">Vigenere Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/classical-ciphers/vigenere/cryptanalysis-demo.html">Vigenere Cryptanalysis</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/enigma-machine/demo.html">Enigma Machine</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/des/demo.html">DES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/hashing/demo.html">Hashing</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <ul class="collapse list-unstyled" id="public-keysubmenu">
+				            
+			                <li>
+			                    <a href="/public-key-cryptography/diffie-hellman-key-exchange/demo.html">Diffie-Hellman Key Exchange</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/public-key-cryptography/rsa/demo.html">R.S.A</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/public-key-cryptography/elgamal/article.html">ElGamal</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="https://www.cs.uri.edu">URI CSC</a>
+                	</li>
+				
+				
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+			<div class="jumbotron gradient-jumbotron">
+			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
+			  <hr class="my-4">
+			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+			  <p class="lead">
+			  </p>
+			</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
+                <div class="container-fluid">
+                    
+                    
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+            
+ 				<table width="933" height="726" border="0" cellpadding="0" cellspacing="0">
+
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Description</p>
+
+      <p class="style9"><b>Basic components
+      of Enigma Machine</font></b></p>
+
+      <p class="style8"><b>Keyboard</span></font></b><span style="mso-fareast-font-family: Batang">
+      - for inputting&nbsp; plaintext or ciphertext characters.<O:P>
+      </O:P>
+      </span></p>
+      <div align="center">
+        <table style="mso-cellspacing: 1.5pt; mso-padding-alt: 0in 0in 0in 0in" cellPadding="0" border="0">
+          <tbody>
+            <tr>
+              <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+                <p class="style8"><img src="/Images/enigma1.jpg" v:shapes="_x0000_i1025" width="300" height="100"><O:P>
+                </O:P>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="style8"><b>Display
+      Board</span></b><span style="mso-fareast-font-family: Batang"> - contains
+      lamps that light up to indicate the ciphertext or plaintext letter.<O:P></O:P>
+      </span></p>
+      <div align="center">
+        <table style="mso-cellspacing: 1.5pt; mso-padding-alt: 0in 0in 0in 0in" cellPadding="0" border="0">
+          <tbody>
+            <tr>
+              <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+                <p class="style8">
+                <img src="/Images/enigma2.jpg" v:shapes="_x0000_i1026" width="300" height="103"><O:P>
+                </O:P>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="style8"><b>Rotor</span></b><span style="mso-fareast-font-family: Batang">
+      - contains
+      a ring with all 26 letters of the alphabet written on it and has internal
+      wirings, which are the important part of the Enigma machine
+      <div align="center">
+        <table style="mso-cellspacing: 1.5pt; mso-padding-alt: 0in 0in 0in 0in" cellPadding="0" border="0">
+          <tbody>
+            <tr>
+              <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+                <p class="style8">
+                <img src="/Images/enigma3.jpg" v:shapes="_x0000_i1027" width="300" height="111"><O:P>
+                </O:P>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="style8"><b>Plugboard</span></b><span style="mso-fareast-font-family: Batang"> - Located between the keyboard and the first rotor, it allows the operator
+      to swap pairs of letters.<O:P>
+      </O:P>
+      </span></p>
+      <div align="center">
+        <table style="mso-cellspacing: 1.5pt; mso-padding-alt: 0in 0in 0in 0in" cellPadding="0" border="0">
+          <tbody>
+            <tr>
+              <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+                <p class="style8">
+                <img src="/Images/enigma4.jpg" v:shapes="_x0000_i1028" width="300" height="106"><O:P>
+                </O:P>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="style8"><b>Reflector</b>
+      - also swaps pairs of letters, the operator can manually change its
+      settings.
+      </O:P>
+      </p>
+      <p class="style9"><b>Working
+      Details&nbsp;</p>
+      </b>
+      <p class="style8">Setup</p>
+      <ul>
+        <li>
+          <p style="TEXT-ALIGN: justify" class="style8">Select
+          the 3 rotor arrangement. The can be arranged as 123, 132, 213, 231,
+          312, 321.</p>
+        <li>
+          <p style="TEXT-ALIGN: justify" class="style8">Set
+          the orientation of the three rotors. The rotors can be set to a
+          particular orientation, such that the operator can see one of the
+          letters on the rotor.</span></font></p>
+        <li>
+          <p style="TEXT-ALIGN: justify" class="style8">Set
+          the plugboard. Using the plugboard the operator can swap the letters, so
+          for example he can swap A with Q. The encrypted letter is different
+          with different swaps.&nbsp;</p>
+        </li>
+      </ul>
+          <p style="TEXT-ALIGN: justify" class="style8">The electrical wiring
+          between the keyboard, plugboard, internal wiring of the rotors,
+          reflector, and the display board make the 26 electrical circuits in
+          the machine, one for each letter of the alphabet. Rotating the rotors changes
+          these circuits. The first rotor is rotated by one position after every
+          key is pressed. The second rotor is rotated by one position after
+          the first rotor make one complete rotation (i.e. one position for every
+          26 letters), and the third rotates after the second rotor makes the one
+          complete rotation (i.e. one position for every 26<sup>2</sup> = 676 letters).</p>
+      <p class="style8" align="center">
+      </O:P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img border="0" src="/Images/enigma5.jpg" width="651" height="519">
+    </p>
+    </td>
+
+  </tr>
+
+</table></td>
+
+  </tr>
+
+  <tr>
+
+							<td valign="top" height="1" width="767">
+
+    <p style="text-align:justify" class="style8">Once the operator sets the
+    machine, he just needs to enter the letters of plaintext or ciphertext using
+    the keyboard. When the operator presses a letter, an electric pulse passes
+    through one of the circuits and illuminates a letter on the display board.
+    This letter is the corresponding ciphertext/plaintext letter</p>
+    <p style="text-align:justify" class="style8">&nbsp;</p>
+    <p class="style11">Example</p>
+    <p class="style8">First the Enigma machine is set up by positioning the
+    rotors and wiring the plugboard.&nbsp;</p>
+    <p class="style8">Lets follow what happens when the O key is pressed.&nbsp;
+    The example is explained with respect to the above figure. Note in the figure straight connections are set for the
+    plugboard. The encrypted
+    letter depends on the initial set up and the number of
+    letters encrypted after the initial set up and current letter.</p>
+    <p class="style8">First the electrical pulse passes from the keyboard
+    through the plugboard to the letter O in the first rotor, the pulse makes
+    the twists and turns in the 3 rotors and reaches the reflector. The
+    reflector passes the pulse back to the rotors, and the pulse is again twisted and
+    turned in the rotors and reaches the display board through the plugboard <span style="mso-spacerun:
+yes">&nbsp;</span>and <span style="mso-spacerun: yes">&nbsp;</span>illuminates
+    the letter K, which is the encrypted letter.</p>
+    <p class="style8"><span style="mso-fareast-font-family:Batang">If a swap is
+    used between A and O, the encrypted letter for A will be K and a encrypted
+    letter for O will not be K but X, if X is the encrypted letter of A without
+    the swap.</span>
+
+    </td>
+
+  </tr>
+
+</table>
+
+ 			
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="/js/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    
+</body>
+<!-- sourced from https://bootstrapious.com/p/bootstrap-sidebar under MIT license - https://bootstrapious.com/terms-of-service-->
+</html>

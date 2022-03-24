@@ -1,0 +1,31 @@
+I"�<h2 id="euclids-algorithm">Euclid’s Algorithm</h2>
+
+<p>Euclid’s algorithm is used for finding the greatest common denominator of two integers.
+The greatest common denominator of two integers is defined as the largest integer that divides both numbers,
+without a remainder. All pairs of numbers have at least the number 1 as a common divisor, and sometimes 1 is the 
+greatest common divisor for a given pair. Such numbers are said to be relatively prime (or coprime)
+to each other. Greatest common divisors are used in reducing fractions, polynomial manipulations,
+factorization, integration and more.</p>
+
+<p>The equation for finding the greatest common denominators is:</p>
+
+<p>\(gcd(m,n) = m\), if \(n = 0\)</p>
+
+<p>\(gcd(m,n) = gcd(n, m \bmod n)\), if \(n \neq 0\)</p>
+
+<p>Suppose we wanted to find the greatest common denominator of the two integers 1674 and 498.</p>
+
+<p>We would computer \(gcd(1674, 498)\). First we check that \(n\), 498, is not zero, so we need to compute \(m \bmod n\).</p>
+
+<p>\(\frac{1674}{498} = 3\), with a remainder of 180, so now we compute \(gcd(498, 180)\). Notice that the positions of the
+number 498 switches (we went from \(gcd(1674, 498)\) to \(gcd(498, 180)\)).</p>
+
+<p>We continue this process until \(n = 0\). \(498 \bmod 180 = 138\), so next we will compute \(gcd(180, 138)\).</p>
+
+<p>Then, we compute \(180 \bmod 138 = 42\), so we will do \(gcd(138, 42)\). \(138 \bmod 42 = 12\), so \(gcd(42, 12)\).</p>
+
+<p>Then, \(42 \bmod 12 = 6\), so \(gcd(12, 6)\). Next, \(12 \bmod 6 = 0\), so our last step will be to compute \(gcd(6, 0)\).</p>
+
+<p>Now, \(n = 0\), so the greatest common divisor is \(m = 6\). The greatest common divisor of 1674 and 498 is 6.</p>
+
+:ET
