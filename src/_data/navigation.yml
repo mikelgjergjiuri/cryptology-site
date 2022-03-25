@@ -1,50 +1,52 @@
 - name: Introduction
-  link: /index.html
+  link: /cryptography/index.html
   sublink: []
 - name: Number Theory
   link: number-theory
   sublink:
     - name: Modular Arithmetic
-      link: /number-theory/modular-arithmetic/demo.html
+      link: /cryptography/number-theory/modular-arithmetic/demo.html
     - name: Euclid's Algorithm
-      link: /number-theory/euclids-algorithm/demo.html
+      link: /cryptography/number-theory/euclids-algorithm/demo.html
     - name: Extended Euclid's Algorithm
-      link: /number-theory/extended-euclids-algorithm/demo.html
+      link: /cryptography/number-theory/extended-euclids-algorithm/demo.html
     - name: Fermat's Little Theorem
-      link: /number-theory/fermats-little-theorem/fermat.html
+      link: /cryptography/number-theory/fermats-little-theorem/fermat.html
 - name: Classical Ciphers
   link: classical-ciphers
   sublink:
     - name: Shift Cipher
-      link: /classical-ciphers/shift/demo.html
+      link: /cryptography/classical-ciphers/shift/demo.html
     - name: Affine Cipher
-      link: /classical-ciphers/affine/demo.html
+      link: /cryptography/classical-ciphers/affine/demo.html
     - name: Substitution Cipher
-      link: /classical-ciphers/substitution/demo.html
+      link: /cryptography/classical-ciphers/substitution/demo.html
     - name: Substitution Cryptanalysis
-      link: /classical-ciphers/substitution/cryptanalysis-demo.html
+      link: /cryptography/classical-ciphers/substitution/cryptanalysis-demo.html
     - name: Transposition Cipher
-      link: /classical-ciphers/transposition/demo.html
+      link: /cryptography/classical-ciphers/transposition/demo.html
     - name: Hill Cipher
-      link: /classical-ciphers/hill/demo.html
+      link: /cryptography/classical-ciphers/hill/demo.html
     - name: Vigenere Cipher
-      link: /classical-ciphers/vigenere/demo.html
+      link: /cryptography/classical-ciphers/vigenere/demo.html
     - name: Vigenere Cryptanalysis
-      link: /classical-ciphers/vigenere/cryptanalysis-demo.html
+      link: /cryptography/classical-ciphers/vigenere/cryptanalysis-demo.html
 - name: Enigma Machine
-  link: /enigma-machine/demo.html
+  link: /cryptography/enigma-machine/demo.html
 - name: DES
-  link: /des/demo.html
+  link: /cryptography/des/demo.html
+- name: AES
+  link: /cryptography/aes/demo.html
 - name: Hashing
-  link: /hashing/demo.html
+  link: /cryptography/hashing/demo.html
 - name: Public Key Crypto
   link: public-key
   sublink:
     - name: Diffie-Hellman Key Exchange
-      link: /public-key-cryptography/diffie-hellman-key-exchange/demo.html
+      link: /cryptography/public-key-cryptography/diffie-hellman-key-exchange/demo.html
     - name: R.S.A
-      link: /public-key-cryptography/rsa/demo.html
+      link: /cryptography/public-key-cryptography/rsa/demo.html
     - name: ElGamal
-      link: /public-key-cryptography/elgamal/article.html
+      link: /cryptography/public-key-cryptography/elgamal/article.html
 - name: URI CSC
   link: https://www.cs.uri.edu
