@@ -33,13 +33,13 @@
       link: /cryptography/classical-ciphers/vigenere/cryptanalysis-demo.html
 - name: Enigma Machine
   link: /cryptography/enigma-machine/demo.html
-- name: DES
+- name: Simplified DES
   link: /cryptography/des/demo.html
-- name: AES
+- name: Simplified AES
   link: /cryptography/aes/demo.html
 - name: Hashing
   link: /cryptography/hashing/demo.html
-- name: Public Key Crypto
+- name: Public Key Cryptography
   link: public-key
   sublink:
     - name: Diffie-Hellman Key Exchange
@@ -48,5 +48,5 @@
       link: /cryptography/public-key-cryptography/rsa/demo.html
     - name: ElGamal
       link: /cryptography/public-key-cryptography/elgamal/article.html
-- name: URI CSC
+- name: URI Computer Science & Statistics
   link: https://www.cs.uri.edu
