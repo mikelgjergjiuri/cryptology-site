@@ -1,0 +1,167 @@
+---
+title: Enigma Machine Description
+layout: default
+---
+<table width="933" height="726" border="0" cellpadding="0" cellspacing="0">
+
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Description</p>
+
+      <p class="style9"><b>Basic components
+      of Enigma Machine</font></b></p>
+
+      <p class="style8"><b>Keyboard</span></font></b><span style="mso-fareast-font-family: Batang">
+      - for inputting&nbsp; plaintext or ciphertext characters.<O:P>
+      </O:P>
+      </span></p>
+      <div align="center">
+        <table style="mso-cellspacing: 1.5pt; mso-padding-alt: 0in 0in 0in 0in" cellPadding="0" border="0">
+          <tbody>
+            <tr>
+              <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+                <p class="style8"><img src="/cryptography/Images/enigma1.jpg" v:shapes="_x0000_i1025" width="300" height="100"><O:P>
+                </O:P>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="style8"><b>Display
+      Board</span></b><span style="mso-fareast-font-family: Batang"> - contains
+      lamps that light up to indicate the ciphertext or plaintext letter.<O:P></O:P>
+      </span></p>
+      <div align="center">
+        <table style="mso-cellspacing: 1.5pt; mso-padding-alt: 0in 0in 0in 0in" cellPadding="0" border="0">
+          <tbody>
+            <tr>
+              <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+                <p class="style8">
+                <img src="/cryptography/Images/enigma2.jpg" v:shapes="_x0000_i1026" width="300" height="103"><O:P>
+                </O:P>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="style8"><b>Rotor</span></b><span style="mso-fareast-font-family: Batang">
+      - contains
+      a ring with all 26 letters of the alphabet written on it and has internal
+      wirings, which are the important part of the Enigma machine
+      <div align="center">
+        <table style="mso-cellspacing: 1.5pt; mso-padding-alt: 0in 0in 0in 0in" cellPadding="0" border="0">
+          <tbody>
+            <tr>
+              <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+                <p class="style8">
+                <img src="/cryptography/Images/enigma3.jpg" v:shapes="_x0000_i1027" width="300" height="111"><O:P>
+                </O:P>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="style8"><b>Plugboard</span></b><span style="mso-fareast-font-family: Batang"> - Located between the keyboard and the first rotor, it allows the operator
+      to swap pairs of letters.<O:P>
+      </O:P>
+      </span></p>
+      <div align="center">
+        <table style="mso-cellspacing: 1.5pt; mso-padding-alt: 0in 0in 0in 0in" cellPadding="0" border="0">
+          <tbody>
+            <tr>
+              <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+                <p class="style8">
+                <img src="/cryptography/Images/enigma4.jpg" v:shapes="_x0000_i1028" width="300" height="106"><O:P>
+                </O:P>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="style8"><b>Reflector</b>
+      - also swaps pairs of letters, the operator can manually change its
+      settings.
+      </O:P>
+      </p>
+      <p class="style9"><b>Working
+      Details&nbsp;</p>
+      </b>
+      <p class="style8">Setup</p>
+      <ul>
+        <li>
+          <p style="TEXT-ALIGN: justify" class="style8">Select
+          the 3 rotor arrangement. The can be arranged as 123, 132, 213, 231,
+          312, 321.</p>
+        <li>
+          <p style="TEXT-ALIGN: justify" class="style8">Set
+          the orientation of the three rotors. The rotors can be set to a
+          particular orientation, such that the operator can see one of the
+          letters on the rotor.</span></font></p>
+        <li>
+          <p style="TEXT-ALIGN: justify" class="style8">Set
+          the plugboard. Using the plugboard the operator can swap the letters, so
+          for example he can swap A with Q. The encrypted letter is different
+          with different swaps.&nbsp;</p>
+        </li>
+      </ul>
+          <p style="TEXT-ALIGN: justify" class="style8">The electrical wiring
+          between the keyboard, plugboard, internal wiring of the rotors,
+          reflector, and the display board make the 26 electrical circuits in
+          the machine, one for each letter of the alphabet. Rotating the rotors changes
+          these circuits. The first rotor is rotated by one position after every
+          key is pressed. The second rotor is rotated by one position after
+          the first rotor make one complete rotation (i.e. one position for every
+          26 letters), and the third rotates after the second rotor makes the one
+          complete rotation (i.e. one position for every 26<sup>2</sup> = 676 letters).</p>
+      <p class="style8" align="center">
+      </O:P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img border="0" src="/cryptography/Images/enigma5.jpg" width="651" height="519">
+    </p>
+    </td>
+
+  </tr>
+
+</table></td>
+
+  </tr>
+
+  <tr>
+
+							<td valign="top" height="1" width="767">
+
+    <p style="text-align:justify" class="style8">Once the operator sets the
+    machine, he just needs to enter the letters of plaintext or ciphertext using
+    the keyboard. When the operator presses a letter, an electric pulse passes
+    through one of the circuits and illuminates a letter on the display board.
+    This letter is the corresponding ciphertext/plaintext letter</p>
+    <p style="text-align:justify" class="style8">&nbsp;</p>
+    <p class="style11">Example</p>
+    <p class="style8">First the Enigma machine is set up by positioning the
+    rotors and wiring the plugboard.&nbsp;</p>
+    <p class="style8">Lets follow what happens when the O key is pressed.&nbsp;
+    The example is explained with respect to the above figure. Note in the figure straight connections are set for the
+    plugboard. The encrypted
+    letter depends on the initial set up and the number of
+    letters encrypted after the initial set up and current letter.</p>
+    <p class="style8">First the electrical pulse passes from the keyboard
+    through the plugboard to the letter O in the first rotor, the pulse makes
+    the twists and turns in the 3 rotors and reaches the reflector. The
+    reflector passes the pulse back to the rotors, and the pulse is again twisted and
+    turned in the rotors and reaches the display board through the plugboard <span style="mso-spacerun:
+yes">&nbsp;</span>and <span style="mso-spacerun: yes">&nbsp;</span>illuminates
+    the letter K, which is the encrypted letter.</p>
+    <p class="style8"><span style="mso-fareast-font-family:Batang">If a swap is
+    used between A and O, the encrypted letter for A will be K and a encrypted
+    letter for O will not be K but X, if X is the encrypted letter of A without
+    the swap.</span>
+
+    </td>
+
+  </tr>
+
+</table>

@@ -1,0 +1,253 @@
+---
+layout: default
+title: Hill Cipher
+---
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Hill Cipher</p>
+      <p class="style9">Description</p>
+      <p class="style8">The Hill cipher is an example of a block cipher. A block
+      cipher is a cipher in which groups of letters are enciphered together in
+      equal length blocks. The Hill cipher was developed by Lester Hill and
+      introduced in an article published in 1929<a href="links.htm">[1]</a>.
+      </o:p>
+      <p class="style9">Example</p>
+      <p class="style8"><strong>Encipher</strong><br>
+      In order to encrypt a message using the Hill cipher, the sender and
+      receiver must first agree upon a key matrix <i>A</i> of size <i> n</i> x <i>n</i>.
+      <i>A</i> must be
+      invertible mod 26. The plaintext will then be enciphered in blocks of size
+      <i>n</i>. In the following example <i>A</i> is a 2 x 2 matrix and the message will
+      be enciphered in blocks of 2 characters.<O:P>
+      </O:P>
+      <o:p>
+      &nbsp;
+      <p><span style="mso-text-raise:-12.5pt"><o:p>
+      </o:p>
+      </span></o:p>
+      <p class="style8">Key Matrix: A <b>=</b> <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" alt="" style='width:40.5pt;
+ height:33pt'>
+ <v:imagedata src="Images/hill1.jpg"
+  o:href="file:///C:/Documents%20and%20Settings/chilukas/Desktop/CRYPTOO/Images/hill1.jpg"/>
+</v:shape><![endif]-->
+      <img border="0" src="/cryptography/Images/hill1.gif" width="68" height="44" align="center"><o:p>
+      </o:p>
+      </p>
+      <p class="style8">Message: <span style="text-transform: uppercase">Mississippi</span></p>
+      <p class="style8">The first block MI corresponds to the matrix <!--[if gte vml 1]><v:shape id="_x0000_i1026"
+ type="#_x0000_t75" alt="" style='width:20.25pt;height:33pt'>
+ <v:imagedata src="Images/hill2.jpg"
+  o:href="file:///C:/Documents%20and%20Settings/chilukas/Desktop/CRYPTOO/Images/hill2.jpg"/>
+</v:shape><![endif]-->
+      <img src="/cryptography/Images/hill2.jpg" align="center" v:shapes="_x0000_i1026" width="27" height="44">.
+      The sender will then calculate:<o:p>
+      </o:p>
+      </p>
+      <p class="style8">A <!--[if gte vml 1]><v:shape id="_x0000_i1027" type="#_x0000_t75"
+ alt="" style='width:20.25pt;height:33pt'>
+ <v:imagedata src="Images/hill2.jpg"
+  o:href="file:///C:/Documents%20and%20Settings/chilukas/Desktop/CRYPTOO/Images/hill2.jpg"/>
+</v:shape><![endif]-->
+      <img src="/cryptography/Images/hill2.jpg" align="center" v:shapes="_x0000_i1027" width="27" height="44"><b>=</b>
+      <!--[if gte vml 1]><v:shape
+ id="_x0000_i1028" type="#_x0000_t75" alt="" style='width:20.25pt;height:33pt'>
+ <v:imagedata src="Images/hill3.jpg"
+  o:href="file:///C:/Documents%20and%20Settings/chilukas/Desktop/CRYPTOO/Images/hill3.jpg"/>
+</v:shape><![endif]-->
+      <img border="0" src="/cryptography/Images/hill2.gif" align="center" width="41" height="45">(mod
+      26)<o:p>
+      </o:p>
+      </p>
+      <p class="style8">The first two letters of the ciphertext correspond to
+      2,8 and are therefore CI. This step is repeated for the entire plaintext. If
+      there are not enough letters to form blocks of 2, pad the message with
+      some letter, say Z. <O:P>
+      </O:P>
+      <o:p>
+      </o:p>
+      </p>
+      <p class="style8">The message:<O:P>
+      </O:P>
+      <o:p>
+      </o:p>
+      </p>
+      <p class="style8">&nbsp;&nbsp;&nbsp; MI SS IS SI PP IK<O:P>
+      </O:P>
+      <o:p>
+      </o:p>
+      </p>
+      <p class="style8">will be enciphered as:<O:P>
+      </O:P>
+      <o:p>
+      </o:p>
+      </p>
+      <p class="style8">
+      &nbsp;&nbsp;&nbsp; CI KK GE UW ER OY 
+      </p>
+      <p class="style8">Notice that the repeated digraphs IS, SS and repeated
+      letters S and P in the plaintext are masked using the Hill cipher.</p>
+      <p class="style8">
+      <br>
+      <strong>Decipher</strong></p>
+      <p class="style8">To decipher a message, first calculate the inverse of the key A.</p>
+      <p class="style8" style="text-align:justify">&nbsp;&nbsp;&nbsp; <!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" alt="" style='width:115.5pt;
+ height:34.5pt'>
+ <v:imagedata src="Images/hill4.jpg"
+  o:href="file:///C:/Documents%20and%20Settings/chilukas/Desktop/CRYPTOO/Images/hill4.jpg"/>
+</v:shape><![endif]-->
+      <img src="/cryptography/Images/hill4.jpg" v:shapes="_x0000_i1025" width="154" height="46" align="middle"><o:p>&nbsp;
+      (mod 26)</o:p>
+      </p>
+      <p class="style8" style="text-align:justify">Then multiply the inverse
+      of the key by each pair of ciphertext letters (mod 26) to recover the
+      original text.</p>
+      <p class="style8" style="text-align:justify"><br>
+      &nbsp;&nbsp;&nbsp;Key Matrix: A <b>=</b> <!--[if gte vml 1]><v:shape id="_x0000_i1026"
+ type="#_x0000_t75" alt="" style='width:40.5pt;height:33pt'>
+ <v:imagedata src="/Images/hill5.jpg"
+  o:href="file:///C:/Documents%20and%20Settings/chilukas/Desktop/CRYPTOO/Images/hill5.jpg"/>
+</v:shape><![endif]-->
+      <o:p>
+      <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-text-raise:-12.5pt;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:51pt;
+ height:33pt' o:ole="">
+ <v:imagedata src="file:///C:/DOCUME~1/chilukas/LOCALS~1/Temp/msoclip1/01/clip_image001.wmz"
+  o:title=""/>
+</v:shape><![endif]-->
+      <img src="/cryptography/Images/hill5.gif" v:shapes="_x0000_i1025" align="center" width="68" height="44"><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1025"
+  DrawAspect="Content" ObjectID="_1147537230">
+ </o:OLEObject>
+</xml><![endif]-->
+      </span></o:p>
+      </p>
+      <p class="style8" style="text-align:justify">Encrypted Message: CIKKGEUWEROY
+      <p class="style8" style="text-align:justify">The receiver will calculate:<!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_s1026" type="#_x0000_t75" style='position:absolute;
+ left:0;text-align:left;margin-left:27pt;margin-top:8.85pt;width:29.25pt;
+ height:30pt;z-index:1;mso-wrap-edited:f' wrapcoords="1662 0 1662 21060 19385 21060 19385 0 1662 0">
+ <v:imagedata src="file:///C:/DOCUME~1/chilukas/LOCALS~1/Temp/msoclip1/01/clip_image001.wmz"
+  o:title=""/>
+ <v:textbox style='mso-next-textbox:#_x0000_s1026'/>
+ <w:wrap type="tight"/>
+</v:shape><![if gte mso 9]><o:OLEObject Type="Embed" ProgID="Word.Picture.8"
+ ShapeID="_x0000_s1026" DrawAspect="Content" ObjectID="_1147537262">
+</o:OLEObject>
+<![endif]><![endif]-->
+      <!--[if gte vml 1]><v:shape
+ id="_x0000_s1027" type="#_x0000_t75" style='position:absolute;left:0;
+ text-align:left;margin-left:86.25pt;margin-top:9.6pt;width:29.25pt;height:30pt;
+ z-index:-1;mso-wrap-edited:f' wrapcoords="1662 0 1662 21060 19385 21060 19385 0 1662 0">
+ <v:imagedata src="file:///C:/DOCUME~1/chilukas/LOCALS~1/Temp/msoclip1/01/clip_image003.wmz"
+  o:title=""/>
+ <v:textbox style='mso-next-textbox:#_x0000_s1027'/>
+ <w:wrap type="tight"/>
+</v:shape><![if gte mso 9]><o:OLEObject Type="Embed" ProgID="Word.Picture.8"
+ ShapeID="_x0000_s1027" DrawAspect="Content" ObjectID="_1147537263">
+</o:OLEObject>
+<![endif]><![endif]-->
+      <span style="font-family:
+Garamond"><o:p>
+      </o:p>
+      </span></p>
+      <p class="MsoNormal" style="text-align:justify;line-height:200%"><span style="font-family:Garamond">A
+      <sup>-1</sup></span><img border="0" src="/cryptography/Images/hill2.gif" align="center" width="41" height="45"><span style="font-family:Garamond">=<span style="mso-spacerun: yes"><img border="0" src="/cryptography/Images/hill2.jpg" align="center" width="27" height="44">
+      </span></span><span style="font-family:Garamond">(mod 26)</span><o:p>
+      </o:p>
+      </p>
+      <p class="style8" style="text-align:justify"><span style="mso-bidi-font-family:
+Arial;color:#333333">to decrypt the message. The first two letters are 12, 8 which correspond to
+      M and I. The receiver will repeat this step for every
+      pair of letters in the ciphertext to recover the original message
+      MISSISSIPPIK.<O:P>
+      </span></p>
+      <p class="style8" style="text-align:justify"><span style="mso-bidi-font-family: Arial; color: #333333">To
+      use a Hill cipher with different block size the number of rows and columns in
+      matrix <i>A</i> should be equal to the block size. For example if the block
+      size is 4 the <i>A</i> should be a matrix of size 4 x 4.</span>
+    </td>
+
+  </tr>
+
+</table></td>

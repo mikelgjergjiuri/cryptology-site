@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    
+		<meta charset="utf-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/cryptography/favicon.ico" type="image">
+    <title>Classical Vigenere Demo</title>
+	
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="/cryptography/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/cryptography/css/style2.css">
+    <link rel="stylesheet" href="/cryptography/css/Cstylesheet.css">
+    <link rel="stylesheet" href="/cryptography/css/cryptography-additional.css">
+    <!-- Additional CSS supplied through jekyll format -->
+    
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/cryptography/css/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="/cryptography/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="/cryptography/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="https://www.cs.uri.edu">
+                	<img style="width:85px; display:block; margin:auto;" src="/cryptography/Images/uri-logo.png">
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+                
+				
+				
+				    <li>
+                    	<a href="/cryptography/index.html">Introduction</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#number-theorysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Number Theory</a>
+		                <ul class="collapse list-unstyled" id="number-theorysubmenu">
+				            
+			                <li>
+			                    <a href="/cryptography/number-theory/modular-arithmetic/demo.html">Modular Arithmetic</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/number-theory/euclids-algorithm/demo.html">Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/number-theory/extended-euclids-algorithm/demo.html">Extended Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/number-theory/fermats-little-theorem/fermat.html">Fermat's Little Theorem</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#classical-cipherssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classical Ciphers</a>
+		                <ul class="collapse list-unstyled" id="classical-cipherssubmenu">
+				            
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/shift/demo.html">Shift Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/affine/demo.html">Affine Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/substitution/demo.html">Substitution Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/substitution/cryptanalysis-demo.html">Substitution Cryptanalysis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/transposition/demo.html">Transposition Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/hill/demo.html">Hill Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/vigenere/demo.html">Vigenere Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/vigenere/cryptanalysis-demo.html">Vigenere Cryptanalysis</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/enigma-machine/demo.html">Enigma Machine</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/des/demo.html">DES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/aes/demo.html">AES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/hashing/demo.html">Hashing</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <ul class="collapse list-unstyled" id="public-keysubmenu">
+				            
+			                <li>
+			                    <a href="/cryptography/public-key-cryptography/diffie-hellman-key-exchange/demo.html">Diffie-Hellman Key Exchange</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/public-key-cryptography/rsa/demo.html">R.S.A</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/public-key-cryptography/elgamal/article.html">ElGamal</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="https://www.cs.uri.edu">URI CSC</a>
+                	</li>
+				
+				
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+			<div class="jumbotron gradient-jumbotron">
+			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
+			  <hr class="my-4">
+			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+			  <p class="lead">
+			  </p>
+			</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
+                <div class="container-fluid">
+                    
+                    
+                        
+                        <a class="btn btn-info" href="/cryptography/classical-ciphers/vigenere/article.html" role="button">Article</a>
+                        
+                    
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+            
+ 				<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function Encode (text){
+  var i, j=0, t, uc, et=new Array(), k;
+  t=""+text+"";
+  for(i=0; i<(t.length); i++){
+    uc = t.charCodeAt(i);
+    if(uc >= 97 && uc <= 122){k = uc-97; et[j]=k; j++;}
+	if(uc >= 65 && uc <= 90){k= uc-65; et[j] = k; j++;}}
+  return et;	
+}
+
+function Vigenere_encipher(key, text){
+   var i, j, kl, k, t, vt = new Array(), eta = new Array(), et, s;
+   k = Encode(key);
+   t = Encode(text);
+   kl = k.length;
+   //initialize Vigenere table
+   for (i=0; i < 26; i++) {   
+     vt[i] = new Array(26)   
+	 for (j=0; j < 26; j++) {vt[i][j] = (i+j) % 26;}}
+   //enciphering with the keyword
+   if(kl>1){	 
+   j=0;
+   //vorking w/Vigenere table to encipher message
+   for(i=0; i<(t.length); i++){
+     eta[i]= vt[k[j]][t[i]] + 65;
+	 if (j == kl-1){j=0}
+	 else j++;}}
+   //enciphering w/autokey
+   else{
+     for(i=0; i<(t.length); i++){eta[i]= vt[k[0]][t[i]] + 65; k[0]=t[i];}}	 
+   //convert from Unicode to character presentation 
+   et = "";
+   for(i=0; i<(eta.length); i++){et = et + String.fromCharCode(eta[i]);}
+   //document.vigenere.output.value = et;
+   return(et); 
+}
+
+function Vigenere_decipher(key, text){
+   var i, j, kl, k, t, vt = new Array(), eta = new Array(), et, c;
+   k = Encode(key);
+   t = Encode(text);
+   kl = k.length;
+   //initialize Vigenere table
+   for (i=0; i < 26; i++) {   
+     vt[i] = new Array(26)   
+	 for (j=0; j < 26; j++) {vt[i][j] = (i+j) % 26}}
+   j=0;
+   //deciphering with the keyword
+   if (kl > 1){
+   //vorking w/Vigenere table to decipher message
+   for(i=0; i<(t.length); i++){
+     for(c=0; c<26; c++){
+	   if(vt[k[j]][c]==t[i]){
+	     eta[i] = c+97;
+		 if (j == kl-1){j=0}
+	     else j++;
+		 break;}}}}
+   //enciphering w/ autokey
+   else{
+     for(i=0; i<(t.length); i++){
+     for(c=0; c<26; c++){
+	   if(vt[k[0]][c]==t[i]){
+	     eta[i] = c+97;
+		 k[0]=c;
+		 break;}}}}		 
+   //convert from Unicode to character presentation 
+   et = "";
+   for(i=0; i<(eta.length); i++){et = et + String.fromCharCode(eta[i])}
+   //document.vigenere.output.value = et; 
+   return(et);	    
+}   
+//-->
+</script>
+<table width="933" border="0" cellpadding="0" cellspacing="0">
+
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Vigenere Cipher Interactive Demo</p>
+      <br>
+      <p class="style9">&nbsp;Step1.
+      Type your keyword or autokey (characters only) into the 'Keyword' box.</p>
+      <form action method="post" name="vigenere" id="vigenere">
+        <table width="766" border="0" cellpadding="0" cellspacing="0" class="textstyle" height="541">
+          <tr>
+            <td align="center" width="750" height="491">
+              <table width="330" border="0" cellpadding="0" cellspacing="0" class="textstyle">
+                <tr>
+                  <td width="62">
+                    <p class="style11"><strong>Keyword&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+                  </td>
+                  <td width="268">
+                    <p class="style9"><input name="keyword" type="text" class="textstyle" id="keyword" size="35"></p>
+                  </td>
+                </tr>
+              </table>
+              <p align="left" class="style9">Step 2.Encipher/Decipher
+              <div align="center">
+                <center>
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" height="226">
+                <tr>
+                  <td width="50%" align="center" height="32">
+                    <p class="style11" align="center">Plaintext</td>
+                  <td width="50%" height="32">
+                    <p class="style11">Ciphertext</td>
+                </tr>
+                <tr>
+                  <td width="50%" height="157"><textarea name="input" cols="27" rows="7" wrap="VIRTUAL" class="textstyle" id="input"></textarea>
+                  </td>
+                  <td width="50%" height="157">
+              <textarea name="output" cols="27" rows="7" wrap="VIRTUAL" class="textstyle" id="output"></textarea></td>
+                </tr>
+                <tr>
+                  <td width="50%" height="37"><input type="button" name="Encipher" id="Encipher" value="Encrypt Plaintext" onClick="form.output.value=Vigenere_encipher(form.keyword.value, form.input.value)"></td>
+                  <td width="50%" height="37"><input type="button" name="Decipher" id="Decipher" value="Decrypt Ciphertext" onClick="form.input.value=Vigenere_decipher(form.keyword.value, form.output.value)"></td>
+                </tr>
+              </table>
+                </center>
+              </div>
+              <table width="280" border="0" cellpadding="0" cellspacing="0" class="textstyle">
+                <tr>
+                  <td width="50"></td>
+                  <td width="70"></td>
+                  <td width="40">&nbsp;</td>
+                  <td width="70"><input type="button" name="Clear" id="Clear" value="Clear" onClick="form.input.value='', form.output.value='', form.keyword.value=''"></td>
+                  <td width="50">&nbsp;</td>
+                  <td width="70"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </form>
+
+      <p class="style12">&nbsp;</p>
+    </td>
+
+  </tr>
+
+</table>
+
+ 			
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="/cryptography/js/jquery-3.3.1.slim.min.js"></script>
+    <!-- Popper.JS -->
+    <script src="/cryptography/js/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/cryptography/js/bootstrap.min.js"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="/cryptography/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    
+</body>
+<!-- sourced from https://bootstrapious.com/p/bootstrap-sidebar under MIT license - https://bootstrapious.com/terms-of-service-->
+</html>

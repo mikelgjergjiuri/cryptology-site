@@ -1,0 +1,215 @@
+---
+layout: default
+title: DES
+subpages:
+  - article:
+    title: Article
+    link: /cryptography/des/article.html
+---
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="des.css">
+
+<div id="maindesbox" style="position:relative; width: 1200px; height: 600px; outline: 1px solid black;">
+
+  <div id="li-1" class="desbox" style="top:40px; left: 40px;">
+    \(L_{i-1}\)
+  </div>
+
+  <div id="ri-1" class="desbox" style="top:40px; left: 220px;">
+    \(R_{i-1}\)
+  </div>
+
+  <div id="func" class="desbox" style="top:160px; left: 230px; width:60px;">
+    \(f_{k_i,r_{i-1}}\)
+  </div>
+
+  <div id="xor1" class="desbox" style="top:300px; left: 230px; width:60px; outline: 0px;">
+    \(\oplus\)
+  </div>
+
+  <div id="ri" class="desbox" style="top:530px; left: 220px;">
+    \(R_{i}\)
+  </div>
+  <div id="li" class="desbox" style="top:530px; left: 40px;">
+    \(L_{i}\)
+  </div>
+
+  <div id="pre-expander-bit-1" class="bit" style="top:122px; left: 400px;"></div>
+  <div id="pre-expander-bit-2" class="bit" style="top:142px; left: 400px;"></div>
+  <div id="pre-expander-bit-3" class="bit" style="top:162px; left: 400px;"></div>
+  <div id="pre-expander-bit-4" class="bit" style="top:182px; left: 400px;"></div>
+  <div id="pre-expander-bit-5" class="bit" style="top:202px; left: 400px;"></div>
+  <div id="pre-expander-bit-6" class="bit" style="top:222px; left: 400px;"></div>
+
+  <div id="post-expander-bit-1" class="bit" style="top:102px; left: 440px;"></div>
+  <div id="post-expander-bit-2" class="bit" style="top:122px; left: 440px;"></div>
+  <div id="post-expander-bit-3" class="bit" style="top:142px; left: 440px;"></div>
+  <div id="post-expander-bit-4" class="bit" style="top:162px; left: 440px;"></div>
+  <div id="post-expander-bit-5" class="bit" style="top:182px; left: 440px;"></div>
+  <div id="post-expander-bit-6" class="bit" style="top:202px; left: 440px;"></div>
+  <div id="post-expander-bit-7" class="bit" style="top:222px; left: 440px;"></div>
+  <div id="post-expander-bit-8" class="bit" style="top:242px; left: 440px;"></div>
+
+  <div id="xored-key-bit-1" class="bit" style="top:102px; left: 550px;"></div>
+  <div id="xored-key-bit-2" class="bit" style="top:122px; left: 550px;"></div>
+  <div id="xored-key-bit-3" class="bit" style="top:142px; left: 550px;"></div>
+  <div id="xored-key-bit-4" class="bit" style="top:162px; left: 550px;"></div>
+  <div id="xored-key-bit-5" class="bit" style="top:182px; left: 550px;"></div>
+  <div id="xored-key-bit-6" class="bit" style="top:202px; left: 550px;"></div>
+  <div id="xored-key-bit-7" class="bit" style="top:222px; left: 550px;"></div>
+  <div id="xored-key-bit-8" class="bit" style="top:242px; left: 550px;"></div>
+
+  <div id="key-box" class="desbox" style="top:40px; left: 460px; width:80px;">
+    \(key_i\)
+  </div>
+
+  <div id="function-xor" class="desbox" style="top:150px; left: 470px; width:60px; outline: 0px;">
+    \(\oplus\)
+  </div>
+
+  <div id="xorsplit1" class="desbox" style="top:122px; left: 650px; width:60px; height: 30px;">
+  </div>
+
+  <div id="xorsplit2" class="desbox" style="top:202px; left: 650px; width:60px; height: 30px; ">
+  </div>
+
+  <div id="sbox-label-0" class="desbox" style="top:92px; left: 890px; width:60px; outline: 0px;">
+    S1-Box
+  </div>
+
+
+  <div id="sbox-value-0-0-0" class="sbox" style="top:122px; left:800px;">101</div>
+  <div id="sbox-value-0-0-1" class="sbox" style="top:122px; left:830px;">010</div>
+  <div id="sbox-value-0-0-2" class="sbox" style="top:122px; left:860px;">001</div>
+  <div id="sbox-value-0-0-3" class="sbox" style="top:122px; left:890px;">110</div>
+  <div id="sbox-value-0-0-4" class="sbox" style="top:122px; left:920px;">011</div>
+  <div id="sbox-value-0-0-5" class="sbox" style="top:122px; left:950px;">100</div>
+  <div id="sbox-value-0-0-6" class="sbox" style="top:122px; left:980px;">111</div>
+  <div id="sbox-value-0-0-7" class="sbox" style="top:122px; left:1010px;">000</div>
+
+  <div id="sbox-value-0-1-0" class="sbox" style="top:142px; left: 800px;">001</div>
+  <div id="sbox-value-0-1-1" class="sbox" style="top:142px; left: 830px;">100</div>
+  <div id="sbox-value-0-1-2" class="sbox" style="top:142px; left: 860px;">110</div>
+  <div id="sbox-value-0-1-3" class="sbox" style="top:142px; left: 890px;">010</div>
+  <div id="sbox-value-0-1-4" class="sbox" style="top:142px; left: 920px;">000</div>
+  <div id="sbox-value-0-1-5" class="sbox" style="top:142px; left: 950px;">111</div>
+  <div id="sbox-value-0-1-6" class="sbox" style="top:142px; left: 980px;">101</div>
+  <div id="sbox-value-0-1-7" class="sbox" style="top:142px; left: 1010px;">011</div>
+
+  <div id="sbox-label-1" class="desbox" style="top:172px; left: 890px; width:60px; outline: 0px;">
+    S2-Box
+  </div>
+
+  <div id="sbox-value-1-0-0" class="sbox" style="top:202px; left: 800px;">100</div>
+  <div id="sbox-value-1-0-1" class="sbox" style="top:202px; left: 830px;">000</div>
+  <div id="sbox-value-1-0-2" class="sbox" style="top:202px; left: 860px;">110</div>
+  <div id="sbox-value-1-0-3" class="sbox" style="top:202px; left: 890px;">101</div>
+  <div id="sbox-value-1-0-4" class="sbox" style="top:202px; left: 920px;">111</div>
+  <div id="sbox-value-1-0-5" class="sbox" style="top:202px; left: 950px;">001</div>
+  <div id="sbox-value-1-0-6" class="sbox" style="top:202px; left: 980px;">011</div>
+  <div id="sbox-value-1-0-7" class="sbox" style="top:202px; left: 1010px;">010</div>
+
+  <div id="sbox-value-1-1-0" class="sbox" style="top:222px; left:800px;">101</div>
+  <div id="sbox-value-1-1-1" class="sbox" style="top:222px; left:830px;">011</div>
+  <div id="sbox-value-1-1-2" class="sbox" style="top:222px; left:860px;">000</div>
+  <div id="sbox-value-1-1-3" class="sbox" style="top:222px; left:890px;">111</div>
+  <div id="sbox-value-1-1-4" class="sbox" style="top:222px; left:920px;">110</div>
+  <div id="sbox-value-1-1-5" class="sbox" style="top:222px; left:950px;">010</div>
+  <div id="sbox-value-1-1-6" class="sbox" style="top:222px; left:980px;">001</div>
+  <div id="sbox-value-1-1-7" class="sbox" style="top:222px; left:1010px;">100</div>
+
+  <div id="function-output" class="desbox" style="top:162px; left: 1080px; width:80px;">
+  </div>
+
+  <!-- User interactive elements -->
+  <!-- Input text -->
+  <label for="input-text" style="position:absolute; width:100px; height: 100px; top:325px; left:325px;">Input text:</label>
+  <textarea name="input-text" style="position:absolute; width:100px; height: 75px; top:350px; left:325px;" id="input-text" value="Enter text you would like to encrypt or decrypt here."></textarea>
+  
+  <!-- Input text -->
+  <label for="input-text-bit" style="position:absolute; width:100px; height: 100px; top:325px; left:450px;">Input bits:</label>
+  <textarea name="input-text-bit" style="position:absolute; width:100px; height: 75px; top:350px; left:450px;" id="input-text-bit" value="Enter text you would like to encrypt or decrypt here."></textarea>
+  
+  <!-- Key Input -->
+  <label for="key-input" style="position:absolute; width:200px; height: 200px; top:440px; left:350px;">Key:</label>
+  <textarea name="key-input" id="key-input" style="position: absolute; top:440px; left: 400px; height:25px; width: 100px;">101010101</textarea>
+
+  <!-- Output text -->
+  <label for="output-text" style="position:absolute; width:100px; height: 200px; top:475px; left:325px;">Output text:</label>
+  <textarea readonly name="output-text"  id="output-text" style="position: absolute; top:500px; left: 325px; height:75px; width: 100px;"></textarea>
+  
+  <!-- Output text -->
+  <label for="output-text-bit" style="position:absolute; width:100px; height: 200px; top:475px; left: 450px;">Output bits:</label>
+  <textarea readonly name="output-text"  id="output-text-bit" style="position: absolute; top:500px; left: 450px; height:75px; width: 100px;"></textarea>
+
+  <!-- Slider for Delay -->
+  <input style="position:absolute; top:450px; left:532px;" type="range" id="delay-slider" name="Delay"
+         min="1" max="1000" value="20" step="1">
+  <div style="top: 350px; left:580px; position: absolute;">Delay</div>
+
+  <!-- Round input text box -->
+  <label for="round-input" style="position:absolute; width:200px; height: 200px; top:325px; left:650px;">Number of Rounds:</label>
+  <textarea name="round-input" style="position:absolute; width:40px; height: 20px; top:350px; left:695px;" id="round-input">2</textarea>
+
+  <!-- Buttons -->
+  <button class="desbutton" style="top:390px; left:675px;" id="encrypt-button" type="button">Encrypt</button>
+  <button class="desbutton" style="height: 20px; top:415px; left:675px;" id="decrypt-button" type="button">Decrypt</button>
+  <button class="desbutton" style="height: 20px; top:440px; left:675px;" id="pause-button" type="button">Pause</button>
+  <button class="desbutton" style="height: 20px; top:465px; left:675px;" id="reset-button" type="button">Reset</button>
+
+  <!-- Character Encodings -->
+  <div style="top:505px; left:650px; position: absolute;">Character Encodings:</div>
+  <div id="encoding-1" class="desbox" style="top: 530px; left:625px;">a: 000000</div>
+  <div id="encoding-2" class="desbox" style="top: 530px; left:725px;">A: 011011</div>
+
+  <!-- Encryption Log -->
+  <label for="encryption-log" style="position:absolute; width:200px; height: 200px; top:325px; left:840px;">Encryption Log:</label>
+  <textarea name="encryption-log" readonly style="position:absolute; width:320px; height: 200px; top:350px; left:840px;" id="encryption-log"></textarea>
+
+  <!-- Arrows -->
+  <svg height="600" width="1200">
+    <!-- Main Overview -->
+    <line id="line-li-1-xor" x1="80" y1="70" x2="260" y2="308" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-ri-1-func" x1="260" y1="70" x2="260" y2="160" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-ri-1-li" x1="260" y1="70" x2="80" y2="530" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-xor-ri" x1="260" y1="320" x2="260" y2="530" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <!-- Function Opening -->
+    <line id="line-function-opening" x1="290" y1="180" x2="400" y2="180" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <!-- Expander -->
+    <line id="line-expander-1" x1="410" y1="132" x2="440" y2="112" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-expander-2" x1="410" y1="152" x2="440" y2="132" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-expander-3" x1="410" y1="192" x2="440" y2="152" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-expander-4" x1="410" y1="172" x2="440" y2="172" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-expander-5" x1="410" y1="192" x2="440" y2="192" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-expander-6" x1="410" y1="172" x2="440" y2="212" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-expander-7" x1="410" y1="212" x2="440" y2="232" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-expander-8" x1="410" y1="232" x2="440" y2="252" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <!-- Functional Xor -->
+    <line id="line-functional-xor-1" x1="450" y1="182" x2="495" y2="164" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-functional-xor-2" x1="505" y1="164" x2="550" y2="182" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-functional-xor-3" x1="500" y1="70" x2="500" y2="159" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <!-- Sbox Split 1 -->
+    <line id="line-sbox-split-1-1" x1="560" y1="182" x2="580" y2="142" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-sbox-split-1-2" x1="560" y1="102" x2="580" y2="142" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-sbox-split-1-3" x1="580" y1="142" x2="650" y2="142" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <!-- Sbox Split 2 -->
+    <line id="line-sbox-split-2-1" x1="560" y1="182" x2="580" y2="222" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-sbox-split-2-2" x1="560" y1="262" x2="580" y2="222" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-sbox-split-2-3" x1="580" y1="222" x2="650" y2="222" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <!-- Sbox Index to Sbox -->
+    <line id="line-sbox-index-1" x1="710" y1="142" x2="800" y2="142" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-sbox-index-2" x1="710" y1="222" x2="800" y2="222" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <!-- Sbox Concatenation -->
+    <line id="line-sbox-concatenation-1" x1="1040" y1="122" x2="1060" y2="182" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-sbox-concatenation-2" x1="1040" y1="242" x2="1060" y2="182" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-sbox-concatenation-3" x1="1060" y1="182" x2="1080" y2="182" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <!-- Function Return -->
+    <line id="line-function-return-1" x1="1120" y1="192" x2="1120" y2="308" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+    <line id="line-function-return-2" x1="1120" y1="308" x2="260" y2="308" style="stroke:rgb(0,0,0);stroke-width:1.5" />
+
+  </svg>
+
+</div>
+
+<script src="des.js"></script>

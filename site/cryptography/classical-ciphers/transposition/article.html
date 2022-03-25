@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    
+		<meta charset="utf-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/cryptography/favicon.ico" type="image">
+    <title>Transposition Cipher</title>
+	
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="/cryptography/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/cryptography/css/style2.css">
+    <link rel="stylesheet" href="/cryptography/css/Cstylesheet.css">
+    <link rel="stylesheet" href="/cryptography/css/cryptography-additional.css">
+    <!-- Additional CSS supplied through jekyll format -->
+    
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/cryptography/css/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="/cryptography/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="/cryptography/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="https://www.cs.uri.edu">
+                	<img style="width:85px; display:block; margin:auto;" src="/cryptography/Images/uri-logo.png">
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+                
+				
+				
+				    <li>
+                    	<a href="/cryptography/index.html">Introduction</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#number-theorysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Number Theory</a>
+		                <ul class="collapse list-unstyled" id="number-theorysubmenu">
+				            
+			                <li>
+			                    <a href="/cryptography/number-theory/modular-arithmetic/demo.html">Modular Arithmetic</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/number-theory/euclids-algorithm/demo.html">Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/number-theory/extended-euclids-algorithm/demo.html">Extended Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/number-theory/fermats-little-theorem/fermat.html">Fermat's Little Theorem</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#classical-cipherssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classical Ciphers</a>
+		                <ul class="collapse list-unstyled" id="classical-cipherssubmenu">
+				            
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/shift/demo.html">Shift Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/affine/demo.html">Affine Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/substitution/demo.html">Substitution Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/substitution/cryptanalysis-demo.html">Substitution Cryptanalysis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/transposition/demo.html">Transposition Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/hill/demo.html">Hill Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/vigenere/demo.html">Vigenere Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/vigenere/cryptanalysis-demo.html">Vigenere Cryptanalysis</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/enigma-machine/demo.html">Enigma Machine</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/des/demo.html">DES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/aes/demo.html">AES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/hashing/demo.html">Hashing</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <ul class="collapse list-unstyled" id="public-keysubmenu">
+				            
+			                <li>
+			                    <a href="/cryptography/public-key-cryptography/diffie-hellman-key-exchange/demo.html">Diffie-Hellman Key Exchange</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/public-key-cryptography/rsa/demo.html">R.S.A</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/public-key-cryptography/elgamal/article.html">ElGamal</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="https://www.cs.uri.edu">URI CSC</a>
+                	</li>
+				
+				
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+			<div class="jumbotron gradient-jumbotron">
+			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
+			  <hr class="my-4">
+			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+			  <p class="lead">
+			  </p>
+			</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
+                <div class="container-fluid">
+                    
+                    
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+            
+ 				<table width="934" height="736" border="0" cellpadding="0" cellspacing="0">
+
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Transposition Cipher</p>
+      <p class="style9">Description</p>
+      <p class="style8">The idea behind a transposition cipher is to create a
+      permutation (rearrangement) of the letters of the plaintext that will
+      make the ciphertext appear to be well-encrypted. Transposition ciphers are
+      not highly secure because they do not change the letters in the plaintext
+      or even cover up frequencies, but they can be built upon to make more
+      secure methods of encryption. One example of transposition cipher is
+      the&nbsp; rail fence
+      cipher.
+      <p class="style9">Example</p>
+      <p class="style8">The rail fence cipher is a very simple columnar
+      transposition that takes a string and splits the letters into two groups
+      by way of a zigzag pattern, as shown below:<br>
+      <strong>Encipher</strong><br>
+      plaintext = <span style="text-transform: uppercase">When drinking water, remember its
+      source</span>.<br>
+      compressed plaintext = <span style="text-transform: uppercase"> whendrinkingwaterrememberitssource</span>
+      <table cellSpacing="0" cellPadding="0" width="100%" border="0">
+        <tbody>
+          <tr>
+            <td align="left" width="5%" class="style13">
+              <p class="style8">zig:</p>
+            </td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">W</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">E</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">D</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">I</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">K</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">N</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">W</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">T</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">R</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">E</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">E</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">B</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">R</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">T</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">S</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">U</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">C</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+          </tr>
+          <tr>
+            <td align="left" width="5%" class="style13">
+              <p class="style8">zag:</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">H</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">N</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">R</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">N</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">I</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">G</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">A</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">E</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">R</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">M</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">M</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">E</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">I</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">S</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">O</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">R</p>
+            </td>
+            <td class="style13">
+              <p class="style8"></td>
+            <td align="middle" width="2%" class="style13">
+              <p class="style8">E</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="style8">zig = WEDIKNWTREEBRTSUC<br>
+      zag = HNRNIGAERMMEISORE<br>
+      ciphertext = zig + zag<br>
+      ciphertext = WEDIKNWTREEBRTSUCHNRNIGAERMMEISORE<br>
+      <br>
+      <strong>Decipher</strong><br>
+      To decipher, simply cut the ciphertext in half and create a new string
+      with alternating letters from both&nbsp;substrings.<br>
+      substring_1 = WEDIKNWTREEBRTSUC<br>
+      substring_2 = HNRNIGAERMMEISORE<br>
+      newstring = W + H + E + N + D + R + \85 + U + R + C + E&quot;
+      <p class="style8">&nbsp;</p>
+      <p class="style9">Scytale Cipher</p>
+      <p class="style8">In 4th century B.C., a device named a <i>scytale</i>
+      was used to encrypt Spartan government and military messages. The device
+      consisted of a cylinder of wood with a strip of paper wrapped around it.
+      When the paper was removed, it was simply a string of jumbled letters but, while
+      wrapped around the device, the message was clearly revealed. The scytale&nbsp;
+      takes the idea of the rail fence cipher and expands
+      upon it by using a key of a given length to help conceal the message.
+      <p class="style8"><br>
+      <strong>Encipher</strong><br>
+      plaintext = <span style="text-transform: uppercase">When drinking water, remember its
+      source</span>.<br>
+      compressed plaintext = <span style="text-transform: uppercase">whendrinkingwaterrememberitssource</span><br>
+      compressed plaintext length = 34<br>
+      chosen key length = 4<br>
+      Dividing the plaintext length of 34 by the key length of 4 gives 8 with a remainder
+      2. So we round&nbsp; the length of each row of the scytale up to 9 and pad the message with
+      two letter &quot;z&quot;s.</p>
+      <table border="0" width="51%" height="109">
+        <tbody>
+          <tr>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">W</p>
+            </td>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">H</p>
+            </td>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">E</p>
+            </td>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">N</p>
+            </td>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">D</p>
+            </td>
+            <td align="middle" width="12%" height="42" class="style8">
+              <p class="style8">R</p>
+            </td>
+            <td align="middle" width="12%" height="42" class="style8">
+              <p class="style8">I</p>
+            </td>
+            <td align="middle" width="12%" height="42" class="style8">
+              <p class="style8">N</p>
+            </td>
+            <td align="middle" width="12%" height="42" class="style8">
+              <p class="style8">K</p>
+            </td>
+          </tr>
+          <tr>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">I</p>
+            </td>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">N</p>
+            </td>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">G</p>
+            </td>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">W</p>
+            </td>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">A</p>
+            </td>
+            <td align="middle" width="12%" height="42" class="style8">
+              <p class="style8">T</p>
+            </td>
+            <td align="middle" width="12%" height="42" class="style8">
+              <p class="style8">E</p>
+            </td>
+            <td align="middle" width="12%" height="42" class="style8">
+              <p class="style8">R</p>
+            </td>
+            <td align="middle" width="12%" height="42" class="style8">
+              <p class="style8">R</p>
+            </td>
+          </tr>
+          <tr>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">E</p>
+            </td>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">M</p>
+            </td>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">E</p>
+            </td>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">M</p>
+            </td>
+            <td align="middle" width="11%" height="42" class="style8">
+              <p class="style8">B</p>
+            </td>
+            <td align="middle" width="12%" height="42" class="style8">
+              <p class="style8">E</p>
+            </td>
+            <td align="middle" width="12%" height="42" class="style8">
+              <p class="style8">R</p>
+            </td>
+            <td align="middle" width="12%" height="42" class="style8">
+              <p class="style8">I</p>
+            </td>
+            <td align="middle" width="12%" height="42" class="style8">
+              <p class="style8">T</p>
+            </td>
+          </tr>
+          <tr>
+            <td align="middle" width="11%" height="1" class="style8">
+              <p class="style8">S</p>
+            </td>
+            <td align="middle" width="11%" height="1" class="style8">
+              <p class="style8">S</p>
+            </td>
+            <td align="middle" width="11%" height="1" class="style8">
+              <p class="style8">O</p>
+            </td>
+            <td align="middle" width="11%" height="1" class="style8">
+              <p class="style8">U</p>
+            </td>
+            <td align="middle" width="11%" height="1" class="style8">
+              <p class="style8">R</p>
+            </td>
+            <td align="middle" width="12%" height="1" class="style8">
+              <p class="style8">C</p>
+            </td>
+            <td align="middle" width="12%" height="1" class="style8">
+              <p class="style8">E</p>
+            </td>
+            <td align="middle" width="12%" height="1" class="style8">
+              <p class="style8">Z</p>
+            </td>
+            <td align="middle" width="12%" height="1" class="style8">
+              <p class="style8">Z</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div align="right">
+        <p class="style8">:: the scytale unit itself ::
+      </div>
+      <p class="style8">By lining up the letters from each column and moving
+      left to right we get the ciphertext:<br>
+      &nbsp;&nbsp;&nbsp;WIESHNMSEGEONWMUDABRRTECIERENRIZKRTZ<br>
+      Looking at this ciphertext alone, the original message is disguised to the
+      eye.<br>
+      <br>
+      <strong>Decipher</strong></p>
+      <p class="style8">To decrypt, knowing that the key is of size 4, so we
+      write the first four characters from top to bottom, then the next four
+      character adjacent to the first column and so on. Reading the letters from
+      each row and discarding the final padded characters, we get the plaintext</p>
+      <p class="style8">&nbsp;</p>
+      <p class="style9">Disadvantages</p>
+      <p class="style8">
+      In the case of small messages, the ciphertext is easily deciphered by
+      anyone willing to try deciphering with different key values.<br>
+      <br>
+      Ciphertext length 36 is divisible by 3 so we first test with a key of 3,
+      resulting in...<br>
+      &nbsp;&nbsp;&nbsp;WSMGNUBTIEIR<br>
+      &nbsp;&nbsp;&nbsp;IHSEWDREENZT<br>
+      &nbsp;&nbsp;&nbsp;ENEOMARCRRKZ<br>
+      which when read line by line obviously proves not be English, so we can
+      deduce that the key is not 3.<br>
+      <br>
+      Testing with a key of 6, which also divides evenly into 36, gives us...<br>
+      &nbsp;&nbsp;&nbsp;WMNBII<br>
+      &nbsp;&nbsp;&nbsp;ISWREZ<br>
+      &nbsp;&nbsp;&nbsp;EEMRRK<br>
+      &nbsp;&nbsp;&nbsp;SGUTER<br>
+      &nbsp;&nbsp;&nbsp;HEDENT<br>
+      &nbsp;&nbsp;&nbsp;NOACRZ<br>
+      which again is clearly not the correct answer. In fact, we didn't even
+      have to plot out the entire answer here, because after putting in the
+      second column, our first word was shown to begin with &quot;WM,&quot; and
+      no English language word begins that way. Therefore a key of 6 could not
+      work.<br>
+      <br>
+      A test using a key of length 4 will show the correct answer:<br>
+      &nbsp;&nbsp;&nbsp;WHENDRINK<br>
+      &nbsp;&nbsp;&nbsp;INGWATERR<br>
+      &nbsp;&nbsp;&nbsp;EMEMBERIT<br>
+      &nbsp;&nbsp;&nbsp;SSOURCEZZ<br>
+      This becomes &quot;WHENDRINKINGWATERREMEMBERITSSOURCEZZ,&quot; which is
+      clearly the correct answer.</p>
+      <p class="style8">The rail fence cipher is more of a learning tool than a
+      practical cipher, as its overly simple design allows virtually anyone to
+      crack it. Despite this, the scytale cipher can actually be a useful tool
+      for applications such as quick message passing and in other situations
+      where the decoding must be done by hand.<br>
+      <br>
+      The main problem with both of these ciphers is that the actual letters are
+      not changed, so frequency counts reveal not only trends in letter
+      repetition but the actual plaintext letter that the ciphertext is linked
+      to (because they are the same letter!). Generally speaking, having the
+      plaintext and ciphertext letters line up exactly with each other always
+      leads to easily deciphered messages.
+    </td>
+
+  </tr>
+
+</table></td>
+
+  </tr>
+
+
+</table>
+
+
+
+ 			
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="/cryptography/js/jquery-3.3.1.slim.min.js"></script>
+    <!-- Popper.JS -->
+    <script src="/cryptography/js/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/cryptography/js/bootstrap.min.js"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="/cryptography/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    
+</body>
+<!-- sourced from https://bootstrapious.com/p/bootstrap-sidebar under MIT license - https://bootstrapious.com/terms-of-service-->
+</html>

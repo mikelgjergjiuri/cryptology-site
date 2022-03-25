@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    
+		<meta charset="utf-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/cryptography/favicon.ico" type="image">
+    <title>Substitution Decrypt Demo</title>
+	
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="/cryptography/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/cryptography/css/style2.css">
+    <link rel="stylesheet" href="/cryptography/css/Cstylesheet.css">
+    <link rel="stylesheet" href="/cryptography/css/cryptography-additional.css">
+    <!-- Additional CSS supplied through jekyll format -->
+    
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/cryptography/css/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="/cryptography/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="/cryptography/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="https://www.cs.uri.edu">
+                	<img style="width:85px; display:block; margin:auto;" src="/cryptography/Images/uri-logo.png">
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+                
+				
+				
+				    <li>
+                    	<a href="/cryptography/index.html">Introduction</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#number-theorysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Number Theory</a>
+		                <ul class="collapse list-unstyled" id="number-theorysubmenu">
+				            
+			                <li>
+			                    <a href="/cryptography/number-theory/modular-arithmetic/demo.html">Modular Arithmetic</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/number-theory/euclids-algorithm/demo.html">Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/number-theory/extended-euclids-algorithm/demo.html">Extended Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/number-theory/fermats-little-theorem/fermat.html">Fermat's Little Theorem</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#classical-cipherssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classical Ciphers</a>
+		                <ul class="collapse list-unstyled" id="classical-cipherssubmenu">
+				            
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/shift/demo.html">Shift Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/affine/demo.html">Affine Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/substitution/demo.html">Substitution Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/substitution/cryptanalysis-demo.html">Substitution Cryptanalysis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/transposition/demo.html">Transposition Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/hill/demo.html">Hill Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/vigenere/demo.html">Vigenere Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/vigenere/cryptanalysis-demo.html">Vigenere Cryptanalysis</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/enigma-machine/demo.html">Enigma Machine</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/des/demo.html">DES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/aes/demo.html">AES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/hashing/demo.html">Hashing</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <ul class="collapse list-unstyled" id="public-keysubmenu">
+				            
+			                <li>
+			                    <a href="/cryptography/public-key-cryptography/diffie-hellman-key-exchange/demo.html">Diffie-Hellman Key Exchange</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/public-key-cryptography/rsa/demo.html">R.S.A</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/public-key-cryptography/elgamal/article.html">ElGamal</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="https://www.cs.uri.edu">URI CSC</a>
+                	</li>
+				
+				
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+			<div class="jumbotron gradient-jumbotron">
+			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
+			  <hr class="my-4">
+			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+			  <p class="lead">
+			  </p>
+			</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
+                <div class="container-fluid">
+                    
+                    
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+            
+ 				<script language="JavaScript" type="text/JavaScript">
+<!--
+var inText;
+
+function Decode (num)
+{
+	if(num == 0) return "A"; else if(num == 1) return "B";
+	else if(num == 2) return "C"; else if(num == 3) return "D";
+	else if(num == 4) return "E"; else if(num == 5) return "F";
+	else if(num == 6) return "G"; else if(num == 7) return "H";
+	else if(num == 8) return "I"; else if(num == 9) return "J";
+	else if(num == 10) return "K"; else if(num == 11) return "L";
+	else if(num == 12) return "M"; else if(num == 13) return "N";
+	else if(num == 14) return "O"; else if(num == 15) return "P";
+	else if(num == 16) return "Q"; else if(num == 17) return "R";
+	else if(num == 18) return "S"; else if(num == 19) return "T";
+	else if(num == 20) return "U"; else if(num == 21) return "V";
+	else if(num == 22) return "W"; else if(num == 23) return "X";
+	else if(num == 24) return "Y"; else if(num == 25) return "Z"; //25 used to return Y
+	else if(num == 27) return "-"; else if(num == 32) return " "; //i added this
+	else return "";
+}
+function Decode2 (num)
+{
+	if(num == 0) return "a"; else if(num == 1) return "b";
+	else if(num == 2) return "c"; else if(num == 3) return "d";
+	else if(num == 4) return "e"; else if(num == 5) return "f";
+	else if(num == 6) return "g"; else if(num == 7) return "h";
+	else if(num == 8) return "i"; else if(num == 9) return "j";
+	else if(num == 10) return "k"; else if(num == 11) return "l";
+	else if(num == 12) return "m"; else if(num == 13) return "n";
+	else if(num == 14) return "o"; else if(num == 15) return "p";
+	else if(num == 16) return "q"; else if(num == 17) return "r";
+	else if(num == 18) return "s"; else if(num == 19) return "t";
+	else if(num == 20) return "u"; else if(num == 21) return "v";
+	else if(num == 22) return "w"; else if(num == 23) return "x";
+	else if(num == 24) return "y"; else if(num == 25) return "z"; //25 used to return y
+	else if(num == 27) return "-"; else if(num == 32) return " "; //i added this
+	else return "";
+}
+function Encode (text)
+{
+  var i, j=0, t, uc, et=new Array(), k;
+  t=""+text+"";
+  if(t.length == 0){et[0]=27;}
+  for(i=0; i<(t.length); i++){
+    uc = t.charCodeAt(i); //space is 32
+    if((uc >= 97 && uc <= 122)){k = uc-97; et[j]=k; j++;} 
+	else if(uc >= 65 && uc <= 90){k= uc-65; et[j] = k; j++;}
+	else if(uc == 45){k = 27; et[j]=k; j++;}
+	else if(uc == 32){k = 32; et[j]=k; j++;}}	//i added this yay
+  return et;	
+}
+
+function countFrequencies(text)
+{
+	var i, j, count, t, alp, txtlist = new Array(), resultlist = new Array();
+	
+	t = ""+text+"";
+	
+ 	txtlist = Encode(text);
+ 	count = 0;
+ 
+	// Count the number of occurences of each letter in the list.
+	for (i = 0; i < 26; i++)
+	{
+		for (j = 0; j < (t.length); j++)
+		{
+			if (txtlist[j] == i)
+			{
+				count++;
+			}
+		}
+		resultlist[i] = count;
+		count = 0;
+	}
+ 	return resultlist;
+}
+
+function showFrequencies(text, pos)
+{
+	inText = text;
+	var i, j, count, t, alp, txtlist = new Array(), resultlist = new Array(), friedman_result = new Array();
+	
+	t = ""+text+"";
+ 	txtlist = Encode(text);
+ 	count = 0;
+ 
+	// Count the number of occurences of each letter in the list.
+	for (i = 0; i < 26; i++)
+	{
+		for (j = 0; j < (t.length); j++)
+		{
+			if (txtlist[j] == i)
+			{
+				count++;
+			}
+		}
+		resultlist[i] = count;
+		count = 0;
+	}
+	
+	currentForm = document.cyptanalysis;
+	
+	currentForm.outputA.value = resultlist[0];
+	currentForm.outputB.value = resultlist[1];
+	currentForm.outputC.value = resultlist[2];
+	currentForm.outputD.value = resultlist[3];
+	currentForm.outputE.value = resultlist[4];
+	currentForm.outputF.value = resultlist[5];
+	currentForm.outputG.value = resultlist[6];
+	currentForm.outputH.value = resultlist[7];
+	currentForm.outputI.value = resultlist[8];
+	currentForm.outputJ.value = resultlist[9];
+	currentForm.outputK.value = resultlist[10];
+	currentForm.outputL.value = resultlist[11];
+	currentForm.outputM.value = resultlist[12];
+	currentForm.outputN.value = resultlist[13];
+	currentForm.outputO.value = resultlist[14];
+	currentForm.outputP.value = resultlist[15];
+	currentForm.outputQ.value = resultlist[16];
+	currentForm.outputR.value = resultlist[17];
+	currentForm.outputS.value = resultlist[18];
+	currentForm.outputT.value = resultlist[19];
+	currentForm.outputU.value = resultlist[20];
+	currentForm.outputV.value = resultlist[21];
+	currentForm.outputW.value = resultlist[22];
+	currentForm.outputX.value = resultlist[23];
+	currentForm.outputY.value = resultlist[24];
+	currentForm.outputZ.value = resultlist[25];
+	
+	update(document.forms[0], pos);
+	displaygraph = '<br><p class="style9"><strong>LETTER FREQUENCY OF INPUTED TEXT.</strong></font>';
+	displaygraph = displaygraph + display_graph(resultlist);
+	document.getElementById("showKey").innerHTML = displaygraph;
+	Digraphs(text);
+}
+function display_graph(text)
+{
+
+var letter="abcdefghijklmnopqrstuvwxyz";
+var my_arr=new Array();
+my_arr=new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+var i, j;
+
+var mytext;
+mytext="";
+
+	for(i=0;i<26;i++)
+	{
+		my_arr[i]=text[i];
+	}
+
+	mytext='<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" HEIGHT="89"><TR><TD> ';
+	mytext=mytext+'<TABLE WIDTH="0%" BORDER="0" CELLSPACING="0" CELLPADDING="0"><TR valign="bottom"> ';
+	
+	mytext=mytext+'<TD><table bgcolor="#FFFFFF" bordercolor="#FFFFFF" WIDTH="0%" BORDER="0" CELLSPACING="0" CELLPADDING="0" height="100">';
+	
+	mytext=mytext+'<tr valign="bottom"><td height = 20><font size="1" color="#666666" face="courier">'+'30_'+'</font></td></tr>';
+	mytext=mytext+'<tr valign="bottom"><td height = 20><font size="1" color="#666666" face="courier">'+'25_'+'</font></td></tr>';
+	mytext=mytext+'<tr valign="bottom"><td height = 20><font size="1" color="#666666" face="courier">'+'20_'+'</font></td></tr>';
+	mytext=mytext+'<tr valign="bottom"><td height = 20><font size="1" color="#666666" face="courier">'+'15_'+'</font></td></tr>';
+	mytext=mytext+'<tr valign="bottom"><td height = 20><font size="1" color="#666666" face="courier">'+'10_'+'</font></td></tr>';
+	mytext=mytext+'<tr valign="bottom"><td height = 20><font size="1" color="#666666" face="courier">'+'5_'+'</font></td></tr>';
+	mytext=mytext+'<tr valign="bottom"><td height = 20><font size="1" color="#666666" face="courier">'+'0_'+'</font></td></tr>';
+	
+	mytext=mytext+'<tr bgcolor="#FFFFFF"><td height="20">&nbsp;</td></tr></table></TD>';
+	mytext=mytext+'<TD><table bgcolor="#FFFFFF" bordercolor="#FFFFFF" WIDTH="0%" BORDER="0" CELLSPACING="0" CELLPADDING="0" height="100"><tr><td>&nbsp;</td></tr><tr bgcolor="#FFFFFF"><td height="20">&nbsp;</td></tr></table></TD>'
+		
+	for(var i=0;i<26;i++)
+	{
+		mytext=mytext+'<TD><table bgcolor="red" bordercolor="#FFFFFF" WIDTH="0%" BORDER="0" CELLSPACING="0" CELLPADDING="0">'
+		
+		if(my_arr[i]!=0)	
+		mytext=mytext+'<tr>'+'<td height='+my_arr[i]*4+'>&nbsp;</td>'+'</tr>'
+				
+		mytext=mytext+'<tr bgcolor="#FFFFFF"><td height="20"><font color="#FF6600" size="2" face="courier"><b>'+letter.charAt(i)+'</b></font></td></tr></table></TD>'
+		mytext=mytext+'<TD><table bgcolor="#FFFFFF" bordercolor="#FFFFFF" WIDTH="0%" BORDER="0" CELLSPACING="0" CELLPADDING="0" height="100"><tr><td>&nbsp;</td></tr><tr bgcolor="#FFFFFF"><td height="20">&nbsp;</td></tr></table></TD>'
+	}
+	
+	mytext=mytext+'</TR></TABLE>'
+	mytext=mytext+'</TD></TR></TABLE>';
+	
+	return mytext;
+
+}
+function update(form, pos)
+{
+	var t, i, x, tmpStr, output, cipher = new Array(), txtlist = new Array(), elements = new Array(), z;
+	x = 0;
+	
+	t = "" + form.ciphertext.value + "";
+	output = "<p class=\"style26\">";
+	output = output + "<table width=\"100%\" border=\"3\" cellspacing=\"5\" cellpadding=\"5\" height=\"51\"><tr>";
+	output = output + "<td width=\"8.33%\">";
+	
+	txtlist = Encode(t);
+	if(pos == "0"){
+		
+	cipher[0] = Encode(form.boxa.value); //each of the 26 boxes that the user uses to try and guess the code
+	cipher[1] = Encode(form.boxb.value);
+	cipher[2] = Encode(form.boxc.value);
+	cipher[3] = Encode(form.boxd.value);
+	cipher[4] = Encode(form.boxe.value);
+	cipher[5] = Encode(form.boxf.value);
+	cipher[6] = Encode(form.boxg.value);
+	cipher[7] = Encode(form.boxh.value);
+	cipher[8] = Encode(form.boxi.value);
+	cipher[9] = Encode(form.boxj.value);
+	cipher[10] = Encode(form.boxk.value);
+	cipher[11] = Encode(form.boxl.value);
+	cipher[12] = Encode(form.boxm.value);
+	cipher[13] = Encode(form.boxn.value);
+	cipher[14] = Encode(form.boxo.value);
+	cipher[15] = Encode(form.boxp.value);
+	cipher[16] = Encode(form.boxq.value);
+	cipher[17] = Encode(form.boxr.value);
+	cipher[18] = Encode(form.boxs.value);
+	cipher[19] = Encode(form.boxt.value);
+	cipher[20] = Encode(form.boxu.value);
+	cipher[21] = Encode(form.boxv.value);
+	cipher[22] = Encode(form.boxw.value);
+	cipher[23] = Encode(form.boxx.value);
+	cipher[24] = Encode(form.boxy.value);
+	cipher[25] = Encode(form.boxz.value);
+	cipher[32] = 32; //add the spaces
+	}
+	
+	else {
+		for(i=0; i<26; i++){
+			cipher[i] = 27;
+		}
+		cipher[32] = 32; //add the spaces
+	}
+
+	z = 0;
+	
+	for(i = 1; i <= t.length; i++)
+	{
+		
+		/*if(txtlist[i] == 32){ //this does not go here
+			tmpStr = Decode2(txtlist[i]);
+			output = output + tmpStr;
+		}*/
+		output = output + Decode(txtlist[i-1]);
+		if(i % 60 == 0 && i != 0){ //a row is completed
+			output = output + "<br>";
+			for(; z < i; z++){
+				x = txtlist[z];
+				txtlist[z] = cipher[x];
+				tmpStr = Decode2(txtlist[z]);
+				output = output + tmpStr;
+			}
+			output = output + "</tr><tr>";
+		}
+		if(i % 5 == 0 && i != 0){ //a box is completed
+			output = output + "<br>";
+			for(; z < i; z++){
+				x = txtlist[z];
+				txtlist[z] = cipher[x];
+				tmpStr = Decode2(txtlist[z]);
+				output = output + tmpStr;
+			}
+			output = output + "</td><td width=\"8.33%\">";
+		}
+	}
+	if(z != i - 1){
+		output = output + "<br>";
+		for(; z <= i; z++){
+			x = txtlist[z];
+				txtlist[z] = cipher[x];
+				tmpStr = Decode2(txtlist[z]);
+				output = output + tmpStr;
+		}
+	}
+	
+	
+	output = output + "</table></p>";
+	//output = form.boxb.value;
+	document.getElementById("cipherText").innerHTML = output;
+}
+
+function Digraphs(text)
+{
+	var a, b, i, j, t, x, count, txtlist = new Array(), resultlist = new Array(), countlist = new Array();
+	var beg, mid, end, tmpStr1, tmpStr2, output, max, maxCount, minCount;
+	
+	beg = "<td width=\"80\"><div align=\"center\"><strong>";
+	mid = "</strong></div></td><td width=\"120\"><div align=\"center\"><input name=\"output";
+	end = "\" type=\"text\" size=\"6\" maxlength=\"6\" value = \"";
+	end2 = "\" class=\"textstyle\"></div></td>";
+	output = "<table><tr bgcolor=\"#666666\"> <td width=\"80\"><div align=\"center\"><strong><font color=\"#FFFFFF\">Digraph</font></strong></div></td> <td width=\"120\"><div align=\"center\"><strong><font color=\"#FFFFFF\">Frequency</font></strong></div></td><td width=\"80\"><div align=\"center\"><strong><font color=\"#FFFFFF\">Digraph</font></strong></div></td><td width=\"120\"><div align=\"center\"><strong><font color=\"#FFFFFF\">Frequency</font></strong></div></td></tr><tr>";
+
+	t = "" + text + "";
+	
+	txtlist = Encode(t);
+	count = false;
+	resultlist[0] = txtlist[0];
+	resultlist[1] = txtlist[1];
+	
+	for(i = 0; i < txtlist.length - 1; i++)
+	{
+	    if(txtlist[i] != 32 && txtlist[i+1] != 32)
+		{ //i added this
+		   for(j = 0; j < resultlist.length - 1; j = j + 2)
+		   {
+			if(resultlist[j] != 32 && resultlist[j+1] != 32) //i added this
+			//document.getElementById("debug").innerHTML=resultlist[j] + " " + resultlist[j+1] + "  END!!!!";    print test
+			//also added this in the other part <p id="debug">debug.</p>
+			  if((resultlist[j] == txtlist[i]) && (resultlist[j+1] == txtlist[i+1]))
+			  {
+				 tmpStr1 = Decode(resultlist[j]);
+				 tmpStr2 = Decode(resultlist[j+1]);
+				 tmpStr1 = tmpStr1 + tmpStr2;
+				 if(countlist[tmpStr1] >= 1){
+					countlist[tmpStr1]++;
+				 }
+				 else {
+					countlist[tmpStr1] = 1;
+				 }
+				 count = true;
+			  }
+		   }
+		   if(count == false)
+		   {
+			  x = resultlist.length;
+			  resultlist[x] = txtlist[i];
+			  resultlist[x+1] = txtlist[i+1];
+			  tmpStr1 = Decode(resultlist[x]);
+				 tmpStr2 = Decode(resultlist[x+1]);
+				 tmpStr1 = tmpStr1 + tmpStr2;
+				 if(countlist[tmpStr1] >= 1){
+					countlist[tmpStr1]++;
+				 }
+				 else {
+					countlist[tmpStr1] = 1;
+				 }
+				 count = true;
+		   }
+		   count = false;
+	    }
+	}
+	
+	//resultlist = sortArray(resultlist, countlist, resultlist.length)
+	i = 0;
+	tmpStr1 = Decode(resultlist[0]);
+	tmpStr2 = Decode(resultlist[1]);
+	tmpStr3 = tmpStr1 + tmpStr2;
+	max = countlist[tmpStr3];
+	for(k = 1; k < resultlist.length - 1; k++)
+	{
+		tmpStr1 = Decode(resultlist[k]);
+		tmpStr2 = Decode(resultlist[k+1]);
+		tmpStr3 = tmpStr1 + tmpStr2;
+		if(countlist[tmpStr3] > max){
+			max = countlist[tmpStr3];
+		}
+		k++;
+	}
+	while(max >= 0){
+	for(k = 0; k < resultlist.length - 1; k++)
+	{
+		tmpStr1 = Decode(resultlist[k]);
+		tmpStr2 = Decode(resultlist[k+1]);
+		tmpStr3 = tmpStr1 + tmpStr2;
+		if((countlist[tmpStr3] >= resultlist.length/75) && (countlist[tmpStr3] >= max))
+		{
+			output = output + beg + tmpStr1 + tmpStr2 + mid + tmpStr1 + tmpStr2 + end + countlist[tmpStr3] + end2;
+			i++;
+			if (i % 2 == 0)
+			{
+				output = output + "</tr><tr>";
+			}
+			countlist[tmpStr3] = 0;
+
+		}
+		
+		k++;
+		
+	}
+	max = max - 1;
+	}
+	output = output + "</tr></table>";
+	document.getElementById("showDI").innerHTML = output;
+	Trigraphs(text);
+}
+
+function Trigraphs(text)
+{
+	var i, j, t, x, count, txtlist = new Array(), resultlist = new Array(), countlist = new Array();
+	var beg, mid, end, tmpStr1, tmpStr2, tmpStr3, tmpStr4, output;
+	
+	beg = "<td width=\"80\"><div align=\"center\"><strong>";
+	mid = "</strong></div></td><td width=\"120\"><div align=\"center\"><input name=\"output";
+	end = "\" type=\"text\" size=\"6\" maxlength=\"6\" value = \"";
+	end2 = "\" class=\"textstyle\"></div></td>";
+	output = "<table><tr bgcolor=\"#666666\"> <td width=\"80\"><div align=\"center\"><strong><font color=\"#FFFFFF\">Trigraph</font></strong></div></td> <td width=\"120\"><div align=\"center\"><strong><font color=\"#FFFFFF\">Frequency</font></strong></div></td><td width=\"80\"><div align=\"center\"><strong><font color=\"#FFFFFF\">Trigraph</font></strong></div></td><td width=\"120\"><div align=\"center\"><strong><font color=\"#FFFFFF\">Frequency</font></strong></div></td></tr><tr>";
+
+	t = "" + text + "";
+	
+	txtlist = Encode(t);
+	count = false;
+	resultlist[0] = txtlist[0];
+	resultlist[1] = txtlist[1];
+	resultlist[2] = txtlist[2];
+	
+	for(i = 0; i < txtlist.length - 2; i++)
+	{
+		if(txtlist[i] != 32 && txtlist[i+1] != 32 && txtlist[i+2] != 32) //i added this
+		{
+		   for(j = 0; j < resultlist.length - 2; j = j+ 3)
+		   {
+			  if((resultlist[j] == txtlist[i]) && (resultlist[j+1] == txtlist[i+1]) && (resultlist[j+2] == txtlist[i+2]))
+			  {
+				 tmpStr1 = Decode(resultlist[j]);
+				 tmpStr2 = Decode(resultlist[j+1]);
+				 tmpStr3 = Decode(resultlist[j+2]);
+				 tmpStr4 = tmpStr1 + tmpStr2 + tmpStr3;
+				 if(countlist[tmpStr4] >= 1){
+					countlist[tmpStr4] = countlist[tmpStr4] + 1;
+				 }
+				 else {
+					countlist[tmpStr4] = 1;
+				 }
+				 count = true;
+			  }
+		   }
+		   if(count == false)
+		   {
+			  x = resultlist.length;
+			  resultlist[x] = txtlist[i];
+			  resultlist[x+1] = txtlist[i+1];
+			  resultlist[x+2] = txtlist[i+2];
+			  tmpStr1 = Decode(resultlist[x]);
+				 tmpStr2 = Decode(resultlist[x+1]);
+				 tmpStr3 = Decode(resultlist[x+2]);
+				 tmpStr4 = tmpStr1 + tmpStr2 + tmpStr3;
+				 if(countlist[tmpStr4] >= 1){
+					countlist[tmpStr4]++;
+				 }
+				 else {
+					countlist[tmpStr4] = 1;
+				 }
+				 count = true;
+		   }
+		   count = false;
+		}
+	}
+	i = 0;
+	for(k = 0; k < resultlist.length - 2; k = k + 3)
+	{
+		tmpStr1 = Decode(resultlist[k]);
+		tmpStr2 = Decode(resultlist[k+1]);
+		tmpStr3 = Decode(resultlist[k+2]);
+		tmpStr4 = tmpStr1 + tmpStr2 + tmpStr3;
+		if(countlist[tmpStr4] >= resultlist.length/300)
+		{
+			output = output + beg + tmpStr1 + tmpStr2 + tmpStr3 + mid + tmpStr1 + tmpStr2 + tmpStr3 + end + countlist[tmpStr4] + end2;
+			i++;
+			if (i % 2 == 0)
+			{
+				output = output + "</tr><tr>";
+			}
+		}
+		
+	}
+	output = output + "</tr></table>";
+	document.getElementById("showTRI").innerHTML = output;
+}
+//-->
+</script>
+
+<table width="933" border="0" cellpadding="0" cellspacing="0">
+
+
+
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Substitution Cipher Cryptanalysis Interactive Demo</p>
+      <table width="750" border="0" cellspacing="20" cellpadding="0">
+        <tr>
+          <td><br>
+            <form action method="post" name="cyptanalysis" id="cyptanalysis">
+              <table width="420" border="0" cellpadding="1" cellspacing="1" class="textstyle">
+                <tr>
+                  <td></td>
+                </tr>
+                <tr>
+                   <td>
+                    <p class="style9"><strong>STEP 1. INPUT PLAINTEXT 
+                    AND CIPHERTEXT</strong></p>
+                    <p class="style8">The step shows letter frequencies for both plaintext 
+                    and ciphertext. It also shows some of the most common digraphs and trigraphs
+                    for help in decoding the cipher text.<strong><br>
+                    </strong><br></p>                   </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="style11"><strong>Ciphertext</strong><br>
+                  <br>
+                  <textarea name="ciphertext" cols="70" rows="7" class="textstyle" id="ciphertext">XIAKGLTIZKSA RH GSV KIZXGRXV ZMW HGFWA LU SRWRMT RMULINZGRLM RM NLWVIM GRNVH XIAKGLTIZKSA RH XLMHRWVIVW Z YIZMXS LU YLGS NZGSVNZGRXH ZMW XLNKFGVI HXRVMXV ZMW RH ZUURORZGVW XOLHVOA DRGS RMULINZGRLM GSVLIA XLNKFGVI HVXFIRGA ZMW VMTRMVVIRMT XIAKGLTIZKSA RH FHVW RM ZKKORXZGRLMH KIVHVMG RM GVXSMLOLTRXZOOA ZWEZMXVW HLXRVGRVH VCZNKOVH RMXOFWV GSV HVXFIRGA LU ZGN XZIWH XLNKFGVI KZHHDLIWH ZMW VOVXGILMRX XLNNVIXV DSRXS ZOO WVKVMW LM XIAKGLTIZKSA.</textarea></p>                  </td>
+                </tr>
+				<tr>
+                  <td><input name="analyze" type="button" id="analyze" value="Start Analysis" onClick="showFrequencies(form.ciphertext.value, 1)">
+                    <br>
+                    <br>                  </td>
+                </tr>
+				<tr>
+                  <td>
+                    <p class="style9"><strong>RESULT OF STEP 1.</strong><br>                    
+                    <br>
+                    <strong>Table of <font color="#FF6600">Ciphertext</font> letter 
+                    frequencies.</strong><br> 
+                    <br> <table width="400" border="0" cellpadding="1" cellspacing="1" class="textstyle">
+                      <tr bgcolor="#666666"> 
+                        <td width="80"><div align="center"><strong><font color="#FFFFFF">Letter</font></strong></div></td>
+                        <td width="120"><div align="center"><strong><font color="#FFFFFF">Frequency</font></strong></div></td>
+                        <td width="80"><div align="center"><strong><font color="#FFFFFF">Letter</font></strong></div></td>
+                        <td width="120"><div align="center"><strong><font color="#FFFFFF">Frequency</font></strong></div></td>
+                      </tr>
+                      <tr> 
+                        <td width="80"><div align="center"><strong>A</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputA" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                        <td width="80"><div align="center"><strong>N</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputN" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                      </tr>
+                      <tr> 
+                        <td width="80"><div align="center"><strong>B</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputB" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                        <td width="80"><div align="center"><strong>O</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputO" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                      </tr>
+                      <tr> 
+                        <td width="80"><div align="center"><strong>C</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputC" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                        <td width="80"><div align="center"><strong>P</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputP" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                      </tr>
+                      <tr> 
+                        <td width="80"><div align="center"><strong>D</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputD" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                        <td width="80"><div align="center"><strong>Q</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputQ" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                      </tr>
+                      <tr> 
+                        <td width="80"><div align="center"><strong>E</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputE" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                        <td width="80"><div align="center"><strong>R</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputR" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                      </tr>
+                      <tr> 
+                        <td width="80"><div align="center"><strong>F</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputF" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                        <td width="80"><div align="center"><strong>S</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputS" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                      </tr>
+                      <tr> 
+                        <td width="80"><div align="center"><strong>G</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputG" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                        <td width="80"><div align="center"><strong>T</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputT" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                      </tr>
+                      <tr> 
+                        <td width="80"><div align="center"><strong>H</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputH" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                        <td width="80"><div align="center"><strong>U</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputU" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                      </tr>
+                      <tr> 
+                        <td width="80"><div align="center"><strong>I</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputI" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                        <td width="80"><div align="center"><strong>V</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputV" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                      </tr>
+                      <tr> 
+                        <td width="80"><div align="center"><strong>J</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputJ" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                        <td width="80"><div align="center"><strong>W</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputW" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                      </tr>
+                      <tr> 
+                        <td width="80"><div align="center"><strong>K</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputK" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                        <td width="80"><div align="center"><strong>X</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputX" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                      </tr>
+                      <tr> 
+                        <td width="80"><div align="center"><strong>L</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputL" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                        <td width="80"><div align="center"><strong>Y</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputY" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                      </tr>
+                      <tr> 
+                        <td width="80"><div align="center"><strong>M</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputM" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                        <td width="80"><div align="center"><strong>Z</strong></div></td>
+                        <td width="120"><div align="center"> 
+                            <input name="outputZ" type="text" size="6" maxlength="6" class="textstyle">
+                          </div></td>
+                      </tr>
+                      <tr></tr>
+                     
+                    </table><span id="showKey"></span> 
+                    <br>
+                   
+                      <span id="showDI"></span>
+			<br>
+		      <span id="showTRI"></span>
+                 
+                    
+                    <br>                  </td>
+                </tr>
+                <tr>
+                   <td>
+                    <p class="style9"><strong>STEP 2. ATTEMPT TO DECODE
+                    THE CIPHERTEXT</strong></p>
+                    <p class="style8">At this point, enter in your guesses for the cipher text, and click on update to 
+                    update the cipher text with the new letters. Reset will reset your guesses to all dashes.<strong><br>
+                    </strong><br></p>                   </td>
+                </tr>
+                <tr>
+                  <td><p class="style26"><span id="cipherText"></span></p></td>
+                </tr>
+                <tr></tr>
+                 </table>
+                 <tr>
+                 	<table width="100%" border="0" cellspacing="1" cellpadding="0" height="51">
+                <tr bgcolor="#999999">
+                  <td width="9%" class="style11" height="22">Cipher
+                    Alphabet</font></strong></td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      A
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      B
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      C
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      D
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      E
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      F
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      G
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      H
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      I
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      J
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      K
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      L
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      M
+                    </div>
+                  </td>
+                </tr>
+                <tr bgcolor="#EEEEEE">
+                  <td class="style11" height="25">Plaintext
+                    Alphabet</font></strong></td>
+                  <td align="center" class="style13" height="25"><input name="boxa" type="text" value="-" size="1" maxlength="1"></td>
+                  <td align="center" class="style13" height="25"><input name="boxb" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxc" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxd" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxe" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxf" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxg" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxh" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxi" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxj" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxk" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxl" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxm" type="text" size="1" maxlength="1" value="-"></td>
+                </tr>
+              </table>
+              <br>
+              <table width="100%" border="0" cellspacing="1" cellpadding="0" height="51">
+                <tr bgcolor="#999999">
+                  <td width="9%" class="style11" height="22">Cipher
+                    Alphabet</font></strong></td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      N
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      O
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      P
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      Q
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      R
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      S
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      T
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      U
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      V
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      W
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      X
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      Y
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      Z
+                    </div>
+                  </td>
+                </tr>
+                <tr bgcolor="#EEEEEE">
+                  <td class="style11" height="25"><strong><font color="#000033">Plaintext
+                    Alphabet</font></strong></td>
+                  <td align="center" class="style13" height="25"><input name="boxn" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxo" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxp" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxq" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxr" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxs" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxt" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxu" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxv" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxw" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxx" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxy" type="text" size="1" maxlength="1" value="-"></td>
+                  <td align="center" class="style13" height="25"><input name="boxz" type="text" size="1" maxlength="1" value="-"></td>
+                </tr>
+              </table>
+           
+       
+                </tr>
+                <tr>
+                  <td><input name="update" type="button" id="update" value="Update the cipher text" onClick="showFrequencies(form.ciphertext.value, 0)">
+                    <br>
+                    <br>
+                  </td>
+                </tr>
+                <br>
+                <tr>
+                  <td><input name="blank" type="button" id="blank" value="Reset the Plaintext" onClick="showFrequencies(form.ciphertext.value, 1)">
+                    <br>
+                    <br>
+                  </td>
+                </tr>
+                
+				</form>
+                
+          </td>
+        </tr>
+        <tr>
+        	<td>
+        	
+            </td>
+        </tr>
+      </table>
+    </td>
+
+  </tr>
+
+</table></td>
+
+  </tr>
+
+  <tr>
+
+							<td valign="top" height="158" width="767">
+
+    </td>
+
+  </tr>
+	
+</table>
+
+
+ 			
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="/cryptography/js/jquery-3.3.1.slim.min.js"></script>
+    <!-- Popper.JS -->
+    <script src="/cryptography/js/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/cryptography/js/bootstrap.min.js"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="/cryptography/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    
+</body>
+<!-- sourced from https://bootstrapious.com/p/bootstrap-sidebar under MIT license - https://bootstrapious.com/terms-of-service-->
+</html>

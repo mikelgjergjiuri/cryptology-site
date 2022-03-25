@@ -1,0 +1,492 @@
+---
+layout: default
+title: Substitution Cipher
+subpages:
+  - article:
+    title: Article
+    link: /cryptography/classical-ciphers/substitution/article.html
+---
+<script language="JavaScript">
+
+	function makealpha(passedkey){
+		var keylength, alpha;
+		keylength = passedkey.length - 1;
+		
+		if(passedkey.charAt(keylength) == 'A') alpha = "BCDEFGHIJKLMNOPQRSTUVWXYZA";
+		else if(passedkey.charAt(keylength) == 'B') alpha = "CDEFGHIJKLMNOPQRSTUVWXYZAB";
+		else if(passedkey.charAt(keylength) == 'C') alpha = "DEFGHIJKLMNOPQRSTUVWXYZABC";
+		else if(passedkey.charAt(keylength) == 'D') alpha = "EFGHIJKLMNOPQRSTUVWXYZABCD";
+		else if(passedkey.charAt(keylength) == 'E') alpha = "FGHIJKLMNOPQRSTUVWXYZABCDE";
+		else if(passedkey.charAt(keylength) == 'F') alpha = "GHIJKLMNOPQRSTUVWXYZABCDEF";
+		else if(passedkey.charAt(keylength) == 'G') alpha = "HIJKLMNOPQRSTUVWXYZABCDEFG";
+		else if(passedkey.charAt(keylength) == 'H') alpha = "IJKLMNOPQRSTUVWXYZABCDEFGH";
+		else if(passedkey.charAt(keylength) == 'I') alpha = "JKLMNOPQRSTUVWXYZABCDEFGHI";
+		else if(passedkey.charAt(keylength) == 'J') alpha = "KLMNOPQRSTUVWXYZABCDEFGHIJ";
+		else if(passedkey.charAt(keylength) == 'K') alpha = "LMNOPQRSTUVWXYZABCDEFGHIJK";
+		else if(passedkey.charAt(keylength) == 'L') alpha = "MNOPQRSTUVWXYZABCDEFGHIJKL";
+		else if(passedkey.charAt(keylength) == 'M') alpha = "NOPQRSTUVWXYZABCDEFGHIJKLM";
+		else if(passedkey.charAt(keylength) == 'N') alpha = "OPQRSTUVWXYZABCDEFGHIJKLMN";
+		else if(passedkey.charAt(keylength) == 'O') alpha = "PQRSTUVWXYZABCDEFGHIJKLMNO";
+		else if(passedkey.charAt(keylength) == 'P') alpha = "QRSTUVWXYZABCDEFGHIJKLMNOP";
+		else if(passedkey.charAt(keylength) == 'Q') alpha = "RSTUVWXYZABCDEFGHIJKLMNOPQ";
+		else if(passedkey.charAt(keylength) == 'R') alpha = "STUVWXYZABCDEFGHIJKLMNOPQR";
+		else if(passedkey.charAt(keylength) == 'S') alpha = "TUVWXYZABCDEFGHIJKLMNOPQRS";
+		else if(passedkey.charAt(keylength) == 'T') alpha = "UVWXYZABCDEFGHIJKLMNOPQRST";
+		else if(passedkey.charAt(keylength) == 'U') alpha = "VWXYZABCDEFGHIJKLMNOPQRSTU";
+		else if(passedkey.charAt(keylength) == 'V') alpha = "WXYZABCDEFGHIJKLMNOPQRSTUV";
+		else if(passedkey.charAt(keylength) == 'W') alpha = "XYZABCDEFGHIJKLMNOPQRSTUVW";
+		else if(passedkey.charAt(keylength) == 'X') alpha = "YZABCDEFGHIJKLMNOPQRSTUVWX";
+		else if(passedkey.charAt(keylength) == 'Y') alpha = "ZABCDEFGHIJKLMNOPQRSTUVWXY";
+		else if(passedkey.charAt(keylength) == 'Z') alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		else alpha = "ZYXWVUTSRQPONMLKJIHGFEDCBA";
+		
+		return alpha;
+	}
+
+	function makekey(passedkey, start)
+	{
+		var somekey, keylength, newkey, i, j, shrunkey, alphalist, alphalisttemp, finalkey;
+
+		somekey = passedkey;
+		somekey = somekey.toUpperCase();	// puts all the letters in uppercase
+		keylength = somekey.length;			// finds the length of the string
+		i = 0;								// a counter variable
+		newkey = "";						// the result of cleaning out all non-letters from the key
+		shrunkey = "";						// the clean key without duplicate letters
+		alphalist = "ZYXWVUTSRQPONMLKJIHGFEDCBA";	// the full alphabet
+		finalkey = "";						// the shrunk key and the rest of the alphabet
+
+		while (i <= keylength){				// clean the key, leaves only the letters
+			if (somekey.charCodeAt(i) >= 65 && somekey.charCodeAt(i) <= 90){
+				newkey = newkey + somekey.charAt(i);
+			}
+		    i++;
+		}
+		i = 0;
+		keylength = newkey.length;
+
+		while (i <= keylength){				// takes the clean key and removes duplicate letters
+			if (shrunkey.match(newkey.charAt(i))){
+				// do nothing
+			}
+			else{
+				shrunkey = shrunkey + newkey.charAt(i);
+			}
+			i++;
+		}
+		alphalist = makealpha(shrunkey);
+		start = parseInt(start);
+		
+		i = 0;
+		j = 0;
+		
+		
+		
+		
+		
+		keylength = alphalist.length;
+		finalkey = finalkey + shrunkey;
+
+		while (i <= keylength){				// takes the shrunk key and adds in the rest of the alphabet
+			if (finalkey.match(alphalist.charAt(i))){
+				// do nothing
+			}
+			else{
+				finalkey = finalkey + alphalist.charAt(i);
+			}
+			i++;
+		}
+		
+		
+
+		return finalkey;
+
+	} // end makekey()
+
+
+	function showkey(form){					// displays the key on the screen
+		var finalkey, keylength, i, boxvalue, boxchar;
+
+		finalkey = makekey(form.key.value, form.pos.value);			// calls makekey() to create the key
+
+		i = 0;
+		keylength = finalkey.length;
+		boxvalue = 97 + parseInt(form.pos.value);						// to help fill the boxes, starting at "a"
+
+		while (i < keylength){				// fills in the ciphertext boxes on the page
+			boxchar = "box";
+			boxchar = boxchar + String.fromCharCode(boxvalue);
+			form[boxchar].value = finalkey.charAt(i);
+
+			boxvalue++;
+			i++;
+			if(boxvalue > 122) boxvalue = 97;
+		}
+	} // end showkey()
+
+
+	function encipher(form)
+	{
+		var thestring, thestringlength, i, cleanstring, resultstring, keystring, switchvalue, keyvalue, alphavalue, alphalist;
+
+		thestring = form.plaintext.value;		// pulls the plaintext box value from the form
+		thestring = thestring.toUpperCase();	// puts all the letters in uppercase
+		thestringlength = thestring.length;		// finds the length of the string
+		i = 0;									// a counter variable
+		cleanstring = "";						// the letters from the user entered text
+		resultstring = "";						// the enciphered string
+		switchvalue = 0;
+		keyvalue = "";
+		alphavalue = "";
+		keystring = makekey(form.key.value);		// the string made up of the newly formed key
+		alphalist = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";	// the full alphabet
+
+		while (i <= thestringlength){				// clean the string, leaves only the letters
+			if (thestring.charCodeAt(i) >= 65 && thestring.charCodeAt(i) <= 90){
+				cleanstring = cleanstring + thestring.charAt(i);
+			}
+			i++;
+		}
+		i = 0;
+		thestringlength = cleanstring.length;
+
+		while (i < thestringlength){						// enciphers the string
+			switchvalue = cleanstring.charAt(i);			// pulls out the letter at i
+			alphavalue = alphalist.indexOf(switchvalue);	// gets the index of where the letter occurs in the alphalist
+			keyvalue = keystring.charAt(alphavalue);
+			resultstring = resultstring + keyvalue;
+			i++;
+		}
+
+		form.ciphertext.value = resultstring;
+
+	} // end encipher()
+
+
+	function decipher(form)
+	{
+		var thestring, thestringlength, i, cleanstring, resultstring, keystring, switchvalue, keyvalue, alphavalue, alphalist;
+
+		thestring = form.ciphertext.value;		// pulls the ciphertext box value from the form
+		thestring = thestring.toUpperCase();	// puts all the letters in uppercase
+		thestringlength = thestring.length;		// finds the length of the string
+		i = 0;									// a counter variable
+		cleanstring = "";						// the letters from the user entered text
+		resultstring = "";						// the deciphered string
+		switchvalue = 0;
+		keyvalue = "";
+		alphavalue = "";
+		keystring = makekey(form.key.value);		// the string made up of the newly formed key
+		alphalist = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";	// the full alphabet
+
+		while (i <= thestringlength){				// clean the string, leaves only the letters
+			if (thestring.charCodeAt(i) >= 65 && thestring.charCodeAt(i) <= 90){
+				cleanstring = cleanstring + thestring.charAt(i);
+			}
+			i++;
+		}
+		i = 0;
+		thestringlength = cleanstring.length;
+
+		while (i < thestringlength){						// enciphers the string
+			switchvalue = cleanstring.charAt(i);			// pulls out the letter at i
+			alphavalue = keystring.indexOf(switchvalue);	// gets the index of where the letter occurs in the alphalist
+			keyvalue = alphalist.charAt(alphavalue);
+			resultstring = resultstring + keyvalue;
+			i++;
+		}
+
+		form.plaintext.value = resultstring;
+
+	} // end decipher()
+
+
+</script>
+</head>
+
+
+
+<body>
+
+<table width="933" height="704" border="0" cellpadding="0" cellspacing="0">
+
+ </tr>
+
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Simple Substitution Interactive Demo<br>
+      </p>
+      <form name="form1" method="post" onSubmit="return false">
+        <table width="100%" border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td class="style8">
+              <p class="style9">Step 1. Enter in a key word or key phrase</p>
+              <p class="style8">Please enter key (up to 26 letters long,
+              including spaces):</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="style8">
+              <table width="67%" border="0" cellspacing="1" cellpadding="5">
+                <tr bgcolor="#CCCCCC">
+                  <td width="10%" class="style11">
+                    <div align="right">
+                      <strong>KEY:</strong>
+                    </div>
+                  </td>
+                  <td width="90%"><input name="key" type="text" id="key" size="26" maxlength="26">
+                    &nbsp;&nbsp;&nbsp; <input type="submit" name="updatekey" value="  Update  Key  " onclick="showkey(this.form)"></td>
+                  <td width="40%"><b>KEY POSITION:</b><input name="pos" type="text" id="pos" size="2" maxlength="2" value="0"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="style8">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="style8">Corresponding alphabets are produced based on the
+              entered key:</td>
+          </tr>
+          <tr>
+            <td class="style8">
+              <table width="100%" border="0" cellspacing="1" cellpadding="0" height="51">
+                <tr bgcolor="#999999">
+                  <td width="9%" class="style11" height="22">Plaintext
+                    Alphabet</font></strong></td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      A
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      B
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      C
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      D
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      E
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      F
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      G
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      H
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      I
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      J
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      K
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      L
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      M
+                    </div>
+                  </td>
+                </tr>
+                <tr bgcolor="#EEEEEE">
+                  <td class="style11" height="25">Ciphertext
+                    Alphabet</font></strong></td>
+                  <td align="center" class="style13" height="25"><input name="boxa" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxb" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxc" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxd" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxe" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxf" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxg" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxh" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxi" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxj" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxk" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxl" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxm" type="text" size="1" maxlength="1" readonly></td>
+                </tr>
+              </table>
+              <br>
+              <table width="100%" border="0" cellspacing="1" cellpadding="0" height="51">
+                <tr bgcolor="#999999">
+                  <td width="9%" class="style11" height="22">Plaintext
+                    Alphabet</font></strong></td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      N
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      O
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      P
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      Q
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      R
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      S
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      T
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      U
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      V
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      W
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      X
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      Y
+                    </div>
+                  </td>
+                  <td width="2%" class="style13" height="22">
+                    <div align="center">
+                      Z
+                    </div>
+                  </td>
+                </tr>
+                <tr bgcolor="#EEEEEE">
+                  <td class="style11" height="25"><strong><font color="#000033">Ciphertext
+                    Alphabet</font></strong></td>
+                  <td align="center" class="style13" height="25"><input name="boxn" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxo" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxp" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxq" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxr" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxs" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxt" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxu" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxv" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxw" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxx" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxy" type="text" size="1" maxlength="1" readonly></td>
+                  <td align="center" class="style13" height="25"><input name="boxz" type="text" size="1" maxlength="1" readonly></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="style8">
+              <p class="style9">&nbsp;
+              <p class="style9">Step 1. Encipher/Decipher<br>
+              </p>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                <tr>
+                  <td class="style11">
+                    <div align="center">
+                      <p class="style11"><strong>Plaintext</strong>
+                    </div>
+                  </td>
+                  <td class="style11">
+                    <div align="center">
+                      <p class="style11"><strong>Ciphertext</strong>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="50%">
+                    <div align="center">
+                      <textarea name="plaintext" class="textstyle" id="plaintext" cols="35" rows="7"></textarea>
+                    </div>
+                  </td>
+                  <td width="50%">
+                    <div align="center">
+                      <textarea name="ciphertext" id="ciphertext" class="textstyle" cols="35" rows="7"></textarea>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="50%">
+                    <div align="center">
+                      <input name="encrypt" id="encrypt" type="submit" onclick="encipher(this.form)" value="Encipher Plaintext">
+                    </div>
+                  </td>
+                  <td width="50%">
+                    <div align="center">
+                      <input name="decrypt" id="decrypt" type="submit" onclick="decipher(this.form)" value="Decipher Ciphertext">
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="style8">
+              <div align="center">
+                <input type="reset" name="clear" value="   Clear   ">
+              </div>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </td>
+
+  </tr>
+
+</table>

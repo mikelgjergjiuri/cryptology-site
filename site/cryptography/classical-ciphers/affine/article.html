@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    
+		<meta charset="utf-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/cryptography/favicon.ico" type="image">
+    <title>Affine Cipher</title>
+	
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="/cryptography/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/cryptography/css/style2.css">
+    <link rel="stylesheet" href="/cryptography/css/Cstylesheet.css">
+    <link rel="stylesheet" href="/cryptography/css/cryptography-additional.css">
+    <!-- Additional CSS supplied through jekyll format -->
+    
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/cryptography/css/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="/cryptography/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="/cryptography/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="https://www.cs.uri.edu">
+                	<img style="width:85px; display:block; margin:auto;" src="/cryptography/Images/uri-logo.png">
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+                
+				
+				
+				    <li>
+                    	<a href="/cryptography/index.html">Introduction</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#number-theorysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Number Theory</a>
+		                <ul class="collapse list-unstyled" id="number-theorysubmenu">
+				            
+			                <li>
+			                    <a href="/cryptography/number-theory/modular-arithmetic/demo.html">Modular Arithmetic</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/number-theory/euclids-algorithm/demo.html">Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/number-theory/extended-euclids-algorithm/demo.html">Extended Euclid's Algorithm</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/number-theory/fermats-little-theorem/fermat.html">Fermat's Little Theorem</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#classical-cipherssubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classical Ciphers</a>
+		                <ul class="collapse list-unstyled" id="classical-cipherssubmenu">
+				            
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/shift/demo.html">Shift Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/affine/demo.html">Affine Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/substitution/demo.html">Substitution Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/substitution/cryptanalysis-demo.html">Substitution Cryptanalysis</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/transposition/demo.html">Transposition Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/hill/demo.html">Hill Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/vigenere/demo.html">Vigenere Cipher</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/classical-ciphers/vigenere/cryptanalysis-demo.html">Vigenere Cryptanalysis</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/enigma-machine/demo.html">Enigma Machine</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/des/demo.html">DES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/aes/demo.html">AES</a>
+                	</li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="/cryptography/hashing/demo.html">Hashing</a>
+                	</li>
+				
+				
+				
+				
+                	<li class="active">
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <ul class="collapse list-unstyled" id="public-keysubmenu">
+				            
+			                <li>
+			                    <a href="/cryptography/public-key-cryptography/diffie-hellman-key-exchange/demo.html">Diffie-Hellman Key Exchange</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/public-key-cryptography/rsa/demo.html">R.S.A</a>
+			                </li>
+			                
+			                <li>
+			                    <a href="/cryptography/public-key-cryptography/elgamal/article.html">ElGamal</a>
+			                </li>
+			                
+		                </ul>
+		            </li>
+				
+				
+				
+				
+				    <li>
+                    	<a href="https://www.cs.uri.edu">URI CSC</a>
+                	</li>
+				
+				
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+			<div class="jumbotron gradient-jumbotron">
+			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
+			  <hr class="my-4">
+			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+			  <p class="lead">
+			  </p>
+			</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
+                <div class="container-fluid">
+                    
+                    
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+            
+ 				<table width="933" height="884" border="0" cellpadding="0" cellspacing="0">
+
+  <tr> 
+
+    <td bgcolor="#FFFFFF" height="8" width="752"> 
+
+      <p class="style12">Affine Cipher</p>
+      <p class="style9">History and Description</p>
+      <p class="style8">Since a shift cipher can produce only 25 different distinct
+      transformations for the text, it is not a very secure encryption method. The
+      affine
+      cipher is a generalization of the shift cipher that provides a little bit more
+      security. The affine cipher applies multiplication and addition to each
+      character using the function:<br>
+      <i>
+      y</i> = (<i>ax</i> + <i>b</i>) MOD <i> m</i><br>
+      where <i> x</i> is the numerical value of the letter in the plaintext, <i> m</i> is the
+      number of letters in the plaintext alphabet, <i> a</i> and <i> b</i> are the secret
+      numbers, and <i> y</i> is the result of transformation. <i>y</i> can be decrypted back to <i>x</i> by using the formula <i>x</i> = inverse(<i>a</i>) (<i>y</i>  <i>b</i>) MOD <i>m</i>, inverse(<i>a</i>) is a
+      value such that if it is multiplied with <i>a</i> MOD <i>m</i> the result
+      will be 1, i.e. (<i>a</i> * inverse(<i>a</i>)) MOD <i>m</i> = 1.<p class="style8">
+      Using the encryption function <i> y</i> = 11<i>x</i> + 4 MOD 26, letter E and S
+      will be encoded to W and U as shown in example below.
+      Since the computation involves modulo 26 arithmetic, several letters may
+      fail to be uniquely decoded if the multiplier&nbsp; has a common divisor with
+      26. Therefore, the greatest common divisor of <i> a</i> and <i> m</i> must be 1.<br>
+      <p class="style8">Example</p>
+      <p class="style8"><strong>Encipher</strong><br>
+      Assume the message is encrypted by the function <i> y</i> = (11<i>x</i> + 4) MOD 26<br>
+      To encrypt the plaintext MONEY, we first convert each letter in
+      plaintext into a numerical value between 0 and 25 according to
+      following list
+      <table cellSpacing="0" cellPadding="0" width="100%" border="0">
+        <tbody>
+          <tr>
+            <td width="10%">
+              <p class="style8"></td>
+            <td width="90%">
+              <p class="style8">A  0<br>
+              B  1<br>
+              C  2<br>
+              D  3<br>
+              .<br>
+              .<br>
+              .<br>
+              Z - 25</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="style8">Thus, the numerical values corresponding to the
+      plaintext MONEY are 12, 14, 13, 4, and 24.<br>
+      Applying the given function for each numerical value, we have
+      <table cellSpacing="0" cellPadding="0" width="100%" border="0">
+        <tbody>
+          <tr>
+            <td width="10%">
+              <p class="style8"></td>
+            <td width="90%">
+              <p class="style8"><strong>M</strong>: y = (11*12 + 4) MOD 26 = 6<br>
+              <strong>O</strong>: y = (11*14 + 4) MOD 26 = 2<br>
+              <strong>N</strong>: y = (11*13 + 4) MOD 26 = 17<br>
+              <strong>E</strong> : y = (11*4 + 4) MOD 26 = 22<br>
+              <strong>Y</strong> : y = (11*24 + 4) MOD 26 = 8<br>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="style8">The corresponding letters are <strong>GCRWI,</strong>
+      which is the ciphertext.<br>
+      <br>
+      <strong>Decipher</strong><br>
+      To decipher, we transform the function y as:<br>
+      <i>
+      x</i> = inverse (<i>a</i>) (<i>y</i>  <i>b</i>) MOD <i> m</i><br>
+      Then we have, <i> x</i> = inverse(11) (<i>y</i>  4) MOD 26<br>
+      Inverse(11) MOD 26 = 19, and the decryption function will be <i> x</i> = 19
+      (<i>y</i> 
+      4) MOD 26<br>
+      <br>
+      We now decipher the ciphertext GCRWI by applying the decryption function.
+      We have:
+      <table cellSpacing="0" cellPadding="0" width="100%" border="0">
+        <tbody>
+          <tr>
+            <td width="10%">
+              <p class="style8"></td>
+            <td width="90%">
+              <p class="style8"><strong>G</strong>: x = 19*(6-4) MOD 26 = 12<br>
+              <strong>C</strong>: x = 19*(2-4) MOD 26 = 14<br>
+              <strong>R</strong>: x = 19*(17-4) MOD 26 = 13<br>
+              <strong>W</strong>: x = 19*(22-4) MOD 26 = 4<br>
+              <strong>I</strong>: x = 19*(8-4) MOD 26 = 24<br>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="style8">The corresponding plaintext letters are <strong>MONEY</strong>.
+      <p class="style9">Analysis</p>
+      <p class="style8">Since we know that each letter in plaintext is
+      enciphered in the function of <i> y</i> = (<i>ax</i> + <i>b</i>) MOD <i>m</i>, we can break the affine
+      cipher by solving two linear equations with two examples of <i> x</i> and <i>y</i>. Once
+      we obtain the values of <i> a</i> and <i>b</i>, we can decipher the entire&nbsp;
+      ciphertext.<br>
+      <br>
+      For example,<br>
+      <br>
+      Assume that <strong>IF</strong> is enciphered as <strong>PQ</strong>.<br>
+      <strong>I -&gt; P:</strong> 8a + b = 15 MOD 26<br>
+      <strong>F -&gt; Q:</strong> 5a + b = 16 MOD 26<br>
+      By solving these equations, we have the keys a = 17, b = 9</p>
+    </td>
+
+  </tr>
+
+</table>
+
+ 			
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="/cryptography/js/jquery-3.3.1.slim.min.js"></script>
+    <!-- Popper.JS -->
+    <script src="/cryptography/js/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/cryptography/js/bootstrap.min.js"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="/cryptography/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    
+</body>
+<!-- sourced from https://bootstrapious.com/p/bootstrap-sidebar under MIT license - https://bootstrapious.com/terms-of-service-->
+</html>
