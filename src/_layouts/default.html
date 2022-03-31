@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="{{ css }}">
     {% endfor %}
     <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="/cryptography/css/jquery.mCustomScrollbar.min.css">
 
     <!-- Font Awesome JS -->
     <script defer src="/cryptography/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -39,10 +38,10 @@
 
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
+        <nav id="sidebar" style="height:100%;">
             <div class="sidebar-header">
                 <a href="https://www.cs.uri.edu">
-                	<img style="width:85px; display:block; margin:auto;" src="/cryptography/Images/uri-logo.png">
+                	<img style="width:50%; display:block; margin:auto;" src="/cryptography/Images/uri-logo.png">
                 </a>
             </div>
 
@@ -70,29 +69,29 @@
         </nav>
 
         <!-- Page Content  -->
-        <div id="content">
+        <div id="content" style="height:100vw;">
+
+            <a href="https://www.cs.uri.edu">
 			<div class="jumbotron gradient-jumbotron">
 			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
 			  <hr class="my-4">
-			  <p class="jumbotron-text">Computer Science & Statistics at University of Rhode Island</p>
+                  <p class="jumbotron-text">Computer Science & Statistics at University of Rhode Island</p>
 			  <p class="lead">
 			  </p>
 			</div>
+            </a>
             <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
                 <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
                     {% assign numbersubpages = page.subpages | size %}
                     {% if numbersubpages != 0 %}
                         {% for subpage in page.subpages %}
                         <a class="btn btn-info" href="{{ subpage.link }}" role="button">{{ subpage.title }}</a>
                         {% endfor %}
                     {% endif %}
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
 
                 </div>
 
@@ -102,7 +101,9 @@
 				{{ content }}
  			</div>
  			{% else %}
+            <div style="" id="populated-content">
  				{{ content }}
+            </div>
  			{% endif %}
         </div>
     </div>
@@ -117,6 +118,11 @@
     <script src="/cryptography/js/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script type="text/javascript">
+        $(window).on('load resize',function(){
+        if($(window).width() < 800){
+            window.location = "/cryptography/mobile.html"
+        }
+        });
         $(document).ready(function () {
             $("#sidebar").mCustomScrollbar({
                 theme: "minimal"

@@ -48,5 +48,3 @@
       link: /cryptography/public-key-cryptography/rsa/demo.html
     - name: ElGamal
       link: /cryptography/public-key-cryptography/elgamal/article.html
-- name: URI Computer Science & Statistics
-  link: https://www.cs.uri.edu

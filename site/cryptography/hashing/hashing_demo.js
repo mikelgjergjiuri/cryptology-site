@@ -248,6 +248,21 @@ var hasher = new Hash();
 
 hasher.drawBits();
 
+function verifyText(userInput){
+	for (var i = 0; i < userInput.length; i++){
+		if(!hasher.encoding.includes(userInput[i])) return false;
+	}
+	return true;
+}
+
+function verifyPermutations(perms){
+    for(var i = 0; i < perms.length; i++){
+        if (perms[i].length != 6) return false;
+        if (new Set(perms[i]).size != perms[i].length) return false;
+    }
+    return true;
+}
+
 function pauseFunction(){
 
     var playOrPause = document.getElementById("pause-button").innerHTML;
@@ -274,10 +289,27 @@ async function hashFunction(){
 
     var initial_value = document.getElementById("key-input").value;
 
+
     var permutations = ["463512", "132465", "653124", "361245"];
     for (var i = 0; i < 4; i++){
         permutations[i] = document.getElementById("permutation-" + (i+1)).value;
     }
+	if (initial_value.length != 4){
+		window.alert("ERROR: Initial Value must be of length 4");
+		return;
+	}
+    else if(!verifyText(initial_value)){
+		window.alert("ERROR: You entered an invalid character in the initial value, acceptable characters are 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789. '");
+		return;
+    }
+	else if(!verifyPermutations(permutations)){
+		window.alert("ERROR: Invalid permutations used, must specify a valid permutation of length 6 for all 4 permutations.");
+		return;
+	}
+	else if(!verifyText(userInput.value)){
+		window.alert("ERROR: You entered an invalid character in the plaintext, acceptable characters are 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789. '");
+		return;
+	}
     
     while(userInput.value != ""){
         var userInputString = userInput.value.slice(0,4);

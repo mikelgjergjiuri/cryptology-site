@@ -20,7 +20,6 @@
     <!-- Additional CSS supplied through jekyll format -->
     
     <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="/cryptography/css/jquery.mCustomScrollbar.min.css">
 
     <!-- Font Awesome JS -->
     <script defer src="/cryptography/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -33,10 +32,10 @@
 
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
+        <nav id="sidebar" style="height:100%;">
             <div class="sidebar-header">
                 <a href="https://www.cs.uri.edu">
-                	<img style="width:85px; display:block; margin:auto;" src="/cryptography/Images/uri-logo.png">
+                	<img style="width:50%; display:block; margin:auto;" src="/cryptography/Images/uri-logo.png">
                 </a>
             </div>
 
@@ -128,14 +127,14 @@
 				
 				
 				    <li>
-                    	<a href="/cryptography/des/demo.html">DES</a>
+                    	<a href="/cryptography/des/demo.html">Simplified DES</a>
                 	</li>
 				
 				
 				
 				
 				    <li>
-                    	<a href="/cryptography/aes/demo.html">AES</a>
+                    	<a href="/cryptography/aes/demo.html">Simplified AES</a>
                 	</li>
 				
 				
@@ -149,7 +148,7 @@
 				
 				
                 	<li class="active">
-		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Cryptography</a>
 		                <ul class="collapse list-unstyled" id="public-keysubmenu">
 				            
 			                <li>
@@ -168,44 +167,38 @@
 		            </li>
 				
 				
-				
-				
-				    <li>
-                    	<a href="https://www.cs.uri.edu">URI CSC</a>
-                	</li>
-				
-				
         </nav>
 
         <!-- Page Content  -->
-        <div id="content">
+        <div id="content" style="height:100vw;">
+
+            <a href="https://www.cs.uri.edu">
 			<div class="jumbotron gradient-jumbotron">
 			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
 			  <hr class="my-4">
-			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+                  <p class="jumbotron-text">Computer Science & Statistics at University of Rhode Island</p>
 			  <p class="lead">
 			  </p>
 			</div>
+            </a>
             <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
                 <div class="container-fluid">
-                    
-                    
-                        
-                        <a class="btn btn-info" href="/cryptography/classical-ciphers/shift/article.html" role="button">Article</a>
-                        
-                    
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
                         <span>Toggle Sidebar</span>
                     </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+                    
+                    
+                        
+                        <a class="btn btn-info" href="/cryptography/classical-ciphers/shift/article.html" role="button">Description</a>
+                        
+                    
 
                 </div>
 
             </nav>
             
+            <div style="" id="populated-content">
  				<script language="JavaScript">
 	
 	function update(form)
@@ -648,6 +641,7 @@
 
 </table>
 
+            </div>
  			
         </div>
     </div>
@@ -662,6 +656,11 @@
     <script src="/cryptography/js/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script type="text/javascript">
+        $(window).on('load resize',function(){
+        if($(window).width() < 800){
+            window.location = "/cryptography/mobile.html"
+        }
+        });
         $(document).ready(function () {
             $("#sidebar").mCustomScrollbar({
                 theme: "minimal"

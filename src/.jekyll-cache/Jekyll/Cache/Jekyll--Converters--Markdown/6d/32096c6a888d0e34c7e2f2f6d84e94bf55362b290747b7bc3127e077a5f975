@@ -1,0 +1,127 @@
+I"q	<h2 id="shift-cipher">Shift Cipher</h2>
+
+<h4 id="history-and-description">History and Description</h4>
+
+<p>In the first century B.C., Julius Caesar developed the shift cipher. Based on a shift key, each letter in the alphabet is replaced by the new shifted letter. The message which is enciphered by replacing the corresponding new letter is called plaintext, and the new message which is produced by the substitution is called ciphertext. The key gives the number of letters the alphabet is shifted between plaintext and ciphertext.</p>
+
+<h4 id="example">Example</h4>
+
+<p><strong>Encipher</strong></p>
+
+<p>Given: The shift key is 5</p>
+
+<p>Plaintext: I AM A STUDENT</p>
+
+<p>The corresponding ciphertext letter is computed for each letter in the plaintext as follows</p>
+
+<p>I + Shift(5) = N</p>
+
+<p>A + Shift(5) = F</p>
+
+<p>M + Shift(5) = R</p>
+
+<p>A + Shift(5) = F</p>
+
+<p>S + Shift(5) = X</p>
+
+<p>T + Shift(5) = Y</p>
+
+<p>U + Shift(5) = Z</p>
+
+<p>D + Shift(5) = I</p>
+
+<p>E + Shift(5) = J</p>
+
+<p>N + Shift(5) = S</p>
+
+<p>T + Shift(5) = Y</p>
+
+<p>Therefore, the ciphertext is NFRFXYZIJSY.</p>
+
+<p><strong>Decipher</strong></p>
+
+<p>We decipher NFRFXYZIJSY. by computing the corresponding plaintext letter for each letter in the ciphertext as follows</p>
+
+<p>N - Shift(5) = I</p>
+
+<p>F - Shift(5) = A</p>
+
+<p>R - Shift(5) = M</p>
+
+<p>F - Shift(5) = A</p>
+
+<p>X - Shift(5) = S</p>
+
+<p>Y - Shift(5) = T</p>
+
+<p>Z - Shift(5) = U</p>
+
+<p>I - Shift(5) = D</p>
+
+<p>J - Shift(5) = E</p>
+
+<p>S - Shift(5) = N</p>
+
+<p>Y - Shift(5) = T</p>
+
+<p>Therefore, the plaintext is IAMASTUDENT.</p>
+
+<p><strong>Disadvantages</strong></p>
+
+<p>As there are 26 letters in alphabet, each letter can be shifted up to 25 places. To break the ciphertext, we can list all the possible plaintext and choose the most reasonable message.</p>
+
+<p>For example, if we have the ciphertext which is NFRFXYZIJSY, possible corresponding plaintexts are:</p>
+
+<p>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25 	
+MEQEWXYHIRX
+LDPDVWXGHQW
+KCOCUVWFGPV
+JBNBTUVEFOU
+IAMASTUDENT
+HZLZRSTCDMS
+GYKYQRSBCLR
+FXJXPQRABKQ
+EWIWOPQZAJP
+DVHVNOPYZIO
+CUGUMNOXYHN
+BTFTLMNWXGM
+ASESKLMVWFL
+ZRDRJKLUVEK
+YQCQIJKTUDJ
+XPBPHIJSTCI
+WOAOGHIRSBH
+VNZNFGHQRAG
+UMYMEFGPQZF
+TLXLDEFOPYE
+SKWKCDENOXD
+RJVJBCDMNWC
+QIUIABCLMVB
+PHTHZABKLUA
+OGSGYZAJKTZ</p>
+
+<p>By locating the only reasonable message, we can decide that the shift key is 5 and the plaintext is IAMASTUDENT.</p>
+:ET

@@ -1,0 +1,28 @@
+I"]<h2 id="hashing">Hashing</h2>
+
+<p>A cryptographical hash algorithm takes an arbitrary sized block of data and maps it to a fixed size block of data.</p>
+
+<h3 id="desired-elements-for-a-good-cryptographical-hash-algorithm-are">Desired elements for a good cryptographical hash algorithm are:</h3>
+<ul>
+  <li>It is infeasible to find the original input to the hash function given its output; a hash function should be “one way” and ideally irreversible.</li>
+  <li>Collisions are unlikely. A collision occurs when two different blocks of data produce the same hash.</li>
+</ul>
+
+<h3 id="what-are-hashes-good-for">What are hashes good for?</h3>
+
+<p>Hashes can be used to verify that a block of data is what it is intended to be, and has not been corrupted or tamperwed with.</p>
+
+<p>If we take a message such as:
+<em>“Sally bought some oranges.”</em>
+and modify a single character to make the message:
+<em>“Sally bought some some oranges!”</em>
+and run both of these messages through the SHA-256 hashing algorithm we find the following results:</p>
+
+<p><em>“Sally bought some oranges.”</em> :
+c7d5d423900d447a14790b23c51b03f1daceaaf0dc0748332ad4ff4010e11576</p>
+
+<p><em>“Sally bought some oranges!”</em> :
+54adc935c48d8bd63a1ce14e1be32746c720f9efc86b6f825e1d4fcbf41ab12e</p>
+
+<p>As can be seen, a small modification completely changes the hash produced.</p>
+:ET

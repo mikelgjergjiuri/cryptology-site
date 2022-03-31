@@ -1,6 +1,10 @@
 ---
 title: Article
 layout: default
+subpages:
+  - article:
+    title: Demo
+    link: /cryptography/hashing/demo.html
 ---
 
 ## Hashing

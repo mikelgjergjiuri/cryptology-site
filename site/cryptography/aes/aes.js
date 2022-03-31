@@ -54,10 +54,11 @@ class Aes {
         }
     }
 
-    async drawLatex(topPosition, leftPosition, latex){
+    async drawLatex(topPosition, leftPosition, latex, right=false){
         var box = document.createElement("div");
         box.style.top = topPosition+"%";
-        box.style.left = leftPosition+"%";
+        if(!right) box.style.left = leftPosition+"%";
+        else box.style.right = leftPosition+"%";
         box.style.position = "absolute";
         box.innerHTML = latex;
         var mainBox = document.getElementById("mix-columns");
@@ -73,13 +74,13 @@ class Aes {
             this.drawLatex(8,34, '\\( \\bmod(x^4+x+1) \\)');
             this.drawLatex(2,7, "\\[ \\begin{bmatrix}b_0x^3 + b_1x^2 + b_2x + b_3 & c_0x^3 + c_1x^2 + c_2x + c_3 \\\\b_4x^3 + b_5x^2 + b_6x + b_7 & c_4x^3 + c_5x^2 + c_6x + c_7\\end{bmatrix} \\]");
             this.drawLatex(2,2, "\\[ \\begin{bmatrix}1 & x^2 \\\\ x^2 & 1 \\end{bmatrix} \\]");
-            this.drawLatex(2,50, '\\[ \\begin{bmatrix} b_0 \\oplus b_6 & b_1 \\oplus b_4 \\oplus b_7 & b_2 \\oplus b_4 \\oplus b_5 & b_3 \\oplus b_5 & c_0 \\oplus c_6 & c_1 \\oplus c_4 \\oplus c_7 & c_2 \\oplus c_4 \\oplus c_5 & c_3 \\oplus c_5 \\\\ b_2 \\oplus b_4 & b_0 \\oplus b_3 \\oplus b_5 & b_0 \\oplus b_1 \\oplus b_6 & b_1 \\oplus b_7 & c_2 \\oplus c_4 & c_0 \\oplus c_3 \\oplus c_5 & c_0 \\oplus c_1 \\oplus c_6 & c_1 \\oplus c_7\\end{bmatrix} \\]');
+            this.drawLatex(2,2, '\\[ \\begin{bmatrix} b_0 \\oplus b_6 & b_1 \\oplus b_4 \\oplus b_7 & b_2 \\oplus b_4 \\oplus b_5 & b_3 \\oplus b_5 & c_0 \\oplus c_6 & c_1 \\oplus c_4 \\oplus c_7 & c_2 \\oplus c_4 \\oplus c_5 & c_3 \\oplus c_5 \\\\ b_2 \\oplus b_4 & b_0 \\oplus b_3 \\oplus b_5 & b_0 \\oplus b_1 \\oplus b_6 & b_1 \\oplus b_7 & c_2 \\oplus c_4 & c_0 \\oplus c_3 \\oplus c_5 & c_0 \\oplus c_1 \\oplus c_6 & c_1 \\oplus c_7\\end{bmatrix} \\]', true);
         }
         else{
             this.drawLatex(8,38, '\\( \\bmod(x^4+x+1) \\)');
             this.drawLatex(2,11, "\\[ \\begin{bmatrix}b_0x^3 + b_1x^2 + b_2x + b_3 & c_0x^3 + c_1x^2 + c_2x + c_3 \\\\b_4x^3 + b_5x^2 + b_6x + b_7 & c_4x^3 + c_5x^2 + c_6x + c_7\\end{bmatrix} \\]");
             this.drawLatex(2,2, "\\[ \\begin{bmatrix}x^3+1 & x \\\\ x & x^3+1 \\end{bmatrix} \\]");
-            this.drawLatex(2,50, '\\[ \\begin{bmatrix} b_3 \\oplus b_5 & b_0 \\oplus b_6 & b_1 \\oplus b_4 \\oplus b_7 & b_2 \\oplus b_3 \\oplus b_4 & c_3 \\oplus c_5 & c_0 \\oplus c_6 & c_1 \\oplus c_4 \\oplus c_7 & c_2 \\oplus c_3 \\oplus c_4 \\\\ b_1 \\oplus b_7 & b_2 \\oplus b_4 & b_0 \\oplus b_3 \\oplus b_5 & b_0 \\oplus b_6 \\oplus b_7 & c_1 \\oplus c_7 & c_2 \\oplus c_4 & c_0 \\oplus c_3 \\oplus c_5 & c_0 \\oplus c_6 \\oplus c_7 \\end{bmatrix} \\]');
+            this.drawLatex(2,2, '\\[ \\begin{bmatrix} b_3 \\oplus b_5 & b_0 \\oplus b_6 & b_1 \\oplus b_4 \\oplus b_7 & b_2 \\oplus b_3 \\oplus b_4 & c_3 \\oplus c_5 & c_0 \\oplus c_6 & c_1 \\oplus c_4 \\oplus c_7 & c_2 \\oplus c_3 \\oplus c_4 \\\\ b_1 \\oplus b_7 & b_2 \\oplus b_4 & b_0 \\oplus b_3 \\oplus b_5 & b_0 \\oplus b_6 \\oplus b_7 & c_1 \\oplus c_7 & c_2 \\oplus c_4 & c_0 \\oplus c_3 \\oplus c_5 & c_0 \\oplus c_6 \\oplus c_7 \\end{bmatrix} \\]', true);
 
         }
     }
@@ -272,10 +273,10 @@ class Aes {
         var latex = [this.generate_latex_string_mix_columns(bits.slice(0,8), decrypt), this.generate_latex_string_mix_columns(bits.slice(8,16), decrypt)].join(' \\\\ ');
         
         if (!decrypt){
-            await this.drawLatex(14,53.5, '\\[ \\begin{bmatrix}' + latex + '\\end{bmatrix} \\]');
+            await this.drawLatex(14,2, '\\[ \\begin{bmatrix}' + latex + '\\end{bmatrix} \\]', true);
         }
         else{
-            await this.drawLatex(14,53.5, '\\[ \\begin{bmatrix}' + latex + '\\end{bmatrix} \\]');
+            await this.drawLatex(14,2, '\\[ \\begin{bmatrix}' + latex + '\\end{bmatrix} \\]', true);
         }
         this.map_bits_to_matrix(l + r, 'mix-columns-output');
         this.log('Mix columns mapped: ' + bits + ' to ' + l + r);
@@ -285,7 +286,7 @@ class Aes {
     async encrypt(input, key, decrypt=false){
         var keyBox = document.getElementById("key-1");
         var keyBoxOut = document.getElementById("key-2");
-        if(decrypt) keyBox.innerHTML = '\\( K_2 \\)'; keyBoxOut.innerHTML = '\\( K_0 \\)';
+        if(decrypt) {keyBox.innerHTML = '\\( K_2 \\)'; keyBoxOut.innerHTML = '\\( K_0 \\)';}
         MathJax.typeset([keyBox, keyBoxOut]);
         var keys = ['1010011100111011', '0001110000100111', '0111011001010001'];
         if(decrypt) keys = keys.reverse();

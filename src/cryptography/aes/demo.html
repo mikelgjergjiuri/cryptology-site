@@ -5,7 +5,8 @@ title: AES
 <link rel="stylesheet" href="aes.css">
 <script id="MathJax-script" src="/cryptography/js/mathjax/es5/tex-chtml.js"></script>
 
-<div id="mainaesbox" style="position:relative; width: 1600px; height: 700px; outline: 1px solid black;">
+<div id="mainaesbox" style="position:relative; width: 100%; height: 60%; min-width:1600px; min-height: 700px; outline: 1px solid black;">
+
 
   <!-- User interactive elements -->
   <div id="aes-gui" style="position:absolute; bottom:0; width:72%; height: 45%; outline: 1px solid black;">
@@ -30,15 +31,15 @@ title: AES
       <textarea class="aestextbox" readonly name="output-text"  id="output-text-bit" style="bottom:2%; left:25%"></textarea>
 
       <!-- Slider for Delay -->
-      <input style="position:absolute; left:46%; top:75%;" type="range" id="delay-slider" name="Delay"
-             min="1" max="1000" value="20" step="1">
-      <div style="position: absolute; left:53%; top:50%;">Delay</div>
+      <input style="position:absolute; left:48%; top:70%; width:16%;" type="range" id="delay-slider" name="Delay"
+             min="0" max="1000" value="100" step="1">
+      <div style="position: absolute; left:53.5%; top:50%; text-align:center; width:5%;">Delay</div>
 
       <!-- Buttons -->
-      <button class="aesbutton" style="left:50%; top:10%" id="encrypt-button" type="button">Encrypt</button>
-      <button class="aesbutton" style="left:50%; top:20%" id="decrypt-button" type="button">Decrypt</button>
-      <button class="aesbutton" style="left:50%; top:30%" id="pause-button" type="button">Pause</button>
-      <button class="aesbutton" style="left:50%; top:40%" id="reset-button" type="button">Reset</button>
+      <button class="aesbutton" style="left:52%; top:10%" id="encrypt-button" type="button">Encrypt</button>
+      <button class="aesbutton" style="left:52%; top:20%" id="decrypt-button" type="button">Decrypt</button>
+      <button class="aesbutton" style="left:52%; top:30%" id="pause-button" type="button">Pause</button>
+      <button class="aesbutton" style="left:52%; top:40%" id="reset-button" type="button">Reset</button>
 
       <!-- Encryption Log -->
       <label for="encryption-log" style="position:absolute; left:66.5%; top:1%;">Encryption Log:</label>
@@ -66,6 +67,7 @@ title: AES
     
     <!-- shift row -->
     <div id="shift-row" class="aesbox" style="top:35%; left:90%; width:8%;">\(Shift{\text -}Row\)</div>
+    <div style="position:absolute; top:26.5%; right:5.75%;">\(\uparrow\)</div>
     
     <div style="position:absolute; top:40%; left:85%;">\(\mapsto\)</div>
     

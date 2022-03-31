@@ -3,6 +3,10 @@ title: Euclid's Algorithm
 layout: default
 header_js:
   - "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+subpages:
+  - article:
+    title: Demo
+    link: /cryptography/number-theory/euclids-algorithm/demo.html
 ---
 
 ## Euclid's Algorithm

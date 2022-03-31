@@ -3,6 +3,10 @@ title: Modular Arithmetic
 layout: default
 header_js:
   - "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+subpages:
+  - article:
+    title: Demo
+    link: /cryptography/number-theory/modular-arithmetic/demo.html
 ---
 ## Modular Arithmetic
 A common analogy used to describe modular arithmetic is the 12 hour clock. When we reach 12:00, we do not move to 13:00, instead we wrap back around to 1:00. This is the same idea as modular arithmetic.

@@ -20,7 +20,6 @@
     <!-- Additional CSS supplied through jekyll format -->
     
     <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="/cryptography/css/jquery.mCustomScrollbar.min.css">
 
     <!-- Font Awesome JS -->
     <script defer src="/cryptography/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -33,10 +32,10 @@
 
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
+        <nav id="sidebar" style="height:100%;">
             <div class="sidebar-header">
                 <a href="https://www.cs.uri.edu">
-                	<img style="width:85px; display:block; margin:auto;" src="/cryptography/Images/uri-logo.png">
+                	<img style="width:50%; display:block; margin:auto;" src="/cryptography/Images/uri-logo.png">
                 </a>
             </div>
 
@@ -128,14 +127,14 @@
 				
 				
 				    <li>
-                    	<a href="/cryptography/des/demo.html">DES</a>
+                    	<a href="/cryptography/des/demo.html">Simplified DES</a>
                 	</li>
 				
 				
 				
 				
 				    <li>
-                    	<a href="/cryptography/aes/demo.html">AES</a>
+                    	<a href="/cryptography/aes/demo.html">Simplified AES</a>
                 	</li>
 				
 				
@@ -149,7 +148,7 @@
 				
 				
                 	<li class="active">
-		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Crypto</a>
+		                <a href="#public-keysubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Public Key Cryptography</a>
 		                <ul class="collapse list-unstyled" id="public-keysubmenu">
 				            
 			                <li>
@@ -168,44 +167,39 @@
 		            </li>
 				
 				
-				
-				
-				    <li>
-                    	<a href="https://www.cs.uri.edu">URI CSC</a>
-                	</li>
-				
-				
         </nav>
 
         <!-- Page Content  -->
-        <div id="content">
+        <div id="content" style="height:100vw;">
+
+            <a href="https://www.cs.uri.edu">
 			<div class="jumbotron gradient-jumbotron">
 			  <h1 class="display-4 jumbotron-text">Cryptography</h1>
 			  <hr class="my-4">
-			  <p class="jumbotron-text">Computer Science and Statistics at University of Rhode Island</p>
+                  <p class="jumbotron-text">Computer Science & Statistics at University of Rhode Island</p>
 			  <p class="lead">
 			  </p>
 			</div>
+            </a>
             <nav class="navbar navbar-expand-lg navbar-light bg-light cryptography-navbar">
                 <div class="container-fluid">
-                    
-                    
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
                         <span>Toggle Sidebar</span>
                     </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+                    
+                    
 
                 </div>
 
             </nav>
             
+            <div style="" id="populated-content">
  				<link rel="stylesheet" href="aes.css">
 <script id="MathJax-script" src="/cryptography/js/mathjax/es5/tex-chtml.js"></script>
 
-<div id="mainaesbox" style="position:relative; width: 1600px; height: 700px; outline: 1px solid black;">
+<div id="mainaesbox" style="position:relative; width: 100%; height: 60%; min-width:1600px; min-height: 700px; outline: 1px solid black;">
+
 
   <!-- User interactive elements -->
   <div id="aes-gui" style="position:absolute; bottom:0; width:72%; height: 45%; outline: 1px solid black;">
@@ -230,15 +224,15 @@
       <textarea class="aestextbox" readonly name="output-text"  id="output-text-bit" style="bottom:2%; left:25%"></textarea>
 
       <!-- Slider for Delay -->
-      <input style="position:absolute; left:46%; top:75%;" type="range" id="delay-slider" name="Delay"
-             min="1" max="1000" value="20" step="1">
-      <div style="position: absolute; left:53%; top:50%;">Delay</div>
+      <input style="position:absolute; left:48%; top:70%; width:16%;" type="range" id="delay-slider" name="Delay"
+             min="0" max="1000" value="100" step="1">
+      <div style="position: absolute; left:53.5%; top:50%; text-align:center; width:5%;">Delay</div>
 
       <!-- Buttons -->
-      <button class="aesbutton" style="left:50%; top:10%" id="encrypt-button" type="button">Encrypt</button>
-      <button class="aesbutton" style="left:50%; top:20%" id="decrypt-button" type="button">Decrypt</button>
-      <button class="aesbutton" style="left:50%; top:30%" id="pause-button" type="button">Pause</button>
-      <button class="aesbutton" style="left:50%; top:40%" id="reset-button" type="button">Reset</button>
+      <button class="aesbutton" style="left:52%; top:10%" id="encrypt-button" type="button">Encrypt</button>
+      <button class="aesbutton" style="left:52%; top:20%" id="decrypt-button" type="button">Decrypt</button>
+      <button class="aesbutton" style="left:52%; top:30%" id="pause-button" type="button">Pause</button>
+      <button class="aesbutton" style="left:52%; top:40%" id="reset-button" type="button">Reset</button>
 
       <!-- Encryption Log -->
       <label for="encryption-log" style="position:absolute; left:66.5%; top:1%;">Encryption Log:</label>
@@ -266,6 +260,7 @@
     
     <!-- shift row -->
     <div id="shift-row" class="aesbox" style="top:35%; left:90%; width:8%;">\(Shift{\text -}Row\)</div>
+    <div style="position:absolute; top:26.5%; right:5.75%;">\(\uparrow\)</div>
     
     <div style="position:absolute; top:40%; left:85%;">\(\mapsto\)</div>
     
@@ -287,6 +282,7 @@
 
 <script src="aes.js"></script>
 
+            </div>
  			
         </div>
     </div>
@@ -301,6 +297,11 @@
     <script src="/cryptography/js/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script type="text/javascript">
+        $(window).on('load resize',function(){
+        if($(window).width() < 800){
+            window.location = "/cryptography/mobile.html"
+        }
+        });
         $(document).ready(function () {
             $("#sidebar").mCustomScrollbar({
                 theme: "minimal"

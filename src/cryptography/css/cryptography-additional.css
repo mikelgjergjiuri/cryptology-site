@@ -1,23 +1,16 @@
 .gradient-jumbotron {
  
-  padding: 1rem 1rem;
- 
-  margin-bottom: 1rem;
- 
-  border-radius: 0.3rem;
- 
- 
- 
+padding: 1rem 1rem;
+
+margin-bottom: 1rem;
+
+border-radius: 0.3rem;
+
 background: #002147;  /* old browsers fallback color*/
  
 background: -webkit-linear-gradient(to right, #002147, #75b2dd); 
  
-background: linear-gradient(to right, #002147, #75b2dd);
- 
- 
- 
- 
- 
+background: linear-gradient(to right, #002147, #75b2dd); 
 }
 
 .jumbotron-text {

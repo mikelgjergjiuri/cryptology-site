@@ -60,6 +60,14 @@ function rsa_step_1(){
     
     var P = parseInt(document.getElementById("P").value, 10);
     var Q = parseInt(document.getElementById("Q").value, 10);
+    if (isNaN(P)){
+        alert("P is not a number, please enter a valid number");
+        return;
+    }
+    if (isNaN(Q)){
+        alert("Q is not a number, please enter a valid number");
+        return;
+    }
     M = P*Q;
     N = (P-1)*(Q-1);
     
@@ -80,6 +88,10 @@ function safe_mod(n, m){
 
 function rsa_step_2(){
     E = parseInt(document.getElementById("E").value, 10);
+    if (isNaN(E)){
+        alert("E is not a number, please enter a valid number");
+        return;
+    }
     D = safe_mod(egcd(E, N)[1], N);
     keySize = 0;
     if(D == 1){
@@ -101,10 +113,21 @@ function rsa_step_2(){
     }
 }
 
+function verifyText(userInput){
+	for (var i = 0; i < userInput.length; i++){
+		if(!dictionary.includes(userInput[i]) && userInput[i] != '/') return false;
+	}
+	return true;
+}
+
 function encode(){
     
     // chunk text into blocks of keySize
     var text = document.getElementById("encode-text").value
+    if (!verifyText(text)){
+        alert("Invalid text entered, use text from dictionary: " + dictionary);
+        return;
+    }
     if(text.indexOf("/") > -1){
         text = text.split("/");
     }
@@ -144,12 +167,15 @@ function decode(){
     for(var i = 0; i < integers.length; i++){
         var tempString = "";
         var integer = parseInt(integers[i], 10);
+        if (isNaN(integer)){
+            alert("Invalid integer was entered, please check your input.");
+            return;
+        }
         var index = keySize-1;
         
         if(integer >= Math.pow(dictionary.length, keySize)){
 		    for(var j = dictionary.length - 1; j >= 0; j--){
 		        var value = j*Math.pow(dictionary.length, keySize);
-		        console.log(value);
 		        if(value <= integer){
 		            integer -= value;
 		            tempString += dictionary[j];
@@ -192,6 +218,10 @@ function encrypt(){
     var results = [];
     for(var i = 0; i < integers.length; i++){
         var integer = parseInt(integers[i], 10);
+        if(isNaN(integer)){
+            alert("One of the entires was not a number, please enter valid numbers");
+            return;
+        }
         results.push(fastModPower(integer, E, M));
     }
     document.getElementById("encrypted-text").value = results.join(","); 
@@ -205,6 +235,10 @@ function decrypt(){
     var results = [];
     for(var i = 0; i < integers.length; i++){
         var integer = parseInt(integers[i], 10);
+        if(isNaN(integer)){
+            alert("One of the entires was not a number, please enter valid numbers");
+            return;
+        }
         results.push(fastModPower(integer, D, M));
     }
     document.getElementById("plain-text").value = results.join(","); 
