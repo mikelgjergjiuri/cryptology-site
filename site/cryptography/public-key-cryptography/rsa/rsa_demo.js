@@ -219,7 +219,7 @@ function encrypt(){
     for(var i = 0; i < integers.length; i++){
         var integer = parseInt(integers[i], 10);
         if(isNaN(integer)){
-            alert("One of the entires was not a number, please enter valid numbers");
+            alert("One of the entries was not a number, please enter valid numbers");
             return;
         }
         results.push(fastModPower(integer, E, M));
@@ -236,7 +236,7 @@ function decrypt(){
     for(var i = 0; i < integers.length; i++){
         var integer = parseInt(integers[i], 10);
         if(isNaN(integer)){
-            alert("One of the entires was not a number, please enter valid numbers");
+            alert("One of the entries was not a number, please enter valid numbers");
             return;
         }
         results.push(fastModPower(integer, D, M));
