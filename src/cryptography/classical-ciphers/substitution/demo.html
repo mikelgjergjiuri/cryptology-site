@@ -140,24 +140,23 @@ subpages:
 		alphavalue = "";
 		keystring = makekey(form.key.value);		// the string made up of the newly formed key
 		alphalist = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";	// the full alphabet
-
-		while (i <= thestringlength){				// clean the string, leaves only the letters
-			if (thestring.charCodeAt(i) >= 65 && thestring.charCodeAt(i) <= 90){
-				cleanstring = cleanstring + thestring.charAt(i);
-			}
-			i++;
-		}
-		i = 0;
+        cleanstring = thestring;
 		thestringlength = cleanstring.length;
 
 		while (i < thestringlength){						// enciphers the string
+            if(cleanstring.charAt(i) == ' '){
+                    resultstring += ' ';
+                    i++;
+                    continue;
+                }
 			switchvalue = cleanstring.charAt(i);			// pulls out the letter at i
 			alphavalue = alphalist.indexOf(switchvalue);	// gets the index of where the letter occurs in the alphalist
 			keyvalue = keystring.charAt(alphavalue);
 			resultstring = resultstring + keyvalue;
 			i++;
 		}
-
+            console.log(resultstring);
+        if(!document.getElementById('whitespace').checked) resultstring = resultstring.replace(/ /g,'');
 		form.ciphertext.value = resultstring;
 
 	} // end encipher()
@@ -178,24 +177,22 @@ subpages:
 		alphavalue = "";
 		keystring = makekey(form.key.value);		// the string made up of the newly formed key
 		alphalist = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";	// the full alphabet
-
-		while (i <= thestringlength){				// clean the string, leaves only the letters
-			if (thestring.charCodeAt(i) >= 65 && thestring.charCodeAt(i) <= 90){
-				cleanstring = cleanstring + thestring.charAt(i);
-			}
-			i++;
-		}
-		i = 0;
+        cleanstring = thestring;
 		thestringlength = cleanstring.length;
 
 		while (i < thestringlength){						// enciphers the string
+            if(cleanstring.charAt(i) == ' '){
+                    resultstring += ' ';
+                    i++;
+                    continue;
+                }
 			switchvalue = cleanstring.charAt(i);			// pulls out the letter at i
 			alphavalue = keystring.indexOf(switchvalue);	// gets the index of where the letter occurs in the alphalist
 			keyvalue = alphalist.charAt(alphavalue);
 			resultstring = resultstring + keyvalue;
 			i++;
 		}
-
+        if(!document.getElementById('whitespace').checked) resultstring = resultstring.replace(/ /g,'');
 		form.plaintext.value = resultstring;
 
 	} // end decipher()
@@ -475,6 +472,14 @@ subpages:
                 </tr>
               </table>
             </td>
+          </tr>
+          <tr>
+              <td class="style8">
+              <div align="center">
+                <input type="checkbox" id="whitespace" name="whitespace" value="Enable-Whitespace">
+                <label for="whitespace">Enable Whitespace</label>
+              </div>
+              </td>
           </tr>
           <tr>
             <td class="style8">
